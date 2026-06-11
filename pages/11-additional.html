@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>רישום נוסף | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-paper" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5zM8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/></symbol>
+  <symbol id="icon-upload" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="success-block">
+      <div class="confirmation-card">
+        <div>
+          <h1 class="success-block__title" style="font-size:50px">
+            טופס רישום לגן עבור <em>אלעד</em><br>
+            נשלח <strong>בהצלחה !</strong>
+          </h1>
+          <p style="margin-top:24px;color:#4a4a4a;font-size:20px">הטופס נשלח ונקלט במערכת. אישור יישלח בהמשך במייל.</p>
+        </div>
+
+        <div class="confirmation-card__list">
+          <div class="confirmation-row">
+            <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
+            <span class="confirmation-row__label">מספר אסמכתא:</span>
+            <span class="confirmation-row__value">12345678</span>
+          </div>
+          <div class="confirmation-row">
+            <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
+            <span class="confirmation-row__label">שם הילד:</span>
+            <span class="confirmation-row__value">ניתאי כהן שלמה</span>
+          </div>
+          <div class="confirmation-row">
+            <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
+            <span class="confirmation-row__label">גן:</span>
+            <span class="confirmation-row__value">גן יעל</span>
+          </div>
+          <div class="confirmation-row">
+            <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
+            <span class="confirmation-row__label">סטטוס:</span>
+            <span class="confirmation-row__value confirmation-row__value--success">נרשם בהצלחה</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="01-child-details.html" class="btn btn--primary">רישום נוסף</a>
+          <a href="10-success.html" class="btn btn--outline">חזרה לפורטל חינוך</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/11-additional.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+<div class="modal-overlay" id="kid-modal">
+  <div class="modal">
+    <div>
+      <h2 class="modal__title">איזה ילד/ה תרצו לרשום לגן?</h2>
+      <p class="modal__subtitle" style="margin-top:16px">בחרו בילד/ה הרצוי</p>
+    </div>
+    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+      <div class="kid-card">
+        <div class="kid-card__avatar"></div>
+        <span class="kid-card__name">יובל כהן שלמה</span>
+        <button class="kid-card__action">
+          <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
+          הרשמה לגן
+        </button>
+      </div>
+      <div class="kid-card">
+        <div class="kid-card__avatar"></div>
+        <span class="kid-card__name">נועה כהן שלמה</span>
+        <button class="kid-card__action">
+          <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
+          הרשמה לגן
+        </button>
+      </div>
+    </div>
+    <a href="10-success.html" class="btn btn--outline">חזרה לפורטל חינוך</a>
+  </div>
+</div>
+
+</body>
+</html>

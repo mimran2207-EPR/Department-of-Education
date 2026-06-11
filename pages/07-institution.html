@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בחירת מוסד | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-government" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1 1 6v2h22V6L12 1zm-9 9v9H1v2h22v-2h-2v-9h-2v9h-3v-9h-2v9h-2v-9H10v9H8v-9H6v9H3v-9z"/></symbol>
+  <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="form-panel__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">רישום לגני ילדים</h1>
+        <span class="page-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="progress" aria-label="התקדמות: שלב 5 מתוך 7">
+        <div class="progress__track"><div class="progress__fill"></div></div>
+        <div class="progress__steps">
+          <span class="step step--done"><span>1</span></span>
+          <span class="step step--done"><span>2</span></span>
+          <span class="step step--done"><span>3</span></span>
+          <span class="step step--done"><span>4</span></span>
+          <span class="step step--current">
+            <span>בחירת מוסד</span>
+            <span class="step__badge">5</span>
+          </span>
+          <span class="step">6</span>
+          <span class="step">7</span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div class="section-heading__icon" aria-hidden="true">
+          <svg width="24" height="24"><use href="#icon-government"/></svg>
+        </div>
+        <div class="section-heading__text">
+          <h2 class="section-heading__title">בחירת מוסד</h2>
+          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label class="field__label">עדיפות א׳</label>
+          <div class="dropdown"><span>יש לבחור מהרשימה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">בחר זרם חינוכי</label>
+          <div class="two-options">
+            <button type="button" class="two-options__btn">ממלכתי דתי</button>
+            <button type="button" class="two-options__btn two-options__btn--active">ממלכתי</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">מסגרת קודמת</label>
+          <div class="dropdown"><span>יש לבחור מהרשימה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="prev-details">פירוט המסגרת הקודמת</label>
+          <input class="input" type="text" id="prev-details">
+        </div>
+
+        <div class="field form-grid__item--full">
+          <label class="field__label">אחים נוספים בגן</label>
+          <div class="toggle-yesno">
+            <span class="toggle-yesno__label">האם קיימים אחים בגן?</span>
+            <div class="yesno" role="group">
+              <button type="button" class="yesno__btn">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <a href="08-documents.html" class="btn btn--primary">
+          המשך לשלב הבא
+          <span class="btn__icon"><svg><use href="#icon-arrow-left"/></svg></span>
+        </a>
+        <a href="06-addresses.html" class="btn btn--outline">
+          חזרה לשלב הקודם
+          <span class="btn__icon"><svg><use href="#icon-arrow-right"/></svg></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/07-institution.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+</body>
+</html>

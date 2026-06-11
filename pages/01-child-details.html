@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרטי הילד/ה | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-bag" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6h-2.5l-1.45-1.45A2 2 0 0 0 13.62 4h-3.24a2 2 0 0 0-1.43.55L7.5 6H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-8 0V5h2v1z"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></symbol>
+  <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.9 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="form-panel__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">רישום לגני ילדים</h1>
+        <span class="page-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="progress" aria-label="התקדמות: שלב 1 מתוך 7">
+        <div class="progress__track"><div class="progress__fill"></div></div>
+        <div class="progress__steps">
+          <span class="step step--current">
+            <span>פרטי הילד/ה</span>
+            <span class="step__badge">1</span>
+          </span>
+          <span class="step">2</span>
+          <span class="step">3</span>
+          <span class="step">4</span>
+          <span class="step">5</span>
+          <span class="step">6</span>
+          <span class="step">7</span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div class="section-heading__icon" aria-hidden="true">
+          <svg width="24" height="24"><use href="#icon-bag"/></svg>
+        </div>
+        <div class="section-heading__text">
+          <h2 class="section-heading__title">פרטי הילד/ה</h2>
+          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label class="field__label" for="last-name">שם משפחה</label>
+          <div class="input input--locked" id="last-name">
+            <span>כהן</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="first-name">שם פרטי</label>
+          <div class="input input--locked" id="first-name">
+            <span>אלעד</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="birth-date">תאריך לידה</label>
+          <div class="input" id="birth-date">
+            <svg class="date-input__icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            <span style="margin-inline-start:auto;color:var(--color-text-placeholder)">00/00/0000</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="id-number">מספר תעודת זהות</label>
+          <div class="input input--locked" id="id-number">
+            <span>012345678</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="birth-country">ארץ לידה</label>
+          <div class="input input--locked" id="birth-country">
+            <span>ישראל</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">מגדר</label>
+          <div class="two-options">
+            <button type="button" class="two-options__btn">בת</button>
+            <button type="button" class="two-options__btn two-options__btn--active">בן</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">לאום</label>
+          <div class="dropdown">
+            <span>יהודי</span>
+            <span class="dropdown__chevron"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">קופת חולים</label>
+          <div class="dropdown">
+            <span>יש לבחור מהרשימה</span>
+            <span class="dropdown__chevron"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></span>
+          </div>
+        </div>
+
+        <div class="field form-grid__item--full">
+          <label class="field__label">בעיות רפואיות</label>
+          <div class="toggle-yesno">
+            <span class="toggle-yesno__label">האם קיימות אלרגיות / בעיות?</span>
+            <div class="yesno" role="group" aria-label="בעיות רפואיות">
+              <button type="button" class="yesno__btn">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field form-grid__item--full">
+          <label class="field__label">הנגשה</label>
+          <div class="toggle-yesno">
+            <span class="toggle-yesno__label">האם נדרשת הנגשה לילד/ה?</span>
+            <div class="yesno" role="group" aria-label="הנגשה">
+              <button type="button" class="yesno__btn">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">ארץ עליה</label>
+          <div class="dropdown">
+            <span>יש לבחור מהרשימה</span>
+            <span class="dropdown__chevron"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">תאריך עליה</label>
+          <div class="input">
+            <svg class="date-input__icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            <span style="margin-inline-start:auto;color:var(--color-text-placeholder)">00/00/0000</span>
+          </div>
+        </div>
+
+        <div class="field form-grid__item--full">
+          <label class="field__label" for="siblings">מספר אחים ואחיות</label>
+          <input class="input" type="number" id="siblings" placeholder="0" inputmode="numeric">
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <a href="02-parent-1.html" class="btn btn--primary">
+          המשך לשלב הבא
+          <span class="btn__icon" aria-hidden="true"><svg><use href="#icon-arrow-left"/></svg></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/01-child-details.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סיכום ושליחה | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-paper" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5zM8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/></symbol>
+  <symbol id="icon-edit" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zm17.71-10.21a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"/></symbol>
+  <symbol id="icon-send" viewBox="0 0 24 24"><path fill="currentColor" d="m2 21 21-9L2 3v7l15 2-15 2z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="form-panel__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">רישום לגני ילדים</h1>
+        <span class="page-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="progress" aria-label="התקדמות: שלב 7 מתוך 7">
+        <div class="progress__track"><div class="progress__fill"></div></div>
+        <div class="progress__steps">
+          <span class="step step--done"><span>1</span></span>
+          <span class="step step--done"><span>2</span></span>
+          <span class="step step--done"><span>3</span></span>
+          <span class="step step--done"><span>4</span></span>
+          <span class="step step--done"><span>5</span></span>
+          <span class="step step--done"><span>6</span></span>
+          <span class="step step--current">
+            <span>סיכום ושליחה</span>
+            <span class="step__badge">7</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div class="section-heading__icon" aria-hidden="true">
+          <svg width="24" height="24"><use href="#icon-paper"/></svg>
+        </div>
+        <div class="section-heading__text">
+          <h2 class="section-heading__title">סיכום ושליחה</h2>
+          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <div class="form-section" style="gap:8px">
+        <div class="summary-card">
+          <span class="summary-card__title">פרטי הילד/ה</span>
+          <a href="01-child-details.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+        <div class="summary-card">
+          <span class="summary-card__title">פרטי הורה 1</span>
+          <a href="02-parent-1.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+        <div class="summary-card">
+          <span class="summary-card__title">פרטי הורה 2</span>
+          <a href="03-parent-2.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+        <div class="summary-card">
+          <span class="summary-card__title">כתובות</span>
+          <a href="06-addresses.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+        <div class="summary-card">
+          <span class="summary-card__title">בחירת מוסד</span>
+          <a href="07-institution.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+        <div class="summary-card">
+          <span class="summary-card__title">מסמכים ואישורים</span>
+          <a href="08-documents.html" class="summary-card__edit"><svg viewBox="0 0 24 24"><use href="#icon-edit"/></svg>עריכה</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="10-success.html" class="btn btn--primary">
+          <span class="btn__icon"><svg><use href="#icon-send"/></svg></span>
+          סיום ושליחה
+        </a>
+        <a href="08-documents.html" class="btn btn--outline">
+          חזרה לשלב הקודם
+          <span class="btn__icon"><svg><use href="#icon-arrow-right"/></svg></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/09-summary.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+</body>
+</html>

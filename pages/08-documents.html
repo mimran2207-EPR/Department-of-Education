@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מסמכים ואישורים | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill="currentColor" d="M22 3H2a1 1 0 0 0-1 1v15a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V4a1 1 0 0 0-1-1zM5 19a1 1 0 0 1-1-1V5h17v13a1 1 0 0 1-1 1zM6 7h8v6H6zm10 0h4v2h-4zm0 4h4v2h-4zM6 15h14v2H6z"/></symbol>
+  <symbol id="icon-upload" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="form-panel__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">רישום לגני ילדים</h1>
+        <span class="page-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="progress" aria-label="התקדמות: שלב 6 מתוך 7">
+        <div class="progress__track"><div class="progress__fill"></div></div>
+        <div class="progress__steps">
+          <span class="step step--done"><span>1</span></span>
+          <span class="step step--done"><span>2</span></span>
+          <span class="step step--done"><span>3</span></span>
+          <span class="step step--done"><span>4</span></span>
+          <span class="step step--done"><span>5</span></span>
+          <span class="step step--current">
+            <span>מסמכים</span>
+            <span class="step__badge">6</span>
+          </span>
+          <span class="step">7</span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div class="section-heading__icon" aria-hidden="true">
+          <svg width="24" height="24"><use href="#icon-newspaper"/></svg>
+        </div>
+        <div class="section-heading__text">
+          <h2 class="section-heading__title">מסמכים ואישורים</h2>
+          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label class="field__label">תעודת זהות הורה 1 + ספח</label>
+          <button type="button" class="upload-area">
+            <span class="upload-area__icon"><svg viewBox="0 0 24 24"><use href="#icon-upload"/></svg></span>
+            <span class="upload-area__primary">לחצו להעלאת קובץ</span>
+            <span class="upload-area__hint">PDF, JPG עד 5MB</span>
+          </button>
+        </div>
+        <div class="field">
+          <label class="field__label">תעודת זהות הורה 2 + ספח</label>
+          <button type="button" class="upload-area">
+            <span class="upload-area__icon"><svg viewBox="0 0 24 24"><use href="#icon-upload"/></svg></span>
+            <span class="upload-area__primary">לחצו להעלאת קובץ</span>
+            <span class="upload-area__hint">PDF, JPG עד 5MB</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">אישורים והצהרות</h3>
+        <label class="declaration">
+          <span class="declaration__text">אני מצהיר/ה כי כל הפרטים שמסרתי בטופס זה נכונים, מדויקים ומלאים. ידוע לי כי מסירת פרטים שגויים עלולה להוביל לביטול הרישום.</span>
+          <span class="declaration__checkbox" aria-hidden="true"></span>
+        </label>
+        <label class="declaration">
+          <span class="declaration__text">קראתי והבנתי את תקנון הרישום לגני הילדים והצהרונים של הרשות המקומית, ואני מתחייב/ת לפעול על פיו.</span>
+          <span class="declaration__checkbox" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <a href="09-summary.html" class="btn btn--primary">
+          המשך לשלב הבא
+          <span class="btn__icon"><svg><use href="#icon-arrow-left"/></svg></span>
+        </a>
+        <a href="07-institution.html" class="btn btn--outline">
+          חזרה לשלב הקודם
+          <span class="btn__icon"><svg><use href="#icon-arrow-right"/></svg></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/08-documents.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+</body>
+</html>

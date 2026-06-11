@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>כתובות | רישום לגני ילדים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-house" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2z"/></symbol>
+</svg>
+
+<main class="page">
+<div class="page__split">
+
+  <section class="form-panel">
+    <div class="form-panel__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">רישום לגני ילדים</h1>
+        <span class="page-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="progress" aria-label="התקדמות: שלב 4 מתוך 7">
+        <div class="progress__track"><div class="progress__fill"></div></div>
+        <div class="progress__steps">
+          <span class="step step--done"><span>1</span></span>
+          <span class="step step--done"><span>2</span></span>
+          <span class="step step--done"><span>3</span></span>
+          <span class="step step--current">
+            <span>כתובות</span>
+            <span class="step__badge">4</span>
+          </span>
+          <span class="step">5</span>
+          <span class="step">6</span>
+          <span class="step">7</span>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div class="section-heading__icon" aria-hidden="true">
+          <svg width="24" height="24"><use href="#icon-house"/></svg>
+        </div>
+        <div class="section-heading__text">
+          <h2 class="section-heading__title">כתובות</h2>
+          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">כתובת הילד/ה</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label">שם הרחוב</label>
+            <div class="input input--locked"><span>הרצל</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="phone-add">טלפון נוסף</label>
+            <input class="input" type="tel" id="phone-add" placeholder="050-0000000">
+          </div>
+
+          <div class="field">
+            <label class="field__label">שם ישוב</label>
+            <div class="input input--locked"><span>תל אביב</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="zip">מיקוד</label>
+            <input class="input" type="text" id="zip" inputmode="numeric">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="house-num">מספר בית</label>
+            <input class="input" type="text" id="house-num" placeholder="40 א׳">
+          </div>
+          <div class="field">
+            <label class="field__label" for="apt">דירה</label>
+            <input class="input" type="text" id="apt" placeholder="25">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="entrance">כניסה</label>
+            <input class="input" type="text" id="entrance" placeholder="10">
+          </div>
+          <div class="field">
+            <label class="field__label" for="home-phone">טלפון בבית</label>
+            <input class="input" type="tel" id="home-phone">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="po-box">תא דואר</label>
+            <input class="input" type="text" id="po-box">
+          </div>
+          <div class="field">
+            <label class="field__label" for="belongs-to">שייך ל</label>
+            <input class="input" type="text" id="belongs-to">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">כתובת הורים</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label">כתובת הורה 1</label>
+            <div class="toggle-yesno">
+              <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
+              <div class="yesno" role="group">
+                <button type="button" class="yesno__btn">כן</button>
+                <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label">כתובת הורה 2</label>
+            <div class="toggle-yesno">
+              <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
+              <div class="yesno" role="group">
+                <button type="button" class="yesno__btn">כן</button>
+                <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="07-institution.html" class="btn btn--primary">
+          המשך לשלב הבא
+          <span class="btn__icon"><svg><use href="#icon-arrow-left"/></svg></span>
+        </a>
+        <a href="05-parent-4.html" class="btn btn--outline">
+          חזרה לשלב הקודם
+          <span class="btn__icon"><svg><use href="#icon-arrow-right"/></svg></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="illustration" style="background-image: url('../assets/img/illustrations/06-addresses.png')" aria-hidden="true">
+    <div class="illustration__logo">
+      <div class="illustration__logo-mark">M</div>
+      <div class="illustration__logo-text">
+        <span class="illustration__logo-name">muni</span>
+        <span class="illustration__logo-tagline">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+</body>
+</html>
