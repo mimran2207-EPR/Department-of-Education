@@ -43,11 +43,14 @@
   position: relative;
   background-color: var(--color-bg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left center;
   background-size: cover;
   padding: var(--space-10) var(--space-12);
   min-height: 100vh;
+  overflow: hidden;
 }
+
+.illustration__logo { display: none; }
 
 .illustration__logo {
   position: relative;
@@ -103,7 +106,7 @@
 .form-panel__inner {
   width: 100%;
   max-width: var(--container-form);
-  margin-inline-start: auto;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
