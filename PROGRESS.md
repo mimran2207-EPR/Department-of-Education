@@ -56,9 +56,17 @@
 - [x] מירכוז הטופס בעמודה (`margin-inline: auto` במקום start)
 - [x] חץ הניווט "המשך לשלב הבא" מצביע שמאלה ב-RTL
 
+### תיקוני פריסה (קומיט 345a8f2, 2026-06-11)
+- [x] ה-PNGs נחתכו לאזור האיור בלבד (חצי שמאלי של פריימים 1920px) — ה-cover כבר לא עושה זום מוגזם
+- [x] exports ריקים הוחלפו באיור תואם: 02/03/05 ← איור שולחן העבודה של 04, 08 ← לוח המסמכים של 09, 10 ← המעטפה של 11 (ה-export המקורי של 10 כלל טקסט צרוב של העמוד)
+- [x] לוגו כפול — היו שני בלוקים של `.illustration__logo` ב-layout.css והשני דרס את ה-`display:none`; אוחד לבלוק אחד
+- [x] פאנל האיור הפך ל-`position: sticky` בגובה 100vh — נשאר בתצוגה בטפסים ארוכים במקום להימתח ולהשאיר שטח ריק
+- [x] `.page` עבר ל-`overflow-x: clip` במקום `hidden` (hidden יוצר scroll container ששובר sticky)
+
 ### Git
 - [x] קומיט #1 (2063ee9): Initial mockup — 42 קבצים, 2912 שורות
 - [x] קומיט #2 (cbc72f4): Fix illustration cropping and duplicate logo
+- [x] קומיט #3 (345a8f2): Fix illustration panel layout — crop assets, sticky panel, logo fix
 - [x] Push ל-`origin/main`
 
 ---
