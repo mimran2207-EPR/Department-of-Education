@@ -17,6 +17,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="icon-paper" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5zM8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/></symbol>
   <symbol id="icon-upload" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></symbol>
+
+  <symbol id="kid-boy" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#eaf6f8"/>
+    <circle cx="100" cy="100" r="85" fill="#fff3e0"/>
+    <path d="M55 80 Q55 50 100 50 Q145 50 145 80 L145 90 Q145 92 143 92 L57 92 Q55 92 55 90 Z" fill="#3d2817"/>
+    <path d="M62 88 Q62 70 100 70 Q138 70 138 88 L138 110 L62 110 Z" fill="#3d2817"/>
+    <ellipse cx="100" cy="120" rx="42" ry="50" fill="#fdd5a8"/>
+    <ellipse cx="62" cy="125" rx="6" ry="9" fill="#fdd5a8"/>
+    <ellipse cx="138" cy="125" rx="6" ry="9" fill="#fdd5a8"/>
+    <circle cx="85" cy="120" r="4" fill="#1a1a2e"/>
+    <circle cx="115" cy="120" r="4" fill="#1a1a2e"/>
+    <circle cx="86" cy="119" r="1.3" fill="#fff"/>
+    <circle cx="116" cy="119" r="1.3" fill="#fff"/>
+    <ellipse cx="76" cy="133" rx="6" ry="3" fill="#ffb3b3" opacity="0.7"/>
+    <ellipse cx="124" cy="133" rx="6" ry="3" fill="#ffb3b3" opacity="0.7"/>
+    <path d="M88 145 Q100 152 112 145" stroke="#b85450" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M50 175 Q50 162 70 158 L130 158 Q150 162 150 175 L150 200 L50 200 Z" fill="#07bed1"/>
+    <path d="M85 158 Q85 168 100 168 Q115 168 115 158" stroke="#fff3e0" stroke-width="8" fill="none"/>
+  </symbol>
+
+  <symbol id="kid-girl" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#fde8ef"/>
+    <circle cx="100" cy="100" r="85" fill="#fff3e0"/>
+    <ellipse cx="100" cy="118" rx="42" ry="50" fill="#fdd5a8"/>
+    <path d="M50 90 Q50 50 100 50 Q150 50 150 90 L150 175 L132 175 Q132 130 100 130 Q68 130 68 175 L50 175 Z" fill="#5d3a1f"/>
+    <ellipse cx="62" cy="125" rx="6" ry="9" fill="#fdd5a8"/>
+    <ellipse cx="138" cy="125" rx="6" ry="9" fill="#fdd5a8"/>
+    <circle cx="85" cy="120" r="4" fill="#1a1a2e"/>
+    <circle cx="115" cy="120" r="4" fill="#1a1a2e"/>
+    <circle cx="86" cy="119" r="1.3" fill="#fff"/>
+    <circle cx="116" cy="119" r="1.3" fill="#fff"/>
+    <ellipse cx="76" cy="133" rx="6.5" ry="3.5" fill="#ffb3b3" opacity="0.7"/>
+    <ellipse cx="124" cy="133" rx="6.5" ry="3.5" fill="#ffb3b3" opacity="0.7"/>
+    <path d="M88 145 Q100 152 112 145" stroke="#b85450" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="60" cy="70" r="9" fill="#ff4570"/>
+    <circle cx="60" cy="70" r="3" fill="#fff" opacity="0.4"/>
+    <path d="M50 175 Q50 165 75 162 L125 162 Q150 165 150 175 L150 200 L50 200 Z" fill="#ff4570"/>
+    <circle cx="100" cy="180" r="4" fill="#fff" opacity="0.6"/>
+    <circle cx="80" cy="187" r="3" fill="#fff" opacity="0.6"/>
+    <circle cx="120" cy="187" r="3" fill="#fff" opacity="0.6"/>
+  </symbol>
 </svg>
 
 <main class="page">
@@ -37,7 +78,7 @@
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
             <span class="confirmation-row__label">מספר אסמכתא:</span>
-            <span class="confirmation-row__value">12345678</span>
+            <span class="confirmation-row__value">2026-87432</span>
           </div>
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
@@ -47,7 +88,7 @@
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
             <span class="confirmation-row__label">גן:</span>
-            <span class="confirmation-row__value">גן יעל</span>
+            <span class="confirmation-row__value">גן יעל - חובה</span>
           </div>
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
@@ -85,7 +126,9 @@
     </div>
     <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
       <div class="kid-card">
-        <div class="kid-card__avatar"></div>
+        <div class="kid-card__avatar">
+          <svg width="150" height="150" viewBox="0 0 200 200" aria-hidden="true"><use href="#kid-boy"/></svg>
+        </div>
         <span class="kid-card__name">יובל כהן שלמה</span>
         <button class="kid-card__action">
           <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
@@ -93,7 +136,9 @@
         </button>
       </div>
       <div class="kid-card">
-        <div class="kid-card__avatar"></div>
+        <div class="kid-card__avatar">
+          <svg width="150" height="150" viewBox="0 0 200 200" aria-hidden="true"><use href="#kid-girl"/></svg>
+        </div>
         <span class="kid-card__name">נועה כהן שלמה</span>
         <button class="kid-card__action">
           <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
