@@ -15,8 +15,6 @@ Mockup סטטי (HTML + CSS בלבד) של זרימת רישום לגני ילד
 │   ├── 01-child-details.html           # פרטי הילד/ה
 │   ├── 02-parent-1.html                # פרטי הורה 1
 │   ├── 03-parent-2.html                # פרטי הורה 2
-│   ├── 04-parent-3.html                # פרטי הורה 3
-│   ├── 05-parent-4.html                # פרטי הורה 4
 │   ├── 06-addresses.html               # כתובות
 │   ├── 07-institution.html             # בחירת מוסד
 │   ├── 08-documents.html               # מסמכים ואישורים
