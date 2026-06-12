@@ -55,8 +55,8 @@
           <svg width="24" height="24"><use href="#icon-person"/></svg>
         </div>
         <div class="section-heading__text">
-          <h2 class="section-heading__title">פרטי הורה 3</h2>
-          <p class="section-heading__subtitle">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+          <h2 class="section-heading__title">פרטי הורה 3 (אופציונלי)</h2>
+          <p class="section-heading__subtitle">למילוי במקרה של הורה נוסף, אפוטרופוס או הורה מאמץ. ניתן לדלג אם לא רלוונטי.</p>
         </div>
       </div>
 
@@ -64,36 +64,36 @@
 
         <div class="field">
           <label class="field__label">שם משפחה</label>
-          <div class="input input--locked"><span>כהן</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          <input class="input" type="text" placeholder="שם משפחה">
         </div>
 
         <div class="field">
           <label class="field__label">שם פרטי</label>
-          <div class="input input--locked"><span>שרה</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          <input class="input" type="text" placeholder="שם פרטי">
         </div>
 
         <div class="field">
           <label class="field__label">תאריך לידה</label>
-          <div class="input"><svg class="date-input__icon"><use href="#icon-calendar"/></svg><span style="margin-inline-start:auto;color:var(--color-text-placeholder)">00/00/0000</span></div>
+          <div class="input"><svg class="date-input__icon"><use href="#icon-calendar"/></svg><span style="margin-inline-start:auto;color:var(--color-text-placeholder)">--/--/----</span></div>
         </div>
 
         <div class="field">
           <label class="field__label">מספר תעודת זהות</label>
-          <div class="input input--locked"><span>012345678</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          <input class="input" type="text" inputmode="numeric" placeholder="000000000">
         </div>
 
         <div class="field">
-          <label class="field__label">תאריך עליה</label>
-          <div class="input"><svg class="date-input__icon"><use href="#icon-calendar"/></svg><span style="margin-inline-start:auto;color:var(--color-text-placeholder)">00/00/0000</span></div>
+          <label class="field__label">סוג קרבה</label>
+          <div class="dropdown"><span>יש לבחור מהרשימה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
         </div>
 
         <div class="field">
           <label class="field__label">ארץ לידה</label>
-          <div class="input input--locked"><span>ישראל</span><svg class="input__lock-icon"><use href="#icon-lock"/></svg></div>
+          <div class="dropdown"><span>יש לבחור מהרשימה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
         </div>
 
         <div class="field">
-          <label class="field__label field__label--required">מצב משפחתי</label>
+          <label class="field__label">מצב משפחתי</label>
           <div class="dropdown"><span>יש לבחור מהרשימה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
         </div>
 
@@ -109,7 +109,7 @@
 
         <div class="field">
           <label class="field__label" for="workplace-1">מקום עבודה</label>
-          <input class="input" type="text" id="workplace-1" placeholder="">
+          <input class="input" type="text" id="workplace-1" placeholder="מקום עבודה">
         </div>
 
       </div>
