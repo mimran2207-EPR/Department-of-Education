@@ -190,6 +190,43 @@
   </section>
 
   <script>
+    // Kid registry — populated when user picks an additional kid from screen 11
+    var KIDS = {
+      yuval: { first: 'יובל', last: 'כהן שלמה', id: '412567890', birth: '12/06/2022', gender: 'male' },
+      noa:   { first: 'נועה', last: 'כהן שלמה', id: '512678901', birth: '22/03/2018', gender: 'female' },
+      nital: { first: 'ניתאי', last: 'כהן שלמה', id: '312456789', birth: '18/09/2015', gender: 'male' }
+    };
+
+    function applyKid(kid){
+      if(!kid) return;
+      var fn = document.querySelector('#first-name span'); if(fn) fn.textContent = kid.first;
+      var ln = document.querySelector('#last-name span');  if(ln) ln.textContent = kid.last;
+      var idEl = document.querySelector('#id-number span'); if(idEl) idEl.textContent = kid.id;
+      var bd = document.querySelector('#birth-date span'); if(bd){ bd.textContent = kid.birth; bd.style.color = 'var(--color-text-body)'; }
+      // Gender toggle: first button = בת, second = בן
+      var genderBtns = document.querySelectorAll('.two-options .two-options__btn');
+      if(genderBtns.length === 2){
+        genderBtns.forEach(function(b){ b.classList.remove('two-options__btn--active'); });
+        if(kid.gender === 'female') genderBtns[0].classList.add('two-options__btn--active');
+        else                        genderBtns[1].classList.add('two-options__btn--active');
+      }
+    }
+
+    (function loadKid(){
+      var params = new URLSearchParams(location.search);
+      var key = params.get('kid');
+      var kid = null;
+      if(key && KIDS[key]){
+        kid = KIDS[key];
+        sessionStorage.setItem('currentKid', JSON.stringify(kid));
+        sessionStorage.setItem('currentKidKey', key);
+      } else {
+        var saved = sessionStorage.getItem('currentKid');
+        if(saved) try { kid = JSON.parse(saved); } catch(e){}
+      }
+      if(kid) applyKid(kid);
+    })();
+
     document.querySelectorAll('[data-yesno-field]').forEach(function(field){
       var reveal = field.querySelector('.reveal-text');
       field.querySelectorAll('.yesno__btn').forEach(function(btn){

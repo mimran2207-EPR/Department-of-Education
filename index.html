@@ -215,6 +215,16 @@
 
   </section>
 
+  <script>
+    // Any link entering the registration flow from the dashboard starts a fresh session.
+    // (Picks from screen 11's "additional kid" modal use ?kid=… which then sets a new session.)
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[href*="01-child-details"]');
+      if(!a) return;
+      try { sessionStorage.removeItem('currentKid'); } catch(_){}
+    });
+  </script>
+
   <!-- Left column (RTL end) - Navigation -->
   <aside class="dashboard__nav-col">
     <nav class="nav-sidebar">
