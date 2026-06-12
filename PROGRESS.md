@@ -1,6 +1,6 @@
 # מסמך התקדמות — אתר רישום למחלקת חינוך (muni)
 
-עדכון אחרון: 2026-06-12 — דשבורד פורטל הבית עלה לאוויר, תהליך הרישום מקוצר ל-7 שלבים, אווטרים cartoon חמודים, רספונסיבי מובייל מלא, נתוני דמו להצגה ללקוח.
+עדכון אחרון: 2026-06-12 — **פיקסל-perfect לדשבורד** ע"י משיכת האסטס המקוריים מ-Figma (איור באנר + 4 אווטרים + לוגו). דשבורד פורטל הבית עלה לאוויר, תהליך הרישום מקוצר ל-7 שלבים, רספונסיבי מובייל מלא, נתוני דמו להצגה ללקוח.
 
 ---
 
@@ -13,8 +13,9 @@
 | **Branch** | `main` (מסונכרן עם origin) |
 | **דפוס עבודה** | שינוי → ענף `1` → PR → merge אוטומטי ל-main → branch נמחק |
 | **Git user** | `Yehuda M <YehudaM@eprsys.co.il>` (מקומי לריפו) |
-| **קובץ Figma** | `https://www.figma.com/design/uqk5LJ3rOx8I7Uc2RkvO4h/Untitled` |
-| **MCP Figma** | מותקן ומאומת (משתמש: Mimran Yehuda) |
+| **קובץ Figma — תהליך רישום** | `https://www.figma.com/design/uqk5LJ3rOx8I7Uc2RkvO4h/Untitled` (file key: `uqk5LJ3rOx8I7Uc2RkvO4h`) |
+| **קובץ Figma — דשבורד הבית** | `https://www.figma.com/design/Z2wUqoQPPrZbVGqMyDhWpb/Untitled?node-id=0-1` (file key: `Z2wUqoQPPrZbVGqMyDhWpb`, frame `DashboardLayout` = `0:42`) |
+| **MCP Figma** | מותקן ומאומת (משתמש: Mimran Yehuda) — בשימוש פעיל לזרימת design-to-code |
 | **אתר חי (Production)** | `https://departmentof.choreshchana.workers.dev/` |
 | **Hosting** | Cloudflare Workers — deploy אוטומטי מ-push ל-`main` (תוך כדקה) |
 
@@ -23,18 +24,32 @@
 ## 2. מצב נוכחי — מה עובד
 
 ### דשבורד פורטל הבית (חדש, 2026-06-12)
-- [x] `index.html` הוחלף מ-redirect לדשבורד מלא לפי ה-mockup `111.jpeg`
-- [x] **תפריט עליון:** משפחת כהן-שלמה + חיפוש + לוגו muni
-- [x] **באנר ברוכים הבאים:** טורקיז עם "היי, נורית" + איור דקורטיבי
-- [x] **4 כפתורי רישום:**
+- [x] `index.html` הוחלף מ-redirect לדשבורד מלא — **פיקסל-perfect ל-Figma**
+- [x] **פריסת 3 עמודות**: עוזר אישי (ימין/RTL start) | מרכז | סיידבר ניווט (שמאל/RTL end)
+- [x] **סיידבר ניווט שמאלי**: לוגו muni + 4 קישורים עליונים (עמוד הבית עם badge 3, המשפחה שלי, פירוט תשלומים, היסעים) + 5 קישורי רישום + התנתקות
+- [x] **תפריט עליון**: משפחת כהן-שלמה + שורת חיפוש
+- [x] **באנר**: רקע טורקיז + "היי, נורית" + טקסט lorem ipsum + **איור מקורי מ-Figma** (זוג ילדים על מחשב, AI-generated)
+- [x] **4 כפתורי רישום** (סדר תואם ל-mockup, RTL מימין-לשמאל):
+  - 📋 רישום לצהרונים (ורוד) — placeholder
   - 🏠 רישום לגנים (כתום) → **מקושר ל-`pages/01-child-details.html`**
   - 🎓 רישום לכיתות א' (סגול) — placeholder
-  - 📋 רישום לצהרונים (ורוד) — placeholder
   - ☀️ רישום לקייטנות (ירוק) — placeholder
-- [x] **רשימת הילדים:** 4 כרטיסים (אלעד 1.5 / יובל 4 / נועה 8 / ניתאי 11) עם אווטרים, מוסד, סטטוס
-- [x] **עוזר אישי:** 6 משימות (חתימות, תשלומים, חוב גן עינב) + תיבת בוט
+- [x] **רשימת הילדים**: 4 כרטיסים עם **אווטרים מקוריים מ-Figma**:
+  - אלעד כהן-שלמה (1.5) — "הרישום לשנה"ל תשפ"ה נפתח" (ירוק)
+  - יובל כהן-שלמה (4) — "חוב של 250 ש"ח עבור גן עינב" (אדום)
+  - נועה כהן-שלמה (8) — "אין פעולות זמינות לביצוע" (אפור)
+  - ניתאי כהן-שלמה (11) — "אין פעולות זמינות לביצוע" (אפור)
+- [x] **עוזר אישי**: 6 משימות כולן "עבור אלעד" (תואם ל-mockup) + תיבת בוט
 - [x] CSS חדש: `assets/css/dashboard.css`
-- [x] רספונסיבי: 1280px (2 עמודות לכפתורים) → 1024px (sidebar למטה) → 900px (כרטיסי ילדים מקופלים) → 480px (עמודה אחת)
+- [x] רספונסיבי: 1280px → 1100px (nav stays, assistant goes bottom) → 900px (single col) → 640px (mobile)
+
+### זרימת design-to-code (Figma MCP)
+- [x] `mcp__figma__get_metadata` — מצא frame `DashboardLayout` (0:42) בקובץ Figma השני
+- [x] `mcp__figma__get_design_context` — חולץ מבנה, מידות, ו-tokens
+- [x] `mcp__figma__download_assets` — הוריד 6 אסטס מקוריים:
+  - `hero-banner.png` (איור הזוג, 474KB)
+  - `kid-elaad.png` / `kid-yuval.png` / `kid-noa.png` / `kid-nital.png` (4 אווטרים פורטרט)
+  - `muni-logo.svg` (לוגו המותג, 32KB)
 
 ### תהליך רישום (7 שלבים נטו, אחרי הסרת הורה 3+4)
 1. `01-child-details.html` — פרטי הילד/ה
@@ -74,11 +89,13 @@
 - [x] Page header עובר ל-flex-wrap
 - [x] איור הופך לכותרת עליונה במובייל (240→180→150→130px)
 
-### אווטרים cartoon (DiceBear Big Smile, CC BY 4.0)
-- `avatar-elaad.svg` (1.5)
-- `avatar-yuval.svg` (4)
-- `avatar-noa.svg` (8)
-- `avatar-nital.svg` (11)
+### אווטרים — מקוריים מ-Figma (PNG, ChatGPT-generated)
+- `kid-elaad.png` (1.5) — כתפיים כתומות
+- `kid-yuval.png` (4) — קפוצ'ון כחול
+- `kid-noa.png` (8) — שיער ארוך, קפוצ'ון כחול
+- `kid-nital.png` (11) — קפוצ'ון כחול
+
+> אווטרי DiceBear (`avatar-*.svg`) עדיין במאגר ככלי גיבוי, אך לא בשימוש בדף הבית. במסך 11 (`pages/11-additional.html`) עדיין משתמשים ב-`avatar-yuval.svg` ו-`avatar-noa.svg` של DiceBear (אפשר להחליף ל-`kid-*.png` בעתיד).
 
 ---
 
@@ -91,6 +108,9 @@
 | 4 | הסרת מסכי הורה 3+4 מתהליך הרישום | `9a9323a` |
 | 5 | אווטרים cartoony חמודים לכרטיסי הילדים | `3c50d8d` |
 | 6 | בניית עמוד הבית - דשבורד פורטל muni | `ef167fe` |
+| 7 | עדכון PROGRESS.md אחרי 5 PRs | `95db4e5` |
+| 8 | התאמת דשבורד 100% ל-mockup (3 עמודות + nav sidebar) | `525e9a8` |
+| 9 | פיקסל-perfect: שימוש באסטס המקוריים מ-Figma | `d167143` |
 
 ---
 
@@ -120,11 +140,15 @@
 ---
 
 ## 6. כלים שצריכים לעבוד
-- MCP Figma (לבדוק שהאימות לא פג)
+- **MCP Figma** (חיוני! בשימוש פעיל לזרימת design-to-code)
+  - `get_metadata` — מבנה הקובץ
+  - `get_design_context` — קוד + מידות
+  - `get_screenshot` — תמונת frame
+  - `download_assets` — הורדת תמונות/לוגואים/אווטרים
 - VS Code (או כל IDE)
 - דפדפן (Chrome/Edge — לבדיקת RTL)
 - Git CLI + `gh` (GitHub CLI)
-- PowerShell (להורדת אווטרים מ-DiceBear)
+- PowerShell (להורדת קבצים בינאריים מ-URLs)
 
 ---
 
@@ -164,12 +188,15 @@ Department-of-Education/
     │   └── dashboard.css                   # דשבורד פורטל ← (NEW)
     └── img/illustrations/
         ├── 01..11-*.png                    # איורי הצד למסכי התהליך
-        ├── avatar-elaad.svg                # אווטר אלעד ← (NEW)
-        ├── avatar-yuval.svg                # אווטר יובל ← (NEW)
-        ├── avatar-noa.svg                  # אווטר נועה ← (NEW)
-        └── avatar-nital.svg                # אווטר ניתאי ← (NEW)
+        ├── hero-banner.png                 # איור הבאנר בדשבורד (מ-Figma)
+        ├── kid-elaad.png                   # אווטר אלעד (מ-Figma)
+        ├── kid-yuval.png                   # אווטר יובל (מ-Figma)
+        ├── kid-noa.png                     # אווטר נועה (מ-Figma)
+        ├── kid-nital.png                   # אווטר ניתאי (מ-Figma)
+        ├── muni-logo.svg                   # לוגו המותג (מ-Figma)
+        └── avatar-*.svg                    # אווטרי DiceBear (גיבוי + במסך 11)
 ```
 
 ---
 
-*מסמך זה עודכן ב-2026-06-12 אחרי 5 PRs שמוזגו ל-main. כל הפיצ'רים שבוקשו ע"י הלקוח להצגה — הושלמו.*
+*מסמך זה עודכן ב-2026-06-12 אחרי 8 PRs שמוזגו ל-main. כל הפיצ'רים שבוקשו ע"י הלקוח להצגה — הושלמו, והדשבורד תואם 1:1 למקור ב-Figma באמצעות הזרימה המקצועית design-to-code.*
