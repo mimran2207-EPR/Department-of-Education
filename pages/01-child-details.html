@@ -126,25 +126,33 @@
           </div>
         </div>
 
-        <div class="field form-grid__item--full">
+        <div class="field form-grid__item--full" data-yesno-field="medical">
           <label class="field__label">בעיות רפואיות</label>
           <div class="toggle-yesno">
             <span class="toggle-yesno__label">האם קיימות אלרגיות / בעיות?</span>
             <div class="yesno" role="group" aria-label="בעיות רפואיות">
-              <button type="button" class="yesno__btn">כן</button>
-              <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+              <button type="button" class="yesno__btn" data-value="yes">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active" data-value="no">לא</button>
             </div>
+          </div>
+          <div class="reveal-text" hidden>
+            <label class="field__label field__label--required" for="medical-details">פירוט אלרגיות / בעיות רפואיות</label>
+            <textarea class="input input--textarea" id="medical-details" rows="3" placeholder="פרטו על אלרגיות, מחלות כרוניות, תרופות קבועות וכו'..."></textarea>
           </div>
         </div>
 
-        <div class="field form-grid__item--full">
+        <div class="field form-grid__item--full" data-yesno-field="accessibility">
           <label class="field__label">הנגשה</label>
           <div class="toggle-yesno">
             <span class="toggle-yesno__label">האם נדרשת הנגשה לילד/ה?</span>
             <div class="yesno" role="group" aria-label="הנגשה">
-              <button type="button" class="yesno__btn">כן</button>
-              <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+              <button type="button" class="yesno__btn" data-value="yes">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active" data-value="no">לא</button>
             </div>
+          </div>
+          <div class="reveal-text" hidden>
+            <label class="field__label field__label--required" for="accessibility-details">פירוט דרישות ההנגשה</label>
+            <textarea class="input input--textarea" id="accessibility-details" rows="3" placeholder="פרטו על דרישות מיוחדות (נגישות פיזית, סייעת, התאמות תקשורת וכו')..."></textarea>
           </div>
         </div>
 
@@ -180,6 +188,34 @@
 
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll('[data-yesno-field]').forEach(function(field){
+      var reveal = field.querySelector('.reveal-text');
+      field.querySelectorAll('.yesno__btn').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          field.querySelectorAll('.yesno__btn').forEach(function(b){ b.classList.remove('yesno__btn--active'); });
+          btn.classList.add('yesno__btn--active');
+          if(reveal){
+            var show = btn.dataset.value === 'yes';
+            reveal.hidden = !show;
+            if(show){
+              var ta = reveal.querySelector('textarea');
+              if(ta){ setTimeout(function(){ ta.focus(); }, 50); }
+            }
+          }
+        });
+      });
+    });
+    document.querySelectorAll('.two-options__btn, .yesno__btn').forEach(function(btn){
+      if(btn.closest('[data-yesno-field]')) return;
+      btn.addEventListener('click', function(){
+        var siblings = btn.parentElement.querySelectorAll(btn.classList.contains('two-options__btn') ? '.two-options__btn' : '.yesno__btn');
+        siblings.forEach(function(s){ s.classList.remove(btn.classList.contains('two-options__btn') ? 'two-options__btn--active' : 'yesno__btn--active'); });
+        btn.classList.add(btn.classList.contains('two-options__btn') ? 'two-options__btn--active' : 'yesno__btn--active');
+      });
+    });
+  </script>
 
   <aside class="illustration" style="background-image: url('../assets/img/illustrations/01-child-details.png')" aria-hidden="true">
     <div class="illustration__logo">

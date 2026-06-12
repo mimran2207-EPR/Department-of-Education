@@ -344,6 +344,40 @@
   gap: var(--space-4);
 }
 
+.yesno__btn { transition: background 0.18s ease, color 0.18s ease; cursor: pointer; }
+.two-options__btn { transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease; cursor: pointer; }
+
+.reveal-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 16px 18px;
+  background: var(--color-bg-soft-blue);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  animation: revealFade 0.25s ease;
+}
+
+.reveal-text[hidden] { display: none; }
+
+@keyframes revealFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.input--textarea {
+  height: auto;
+  min-height: 96px;
+  padding: 14px 18px;
+  line-height: 1.5;
+  display: block;
+  resize: vertical;
+  outline: none;
+}
+
+.input--textarea:focus { border-color: var(--color-primary); }
+
 @media (max-width: 768px) {
   .toggle-yesno { height: 54px; padding: 0 14px; border-radius: var(--radius-lg); gap: var(--space-2); }
   .toggle-yesno__label { font-size: var(--fs-sm); }
