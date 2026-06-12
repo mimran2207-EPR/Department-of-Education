@@ -2,10 +2,248 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=pages/01-child-details.html">
-<title>muni — רישום לגני ילדים</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>muni — הבית הדיגיטלי שלך</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
-<p>מפנה לעמוד הרישום… <a href="pages/01-child-details.html">לחצו כאן אם לא הופנתם אוטומטית</a>.</p>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1 1 6v2h22V6L12 1zm-9 9v9H1v2h22v-2h-2v-9h-2v9h-3v-9h-2v9h-2v-9H10v9H8v-9H6v9H3v-9z"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3h-3.18A3 3 0 0 0 11 1a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-6 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM7 9h8v2H7zm0 4h8v2H7zm0 4h5v2H7z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2v-2H2zm18 0h2v-2h-2zM11 2v2h2V2zm0 18v2h2v-2zM5.99 4.58l-1.42 1.42 1.42 1.42 1.42-1.42zm12.02 14.84 1.42 1.42 1.42-1.42-1.42-1.42zm0-13.42 1.41-1.42-1.41-1.42-1.42 1.42zM4.57 19.43l1.42 1.42 1.42-1.42-1.42-1.42z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 14H4v-6h16zm0-10H4V6h16z"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><path fill="currentColor" d="M4 16c0 .88.39 1.67 1 2.22V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4zm3.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5-6H6V6h12z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="m12 1.5 1.93 4.57L18.5 8l-4.57 1.93L12 14.5l-1.93-4.57L5.5 8l4.57-1.93zM19 13l1.16 2.74L23 17l-2.84 1.26L19 21l-1.16-2.74L15 17l2.84-1.26zM4.5 12 5.5 14l2 1-2 1-1 2-1-2-2-1 2-1z"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></symbol>
+  <symbol id="i-paper" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5zM8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"/></symbol>
+  <symbol id="i-card-soft" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4H4V6h16zM4 14h7v2H4zm0 4h5v2H4z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 1 21h22zm0 6 7.53 12H4.47zM11 13h2v4h-2zm0 6h2v2h-2z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20v-6l8-2-8-2V4l19 8z"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3h-4.18A3 3 0 0 0 12 1a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM12 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5 17H7v-1l1-1h8l1 1z"/></symbol>
+</svg>
+
+<main class="dashboard">
+
+  <section class="dashboard__main">
+
+    <header class="topbar">
+      <div class="topbar__user">
+        <div class="topbar__avatar"><svg aria-hidden="true"><use href="#i-user"/></svg></div>
+        <div>
+          <div class="topbar__name">משפחת כהן-שלמה</div>
+          <div style="font-size:var(--fs-xs);color:var(--color-text-muted)">היי, נורית</div>
+        </div>
+      </div>
+      <div class="topbar__search">
+        <input type="search" class="topbar__search-input" placeholder="חיפוש">
+        <svg class="topbar__search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__text">
+        <h1 class="hero__title">היי, נורית 👋</h1>
+        <p class="hero__desc">ברוכים הבאים לפורטל החינוך של muni. מכאן תוכלו לנהל את כל תהליכי הרישום והתשלומים של ילדיכם — לגנים, כיתות א', צהרונים, חוגים וקייטנות — במקום אחד נוח ופשוט.</p>
+      </div>
+      <div class="hero__illustration" aria-hidden="true">
+        <svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="30" width="140" height="90" rx="8" fill="#fff" opacity="0.95"/>
+          <rect x="50" y="42" width="60" height="6" rx="3" fill="#07bed1"/>
+          <rect x="50" y="56" width="100" height="4" rx="2" fill="#cfe6e9"/>
+          <rect x="50" y="68" width="80" height="4" rx="2" fill="#cfe6e9"/>
+          <circle cx="155" cy="80" r="14" fill="#ff4570" opacity="0.85"/>
+          <path d="M148 80 l5 5 10-10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="30" y="125" width="160" height="14" rx="7" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="180" cy="40" r="16" fill="#fff" opacity="0.85"/>
+          <path d="M172 38 l8 8 12-14" stroke="#33bb80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="60" r="10" fill="#ff8930" opacity="0.6"/>
+          <text x="32" y="65" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">A</text>
+        </svg>
+      </div>
+    </section>
+
+    <div class="action-cards">
+      <a href="pages/01-child-details.html" class="action-card action-card--orange">
+        <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-house"/></svg></span>
+        <span class="action-card__text">
+          <span class="action-card__title">רישום לגנים</span>
+          <span class="action-card__year">שנת הלימודים תשפ"ה</span>
+        </span>
+      </a>
+      <a href="#" class="action-card action-card--purple" onclick="event.preventDefault();alert('בקרוב');">
+        <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
+        <span class="action-card__text">
+          <span class="action-card__title">רישום לכיתות א'</span>
+          <span class="action-card__year">שנת הלימודים תשפ"ה</span>
+        </span>
+      </a>
+      <a href="#" class="action-card action-card--pink" onclick="event.preventDefault();alert('בקרוב');">
+        <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-clip"/></svg></span>
+        <span class="action-card__text">
+          <span class="action-card__title">רישום לצהרונים</span>
+          <span class="action-card__year">שנת הלימודים תשפ"ה</span>
+        </span>
+      </a>
+      <a href="#" class="action-card action-card--green" onclick="event.preventDefault();alert('בקרוב');">
+        <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>
+        <span class="action-card__text">
+          <span class="action-card__title">רישום לקייטנות</span>
+          <span class="action-card__year">שנת הלימודים תשפ"ה</span>
+        </span>
+      </a>
+    </div>
+
+    <section class="section-card kids-section">
+      <div class="kids-section__header">
+        <h2 class="kids-section__title">הילדים שלי</h2>
+        <a href="#" class="kids-section__link">לכל המשפחה שלי <svg width="14" height="14"><use href="#i-chev"/></svg></a>
+      </div>
+
+      <div class="kid-row">
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/avatar-elaad.svg" alt=""></div>
+        <div>
+          <div class="kid-row__name">אלעד כהן-שלמה <span>(1.5)</span></div>
+        </div>
+        <div class="kid-row__meta">
+          <span>שם מוסד חינוכי: <strong>מעון יום דרום השרון</strong></span>
+          <span>סוג מוסד: <strong>ממלכתי-דתי</strong></span>
+        </div>
+        <span class="kid-row__status kid-row__status--success">הרישום לשנה"ל תשפ"ה נפתח</span>
+        <a href="pages/01-child-details.html" class="kid-row__more">עוד פרטים <svg><use href="#i-chev"/></svg></a>
+      </div>
+
+      <div class="kid-row">
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/avatar-yuval.svg" alt=""></div>
+        <div>
+          <div class="kid-row__name">יובל כהן-שלמה <span>(4)</span></div>
+        </div>
+        <div class="kid-row__meta">
+          <span>שם מוסד חינוכי: <strong>מעון יום דרום השרון</strong></span>
+          <span>סוג מוסד: <strong>ממלכתי-דתי</strong></span>
+        </div>
+        <span class="kid-row__status kid-row__status--alert">חוב של 250 ש"ח עבור גן עינב</span>
+        <a href="pages/01-child-details.html" class="kid-row__more">עוד פרטים <svg><use href="#i-chev"/></svg></a>
+      </div>
+
+      <div class="kid-row">
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/avatar-noa.svg" alt=""></div>
+        <div>
+          <div class="kid-row__name">נועה כהן-שלמה <span>(8)</span></div>
+        </div>
+        <div class="kid-row__meta">
+          <span>שם מוסד חינוכי: <strong>מעון יום דרום השרון</strong></span>
+          <span>סוג מוסד: <strong>ממלכתי-דתי</strong></span>
+        </div>
+        <span class="kid-row__status kid-row__status--neutral">אין פעולות זמינות לביצוע</span>
+        <a href="pages/01-child-details.html" class="kid-row__more">עוד פרטים <svg><use href="#i-chev"/></svg></a>
+      </div>
+
+      <div class="kid-row">
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/avatar-nital.svg" alt=""></div>
+        <div>
+          <div class="kid-row__name">ניתאי כהן-שלמה <span>(11)</span></div>
+        </div>
+        <div class="kid-row__meta">
+          <span>שם מוסד חינוכי: <strong>מעון יום דרום השרון</strong></span>
+          <span>סוג מוסד: <strong>ממלכתי-דתי</strong></span>
+        </div>
+        <span class="kid-row__status kid-row__status--neutral">אין פעולות זמינות לביצוע</span>
+        <a href="pages/01-child-details.html" class="kid-row__more">עוד פרטים <svg><use href="#i-chev"/></svg></a>
+      </div>
+    </section>
+  </section>
+
+  <aside class="dashboard__sidebar">
+
+    <div class="topbar__logo" style="justify-content:center;background:#fff;padding:var(--space-4);border-radius:var(--radius-xl);box-shadow:var(--shadow-card)">
+      <div class="topbar__logo-mark">M</div>
+      <div class="topbar__logo-text">
+        <span class="topbar__logo-name">muni</span>
+        <span class="topbar__logo-tag">הבית הדיגיטלי שלך</span>
+      </div>
+    </div>
+
+    <div class="assistant">
+      <div class="assistant__header">
+        <span class="assistant__icon"><svg><use href="#i-sparkle"/></svg></span>
+        <div>
+          <div class="assistant__title">העוזר האישי שלך</div>
+          <div class="assistant__subtitle">יש לך 6 פעולות להיום</div>
+        </div>
+      </div>
+
+      <div class="todo-list">
+        <a href="pages/01-child-details.html" class="todo-item">
+          <span class="todo-item__icon"><svg><use href="#i-check-circle"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הרישום לשנה"ל תשפ"ה נפתח</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הסדרת תשלום הזנה</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item todo-item--alert" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-alert"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חוב של 250 ש"ח עבור גן עינב</span>
+            <span class="todo-item__kid">עבור יובל</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
+            <span class="todo-item__kid">עבור נועה</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הסדרת תשלום הזנה</span>
+            <span class="todo-item__kid">עבור ניתאי</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+      </div>
+
+      <div class="assistant__input-wrap">
+        <input type="text" class="assistant__input" placeholder="הקלד/י שאלה כאן...">
+        <button class="assistant__send" aria-label="שלח"><svg><use href="#i-send"/></svg></button>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
 </body>
 </html>
