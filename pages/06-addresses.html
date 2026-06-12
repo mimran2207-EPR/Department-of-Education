@@ -110,24 +110,80 @@
 
       <div class="form-section">
         <h3 class="form-section__title">כתובת הורים</h3>
-        <div class="form-grid">
-          <div class="field">
-            <label class="field__label">כתובת הורה 1</label>
-            <div class="toggle-yesno">
-              <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
-              <div class="yesno" role="group">
-                <button type="button" class="yesno__btn">כן</button>
-                <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+
+        <div class="field" data-yesno-field="parent1-addr">
+          <label class="field__label">כתובת הורה 1</label>
+          <div class="toggle-yesno">
+            <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
+            <div class="yesno" role="group">
+              <button type="button" class="yesno__btn" data-value="yes">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active" data-value="no">לא</button>
+            </div>
+          </div>
+          <div class="reveal-text" hidden>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label">שם הרחוב</label>
+                <input class="input" type="text" placeholder="שם הרחוב">
+              </div>
+              <div class="field">
+                <label class="field__label">שם ישוב</label>
+                <input class="input" type="text" placeholder="שם ישוב">
+              </div>
+              <div class="field">
+                <label class="field__label">מספר בית</label>
+                <input class="input" type="text" placeholder="40">
+              </div>
+              <div class="field">
+                <label class="field__label">דירה</label>
+                <input class="input" type="text" placeholder="25">
+              </div>
+              <div class="field">
+                <label class="field__label">כניסה</label>
+                <input class="input" type="text" placeholder="א'">
+              </div>
+              <div class="field">
+                <label class="field__label">מיקוד</label>
+                <input class="input" type="text" inputmode="numeric" placeholder="000000">
               </div>
             </div>
           </div>
-          <div class="field">
-            <label class="field__label">כתובת הורה 2</label>
-            <div class="toggle-yesno">
-              <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
-              <div class="yesno" role="group">
-                <button type="button" class="yesno__btn">כן</button>
-                <button type="button" class="yesno__btn yesno__btn--active">לא</button>
+        </div>
+
+        <div class="field" data-yesno-field="parent2-addr">
+          <label class="field__label">כתובת הורה 2</label>
+          <div class="toggle-yesno">
+            <span class="toggle-yesno__label">כתובת שונה מכתובת הילד/ה</span>
+            <div class="yesno" role="group">
+              <button type="button" class="yesno__btn" data-value="yes">כן</button>
+              <button type="button" class="yesno__btn yesno__btn--active" data-value="no">לא</button>
+            </div>
+          </div>
+          <div class="reveal-text" hidden>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label">שם הרחוב</label>
+                <input class="input" type="text" placeholder="שם הרחוב">
+              </div>
+              <div class="field">
+                <label class="field__label">שם ישוב</label>
+                <input class="input" type="text" placeholder="שם ישוב">
+              </div>
+              <div class="field">
+                <label class="field__label">מספר בית</label>
+                <input class="input" type="text" placeholder="40">
+              </div>
+              <div class="field">
+                <label class="field__label">דירה</label>
+                <input class="input" type="text" placeholder="25">
+              </div>
+              <div class="field">
+                <label class="field__label">כניסה</label>
+                <input class="input" type="text" placeholder="א'">
+              </div>
+              <div class="field">
+                <label class="field__label">מיקוד</label>
+                <input class="input" type="text" inputmode="numeric" placeholder="000000">
               </div>
             </div>
           </div>
@@ -147,6 +203,26 @@
 
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll('[data-yesno-field]').forEach(function(field){
+      var reveal = field.querySelector('.reveal-text');
+      field.querySelectorAll('.yesno__btn').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          field.querySelectorAll('.yesno__btn').forEach(function(b){ b.classList.remove('yesno__btn--active'); });
+          btn.classList.add('yesno__btn--active');
+          if(reveal){
+            var show = btn.dataset.value === 'yes';
+            reveal.hidden = !show;
+            if(show){
+              var first = reveal.querySelector('input,textarea,select');
+              if(first){ setTimeout(function(){ first.focus(); }, 50); }
+            }
+          }
+        });
+      });
+    });
+  </script>
 
   <aside class="illustration" style="background-image: url('../assets/img/illustrations/06-addresses.png')" aria-hidden="true">
     <div class="illustration__logo">
