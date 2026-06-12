@@ -27,7 +27,7 @@
       <div class="confirmation-card">
         <div>
           <h1 class="success-block__title" style="font-size:50px">
-            טופס רישום לגן עבור <em>אלעד</em><br>
+            טופס רישום לגן עבור <em id="kid-first">ניתאי</em><br>
             נשלח <strong>בהצלחה !</strong>
           </h1>
           <p style="margin-top:24px;color:#4a4a4a;font-size:20px">הטופס נשלח ונקלט במערכת. אישור יישלח בהמשך במייל.</p>
@@ -42,7 +42,7 @@
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
             <span class="confirmation-row__label">שם הילד:</span>
-            <span class="confirmation-row__value">ניתאי כהן שלמה</span>
+            <span class="confirmation-row__value" id="kid-full">ניתאי כהן שלמה</span>
           </div>
           <div class="confirmation-row">
             <span class="confirmation-row__icon"><svg width="22" height="22"><use href="#icon-paper"/></svg></span>
@@ -84,30 +84,50 @@
       <p class="modal__subtitle" style="margin-top:16px">בחרו בילד/ה הרצוי</p>
     </div>
     <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
-      <div class="kid-card">
+      <a class="kid-card" href="01-child-details.html?kid=yuval">
         <div class="kid-card__avatar">
-          <img src="../assets/img/illustrations/avatar-yuval.svg" alt="" loading="lazy">
+          <img src="../assets/img/illustrations/kid-yuval.png" alt="" loading="lazy">
         </div>
         <span class="kid-card__name">יובל כהן שלמה</span>
-        <button class="kid-card__action">
+        <span class="kid-card__action">
           <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
           הרשמה לגן
-        </button>
-      </div>
-      <div class="kid-card">
+        </span>
+      </a>
+      <a class="kid-card" href="01-child-details.html?kid=noa">
         <div class="kid-card__avatar">
-          <img src="../assets/img/illustrations/avatar-noa.svg" alt="" loading="lazy">
+          <img src="../assets/img/illustrations/kid-noa.png" alt="" loading="lazy">
         </div>
         <span class="kid-card__name">נועה כהן שלמה</span>
-        <button class="kid-card__action">
+        <span class="kid-card__action">
           <svg width="20" height="20" viewBox="0 0 24 24"><use href="#icon-upload"/></svg>
           הרשמה לגן
-        </button>
-      </div>
+        </span>
+      </a>
     </div>
     <a href="10-success.html" class="btn btn--outline">חזרה לפורטל חינוך</a>
   </div>
 </div>
+
+<script>
+  (function(){
+    var saved = sessionStorage.getItem('currentKid');
+    if(saved){
+      try {
+        var k = JSON.parse(saved);
+        var first = document.getElementById('kid-first');
+        if(first && k.first) first.textContent = k.first;
+        var full = document.getElementById('kid-full');
+        if(full && k.first && k.last) full.textContent = k.first + ' ' + k.last;
+      } catch(e){}
+    }
+    // Reset session on any flow restart so 01 reads fresh data
+    // (kid-card sets a new kid via ?kid= param; "additional registration" returns to default)
+    document.querySelectorAll('a[href*="01-child-details"]').forEach(function(a){
+      a.addEventListener('click', function(){ sessionStorage.removeItem('currentKid'); });
+    });
+  })();
+</script>
 
 </body>
 </html>

@@ -730,6 +730,15 @@
   align-items: center;
   padding: 20px 12px;
   gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.kid-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgba(7, 190, 209, 0.2);
 }
 
 .kid-card__avatar {
