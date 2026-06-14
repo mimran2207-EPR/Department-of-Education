@@ -62,7 +62,44 @@
 
         <div class="field">
           <label class="field__label">עדיפות א׳</label>
-          <div class="dropdown" style="color:var(--color-text-body)"><span>גן יעל - חובה</span><span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span></div>
+          <div class="dropdown-wrap">
+            <div class="dropdown" style="color:var(--color-text-body)" role="button" tabindex="0" aria-expanded="false" data-dropdown-toggle>
+              <span class="dropdown__value">גן יעל - חובה</span>
+              <span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span>
+            </div>
+            <div class="dropdown-menu" role="listbox">
+              <button type="button" class="dropdown-menu__item" data-value="גן יעל - חובה">גן יעל - חובה</button>
+              <button type="button" class="dropdown-menu__item" data-value="גן רימון - חובה">גן רימון - חובה</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">עדיפות ב׳</label>
+          <div class="dropdown-wrap">
+            <div class="dropdown" role="button" tabindex="0" aria-expanded="false" data-dropdown-toggle>
+              <span class="dropdown__value">בחירת מוסד</span>
+              <span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span>
+            </div>
+            <div class="dropdown-menu" role="listbox">
+              <button type="button" class="dropdown-menu__item" data-value="גן שקד - חובה">גן שקד - חובה</button>
+              <button type="button" class="dropdown-menu__item" data-value="גן אלון - חובה">גן אלון - חובה</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label">עדיפות ג׳</label>
+          <div class="dropdown-wrap">
+            <div class="dropdown" role="button" tabindex="0" aria-expanded="false" data-dropdown-toggle>
+              <span class="dropdown__value">בחירת מוסד</span>
+              <span class="dropdown__chevron"><svg><use href="#icon-chevron"/></svg></span>
+            </div>
+            <div class="dropdown-menu" role="listbox">
+              <button type="button" class="dropdown-menu__item" data-value="גן ארז - חובה">גן ארז - חובה</button>
+              <button type="button" class="dropdown-menu__item" data-value="גן תאנה - חובה">גן תאנה - חובה</button>
+            </div>
+          </div>
         </div>
 
         <div class="field">
@@ -122,6 +159,57 @@
 
 </div>
 </main>
+
+<script>
+(function(){
+  function closeAll(except){
+    document.querySelectorAll('.dropdown-menu[data-open="true"]').forEach(function(menu){
+      if (menu === except) return;
+      menu.removeAttribute('data-open');
+      var toggle = menu.parentElement.querySelector('[data-dropdown-toggle]');
+      if (toggle) toggle.setAttribute('aria-expanded','false');
+    });
+  }
+
+  document.querySelectorAll('[data-dropdown-toggle]').forEach(function(toggle){
+    var wrap = toggle.closest('.dropdown-wrap');
+    var menu = wrap.querySelector('.dropdown-menu');
+
+    function toggleMenu(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var open = menu.getAttribute('data-open') === 'true';
+      closeAll(menu);
+      if (open) {
+        menu.removeAttribute('data-open');
+        toggle.setAttribute('aria-expanded','false');
+      } else {
+        menu.setAttribute('data-open','true');
+        toggle.setAttribute('aria-expanded','true');
+      }
+    }
+
+    toggle.addEventListener('click', toggleMenu);
+    toggle.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') toggleMenu(e);
+      if (e.key === 'Escape') { closeAll(null); }
+    });
+
+    menu.querySelectorAll('.dropdown-menu__item').forEach(function(item){
+      item.addEventListener('click', function(e){
+        e.stopPropagation();
+        var value = item.getAttribute('data-value');
+        var label = wrap.querySelector('.dropdown__value');
+        if (label) label.textContent = value;
+        toggle.style.color = 'var(--color-text-body)';
+        closeAll(null);
+      });
+    });
+  });
+
+  document.addEventListener('click', function(){ closeAll(null); });
+})();
+</script>
 
 </body>
 </html>
