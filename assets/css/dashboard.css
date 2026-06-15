@@ -526,6 +526,7 @@
 .reg-menu__icon--purple { background: rgba(129, 94, 255, 0.15); color: var(--color-purple); }
 .reg-menu__icon--green { background: rgba(42, 155, 98, 0.15); color: #2a9b62; }
 .reg-menu__icon--blue { background: var(--color-bg-soft-blue); color: var(--color-primary-dark); }
+.reg-menu__icon--amber { background: rgba(201, 136, 7, 0.15); color: #c98807; }
 
 @media (max-width: 480px) {
   .reg-menu { min-width: 200px; inset-inline-end: auto; inset-inline-start: 0; }
