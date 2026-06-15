@@ -238,15 +238,15 @@
 .hero {
   background: linear-gradient(120deg, #1bc7d4 0%, #19c0cc 50%, #16b1be 100%);
   border-radius: var(--radius-2xl);
-  padding: var(--space-7) var(--space-8);
+  padding: var(--space-5) var(--space-7);
   color: #fff;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
   position: relative;
-  overflow: hidden;
-  min-height: 250px;
+  overflow: visible;
+  min-height: 200px;
 }
 
 .hero::before {
@@ -258,6 +258,8 @@
   height: 200px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero::after {
@@ -269,26 +271,35 @@
   height: 140px;
   border-radius: 50%;
   background: rgba(255,255,255,0.06);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.hero__text { position: relative; z-index: 1; }
-.hero__title { font-size: 36px; font-weight: var(--fw-bold); color: #fff; margin-bottom: var(--space-3); line-height: 1.1; }
-.hero__desc { font-size: var(--fs-base); color: rgba(255,255,255,0.92); line-height: 1.6; }
+.hero__text { position: relative; z-index: 2; }
+.hero__title { font-size: 34px; font-weight: var(--fw-bold); color: #fff; margin-bottom: var(--space-3); line-height: 1.1; }
+.hero__desc { font-size: var(--fs-sm); color: rgba(255,255,255,0.92); line-height: 1.55; }
 
 .hero__illustration {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -36px;
+  margin-bottom: -16px;
 }
 
-.hero__illustration img { width: 100%; max-width: 360px; height: auto; display: block; }
+.hero__illustration img { width: 100%; max-width: 520px; height: auto; display: block; }
+
+@media (max-width: 1280px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  .hero__illustration img { max-width: 440px; }
+}
 
 @media (max-width: 768px) {
-  .hero { padding: var(--space-5); grid-template-columns: 1fr; min-height: auto; }
-  .hero__illustration { margin-inline-start: auto; max-width: 220px; }
-  .hero__illustration img { max-width: 220px; }
+  .hero { padding: var(--space-5); grid-template-columns: 1fr; min-height: auto; overflow: hidden; }
+  .hero__illustration { margin-top: 0; margin-bottom: 0; margin-inline-start: auto; max-width: 240px; }
+  .hero__illustration img { max-width: 240px; }
   .hero__title { font-size: 26px; }
   .hero__desc { font-size: var(--fs-sm); }
 }
