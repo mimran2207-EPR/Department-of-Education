@@ -6,6 +6,7 @@
   Supported types:
     - kita:     רישום לכיתות א׳
     - kaytana:  רישום לקייטנות
+    - tzaharon: רישום לצהרונים
 
   Default (ganim or unset) leaves the page unchanged.
 */
@@ -15,8 +16,9 @@
     if (!type || type === 'ganim') return;
 
     var labels = {
-      kita:    { plural: 'כיתות א׳', singular: 'כיתה א׳' },
-      kaytana: { plural: 'קייטנות',  singular: 'קייטנה' }
+      kita:     { plural: 'כיתות א׳', singular: 'כיתה א׳' },
+      kaytana:  { plural: 'קייטנות',  singular: 'קייטנה' },
+      tzaharon: { plural: 'צהרונים',  singular: 'צהרון' }
     };
     var L = labels[type];
     if (!L) return;
