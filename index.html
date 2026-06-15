@@ -542,7 +542,7 @@
       if (!match) return;
       var kid = match[1];
 
-      // Rewire kita and kaytana placeholder items to enter the shared flow
+      // Rewire kita/kaytana/tzaharon placeholder items to enter the shared flow
       var kitaItem = menu.querySelector('a[onclick*="כיתות"]');
       if (kitaItem) {
         kitaItem.removeAttribute('onclick');
@@ -554,6 +554,12 @@
         kaytanaItem.removeAttribute('onclick');
         kaytanaItem.setAttribute('href', 'pages/01-child-details.html?kid=' + kid);
         kaytanaItem.setAttribute('data-flow', 'kaytana');
+      }
+      var tzaharonItem = menu.querySelector('a[onclick*="צהרונים"]');
+      if (tzaharonItem) {
+        tzaharonItem.removeAttribute('onclick');
+        tzaharonItem.setAttribute('href', 'pages/01-child-details.html?kid=' + kid);
+        tzaharonItem.setAttribute('data-flow', 'tzaharon');
       }
 
       // Append "הצגת שיבוץ" item
@@ -628,7 +634,7 @@
       });
       // Kid selected -> route or alert. ganim/kita/kaytana share the flow
       // pages, with sessionStorage.regType driving title swaps.
-      var FLOW_TYPES = { ganim: 1, kita: 1, kaytana: 1 };
+      var FLOW_TYPES = { ganim: 1, kita: 1, kaytana: 1, tzaharon: 1 };
       modal.querySelectorAll('.picker-kid').forEach(function(btn){
         btn.addEventListener('click', function(){
           var kid = btn.dataset.kid;
