@@ -362,8 +362,8 @@
 .action-card--green { background: #def5e4; border-color: rgba(42,155,98,0.18); color: #2a9b62; }
 .action-card--green .action-card__icon { background: rgba(42,155,98,0.15); color: #2a9b62; }
 
-.action-card--indigo { background: #e4e4fc; border-color: rgba(91,91,227,0.18); color: #5b5be3; }
-.action-card--indigo .action-card__icon { background: rgba(91,91,227,0.15); color: #5b5be3; }
+.action-card--teal { background: #d6f3f5; border-color: rgba(10,135,148,0.18); color: #0a8794; }
+.action-card--teal .action-card__icon { background: rgba(10,135,148,0.14); color: #0a8794; }
 
 .action-card--amber { background: #fff1c4; border-color: rgba(201,136,7,0.2); color: #b07c00; }
 .action-card--amber .action-card__icon { background: rgba(201,136,7,0.15); color: #c98807; }
