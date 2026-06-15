@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצגת שיבוץ | muni — הבית הדיגיטלי שלך</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/placement.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6A5 5 0 1 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 0 1 6 0v2H9zm9 14H6V10h12zm-6-3a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol>
+  <symbol id="i-chev-down" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></symbol>
+  <symbol id="i-arrow-back" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="i-send-tick" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16.17-4.17-4.17L3.41 13.41 9 19l12-12-1.41-1.42z"/></symbol>
+</svg>
+
+<main class="placement-page">
+  <div class="placement-page__inner">
+
+    <header class="placement-header">
+      <div class="placement-header__title">
+        <h1>הצגת שיבוץ <span class="placement-header__year">תשפ"ה</span></h1>
+      </div>
+      <div class="placement-header__student">
+        <div class="placement-header__student-avatar"><img id="kidAvatar" src="../assets/img/illustrations/kid-shira.svg" alt=""></div>
+        <div class="placement-header__student-info">
+          <div class="placement-header__student-name" id="kidName">שירה כהן-שלמה</div>
+          <div class="placement-header__student-id" id="kidId">ת.ז. 612345678</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="placement-banner">
+      <span class="placement-banner__star">*</span>
+      אם ברצונכם לערער מלאו את הסיבה ולחצו על שליחת ערעור
+    </div>
+
+    <section class="placement-section">
+      <h2 class="placement-section__title">פרטי שיבוץ</h2>
+      <div class="placement-section__grid">
+        <div class="field">
+          <label class="field__label">מוסד</label>
+          <div class="input input--locked">
+            <span id="instName">גן רימון</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#i-lock"/></svg>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label">סמל מוסד</label>
+          <div class="input input--locked">
+            <span id="instCode">332858</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#i-lock"/></svg>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label">כתובת המוסד</label>
+          <div class="input input--locked">
+            <span id="instAddress">הרצל 40, ת"א</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#i-lock"/></svg>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label">ישוב המוסד</label>
+          <div class="input input--locked">
+            <span id="instCity">תל אביב</span>
+            <svg class="input__lock-icon" aria-hidden="true"><use href="#i-lock"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="placement-section">
+      <h2 class="placement-section__title">ערעור</h2>
+      <div class="placement-section__body">
+        <div class="field">
+          <label class="field__label field__label--required" for="appealReason">סיבת הערעור</label>
+          <textarea id="appealReason" class="input input--textarea" placeholder="הזינו את הסיבה לערעור..." rows="4"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="appealInst">מוסד מבוקש לערעור</label>
+          <div class="dropdown-wrap">
+            <button type="button" class="dropdown" id="appealInst" aria-haspopup="listbox" aria-expanded="false">
+              <span id="appealInstLabel">בחרו מוסד מהרשימה</span>
+              <span class="dropdown__chevron"><svg aria-hidden="true"><use href="#i-chev-down"/></svg></span>
+            </button>
+            <div class="dropdown-menu" id="appealInstMenu" role="listbox">
+              <button type="button" class="dropdown-menu__item" role="option" data-value="גן עינב — סמל 332777">גן עינב — סמל 332777</button>
+              <button type="button" class="dropdown-menu__item" role="option" data-value="גן יעל — סמל 332999">גן יעל — סמל 332999</button>
+              <button type="button" class="dropdown-menu__item" role="option" data-value="גן ניצן — סמל 333011">גן ניצן — סמל 333011</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="placement-actions">
+      <a href="../index.html" class="btn btn--outline">
+        <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow-back"/></svg>
+        חזור
+      </a>
+      <button type="button" class="btn btn--success" id="submitAppeal">
+        שליחת ערעור
+        <svg class="btn__icon" aria-hidden="true"><use href="#i-send-tick"/></svg>
+      </button>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  (function(){
+    // Map kid -> demo placement data
+    var KIDS = {
+      elaad:  { name: 'אלעד כהן-שלמה',  id: 'ת.ז. 112345678', avatar: 'kid-elaad.png', inst: 'מעון יום דרום השרון', code: '210876', address: 'הרצל 40, ת"א',     city: 'תל אביב' },
+      yuval:  { name: 'יובל כהן-שלמה',  id: 'ת.ז. 412567890', avatar: 'kid-yuval.png', inst: 'גן עינב',              code: '332858', address: 'הרצל 40, ת"א',     city: 'תל אביב' },
+      noa:    { name: 'נועה כהן-שלמה',  id: 'ת.ז. 512678901', avatar: 'kid-noa.png',   inst: 'בית ספר רעות',          code: '412789', address: 'הרצל 40, ת"א',     city: 'תל אביב' },
+      nital:  { name: 'ניתאי כהן-שלמה', id: 'ת.ז. 312456789', avatar: 'kid-nital.png', inst: 'בית ספר דרור',          code: '522443', address: 'הרצל 40, ת"א',     city: 'תל אביב' },
+      shira:  { name: 'שירה כהן-שלמה',  id: 'ת.ז. 612345678', avatar: 'kid-shira.svg', inst: 'גן רימון',             code: '332901', address: 'הרצל 40, ת"א',     city: 'תל אביב' },
+      omer:   { name: 'עומר כהן-שלמה',  id: 'ת.ז. 712356789', avatar: 'kid-omer.svg',  inst: 'חט"ב הרצוג',           code: '698321', address: 'הרצל 40, ת"א',     city: 'תל אביב' }
+    };
+
+    function param(name){
+      try { return new URLSearchParams(window.location.search).get(name); } catch(_) { return null; }
+    }
+    var kidKey = (param('kid') || 'shira').toLowerCase();
+    var data = KIDS[kidKey] || KIDS.shira;
+
+    document.getElementById('kidName').textContent = data.name;
+    document.getElementById('kidId').textContent   = data.id;
+    document.getElementById('kidAvatar').src = '../assets/img/illustrations/' + data.avatar;
+    document.getElementById('instName').textContent    = data.inst;
+    document.getElementById('instCode').textContent    = data.code;
+    document.getElementById('instAddress').textContent = data.address;
+    document.getElementById('instCity').textContent    = data.city;
+
+    // Dropdown open/close
+    var trigger = document.getElementById('appealInst');
+    var menu    = document.getElementById('appealInstMenu');
+    var label   = document.getElementById('appealInstLabel');
+
+    function closeMenu(){
+      menu.style.display = 'none';
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function openMenu(){
+      menu.style.display = 'block';
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (trigger.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+    menu.querySelectorAll('.dropdown-menu__item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        label.textContent = btn.dataset.value;
+        label.style.color = 'var(--color-text-input)';
+        closeMenu();
+      });
+    });
+    document.addEventListener('click', function(e){
+      if (!e.target.closest('.dropdown-wrap')) closeMenu();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Submit appeal -> simple confirmation
+    document.getElementById('submitAppeal').addEventListener('click', function(){
+      var reason = document.getElementById('appealReason').value.trim();
+      if (!reason) {
+        alert('יש למלא את סיבת הערעור לפני השליחה');
+        document.getElementById('appealReason').focus();
+        return;
+      }
+      alert('הערעור נשלח בהצלחה. נשוב אליכם תוך 14 ימי עסקים.');
+      window.location.href = '../index.html';
+    });
+  })();
+</script>
+
+<style>
+  /* Dropdown menu items (inline, page-specific) */
+  .dropdown-menu__item {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    text-align: right;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: var(--fs-base);
+    color: var(--color-text-body);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .dropdown-menu__item:hover { background: var(--color-bg-soft-blue); }
+  .dropdown-menu__item + .dropdown-menu__item { border-top: 1px solid var(--color-border-divider); }
+</style>
+
+</body>
+</html>

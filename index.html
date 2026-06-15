@@ -596,6 +596,10 @@
             window.location.href = 'pages/01-child-details.html?kid=' + kid;
             return;
           }
+          if (currentType === 'shibutz') {
+            window.location.href = 'pages/12-placement-view.html?kid=' + kid;
+            return;
+          }
           var meta = typeMeta[currentType] || { title: 'פעולה' };
           closeModal();
           alert(meta.title + ' עבור ' + name + ' — בקרוב');
