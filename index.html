@@ -315,7 +315,7 @@
       </div>
 
       <div class="kid-row">
-        <div class="kid-row__avatar"><img src="assets/img/illustrations/kid-shira.svg" alt=""></div>
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/kid-noa.png" alt=""></div>
         <div class="kid-row__name">שירה כהן-שלמה <span>(6)</span></div>
         <div class="kid-row__meta">
           <span>שם מוסד חינוכי: <strong>גן רימון</strong></span>
@@ -350,7 +350,7 @@
       </div>
 
       <div class="kid-row">
-        <div class="kid-row__avatar"><img src="assets/img/illustrations/kid-omer.svg" alt=""></div>
+        <div class="kid-row__avatar"><img src="assets/img/illustrations/kid-nital.png" alt=""></div>
         <div class="kid-row__name">עומר כהן-שלמה <span>(13)</span></div>
         <div class="kid-row__meta">
           <span>שם מוסד חינוכי: <strong>חט"ב הרצוג</strong></span>
@@ -501,7 +501,7 @@
           <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
         </button>
         <button type="button" class="picker-kid" data-kid="shira" data-name="שירה">
-          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-shira.svg" alt=""></span>
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-noa.png" alt=""></span>
           <span class="picker-kid__info">
             <span class="picker-kid__name">שירה כהן-שלמה</span>
             <span class="picker-kid__age">בת 6</span>
@@ -509,7 +509,7 @@
           <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
         </button>
         <button type="button" class="picker-kid" data-kid="omer" data-name="עומר">
-          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-omer.svg" alt=""></span>
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-nital.png" alt=""></span>
           <span class="picker-kid__info">
             <span class="picker-kid__name">עומר כהן-שלמה</span>
             <span class="picker-kid__age">בן 13</span>
@@ -521,20 +521,42 @@
   </div>
 
   <script>
-    // Any link entering the registration flow from the dashboard starts a fresh session.
+    // Any link entering the registration flow from the dashboard starts a
+    // fresh session and records the chosen flow type for title-swapping.
     document.addEventListener('click', function(e){
       var a = e.target.closest('a[href*="01-child-details"]');
-      if (a) { try { sessionStorage.removeItem('currentKid'); } catch(_){} }
+      if (!a) return;
+      try {
+        sessionStorage.removeItem('currentKid');
+        var flow = a.getAttribute('data-flow') || 'ganim';
+        sessionStorage.setItem('regType', flow);
+      } catch(_) {}
     });
 
-    // Inject "הצגת שיבוץ" as the last item in every kid-row dropdown.
-    // Each menu's kid id is read from the existing גנים link's ?kid= param.
+    // For each kid-row dropdown: rewire כיתות א׳/קייטנות to share the
+    // gnaim flow (with regType set), and append "הצגת שיבוץ" as last item.
     document.querySelectorAll('.reg-menu').forEach(function(menu){
       var gnaimLink = menu.querySelector('a[href*="01-child-details"]');
       if (!gnaimLink) return;
       var match = gnaimLink.getAttribute('href').match(/kid=([a-zA-Z]+)/);
       if (!match) return;
       var kid = match[1];
+
+      // Rewire kita and kaytana placeholder items to enter the shared flow
+      var kitaItem = menu.querySelector('a[onclick*="כיתות"]');
+      if (kitaItem) {
+        kitaItem.removeAttribute('onclick');
+        kitaItem.setAttribute('href', 'pages/01-child-details.html?kid=' + kid);
+        kitaItem.setAttribute('data-flow', 'kita');
+      }
+      var kaytanaItem = menu.querySelector('a[onclick*="קייטנות"]');
+      if (kaytanaItem) {
+        kaytanaItem.removeAttribute('onclick');
+        kaytanaItem.setAttribute('href', 'pages/01-child-details.html?kid=' + kid);
+        kaytanaItem.setAttribute('data-flow', 'kaytana');
+      }
+
+      // Append "הצגת שיבוץ" item
       var shibutz = document.createElement('a');
       shibutz.href = 'pages/12-placement-view.html?kid=' + kid;
       shibutz.className = 'reg-menu__item';
@@ -604,13 +626,18 @@
           openModal(card.dataset.regType);
         });
       });
-      // Kid selected -> route or alert
+      // Kid selected -> route or alert. ganim/kita/kaytana share the flow
+      // pages, with sessionStorage.regType driving title swaps.
+      var FLOW_TYPES = { ganim: 1, kita: 1, kaytana: 1 };
       modal.querySelectorAll('.picker-kid').forEach(function(btn){
         btn.addEventListener('click', function(){
           var kid = btn.dataset.kid;
           var name = btn.dataset.name;
-          if (currentType === 'ganim') {
-            try { sessionStorage.removeItem('currentKid'); } catch(_){}
+          if (FLOW_TYPES[currentType]) {
+            try {
+              sessionStorage.setItem('regType', currentType);
+              sessionStorage.removeItem('currentKid');
+            } catch(_){}
             window.location.href = 'pages/01-child-details.html?kid=' + kid;
             return;
           }
