@@ -124,42 +124,42 @@
     </section>
 
     <div class="action-cards">
-      <a href="#" class="action-card action-card--pink" onclick="event.preventDefault();alert('בקרוב');">
+      <a href="#" class="action-card action-card--pink" data-reg-type="tzaharon">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-clip"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">רישום לצהרונים</span>
           <span class="action-card__year">שנה"ל תשפ"ד</span>
         </span>
       </a>
-      <a href="pages/01-child-details.html" class="action-card action-card--orange">
+      <a href="#" class="action-card action-card--orange" data-reg-type="ganim">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-house"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">רישום לגנים</span>
           <span class="action-card__year">שנה"ל תשפ"ד</span>
         </span>
       </a>
-      <a href="#" class="action-card action-card--purple" onclick="event.preventDefault();alert('בקרוב');">
+      <a href="#" class="action-card action-card--purple" data-reg-type="kita">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">רישום לכיתות א'</span>
           <span class="action-card__year">שנה"ל תשפ"ד</span>
         </span>
       </a>
-      <a href="#" class="action-card action-card--green" onclick="event.preventDefault();alert('בקרוב');">
+      <a href="#" class="action-card action-card--green" data-reg-type="kaytana">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-sun"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">רישום לקייטנות</span>
           <span class="action-card__year">שנה"ל תשפ"ד</span>
         </span>
       </a>
-      <a href="#" class="action-card action-card--indigo" onclick="event.preventDefault();alert('בקרוב');">
+      <a href="#" class="action-card action-card--indigo" data-reg-type="chugim">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-soccer"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">רישום לחוגים</span>
           <span class="action-card__year">שנה"ל תשפ"ד</span>
         </span>
       </a>
-      <a href="#" class="action-card action-card--amber" onclick="event.preventDefault();alert('הצגת שיבוץ — בקרוב');">
+      <a href="#" class="action-card action-card--amber" data-reg-type="shibutz">
         <span class="action-card__icon"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>
         <span class="action-card__text">
           <span class="action-card__title">הצגת שיבוץ</span>
@@ -386,6 +386,54 @@
     </div>
   </aside>
 
+  <!-- Kid picker modal (opens from any action card OR kid-row registration dropdown item) -->
+  <div class="picker-overlay" id="kidPickerModal" hidden role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+    <div class="picker-overlay__backdrop" data-close></div>
+    <div class="picker-overlay__card">
+      <button type="button" class="picker-overlay__close" aria-label="סגור" data-close>
+        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+      </button>
+      <div class="picker-overlay__header">
+        <h3 class="picker-overlay__title" id="pickerTitle">בחרו ילד/ה</h3>
+        <p class="picker-overlay__subtitle" id="pickerSubtitle">בחרו את הילד/ה לפעולה</p>
+      </div>
+      <div class="picker-overlay__list">
+        <button type="button" class="picker-kid" data-kid="elaad" data-name="אלעד">
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-elaad.png" alt=""></span>
+          <span class="picker-kid__info">
+            <span class="picker-kid__name">אלעד כהן-שלמה</span>
+            <span class="picker-kid__age">בן 1.5</span>
+          </span>
+          <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
+        </button>
+        <button type="button" class="picker-kid" data-kid="yuval" data-name="יובל">
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-yuval.png" alt=""></span>
+          <span class="picker-kid__info">
+            <span class="picker-kid__name">יובל כהן-שלמה</span>
+            <span class="picker-kid__age">בן 4</span>
+          </span>
+          <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
+        </button>
+        <button type="button" class="picker-kid" data-kid="noa" data-name="נועה">
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-noa.png" alt=""></span>
+          <span class="picker-kid__info">
+            <span class="picker-kid__name">נועה כהן-שלמה</span>
+            <span class="picker-kid__age">בת 8</span>
+          </span>
+          <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
+        </button>
+        <button type="button" class="picker-kid" data-kid="nital" data-name="ניתאי">
+          <span class="picker-kid__avatar"><img src="assets/img/illustrations/kid-nital.png" alt=""></span>
+          <span class="picker-kid__info">
+            <span class="picker-kid__name">ניתאי כהן-שלמה</span>
+            <span class="picker-kid__age">בן 11</span>
+          </span>
+          <span class="picker-kid__chev"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Any link entering the registration flow from the dashboard starts a fresh session.
     document.addEventListener('click', function(e){
@@ -393,7 +441,7 @@
       if (a) { try { sessionStorage.removeItem('currentKid'); } catch(_){} }
     });
 
-    // Registration dropdown per kid: toggle, click-outside, Esc, Enter/Space on trigger.
+    // Registration dropdown per kid row: toggle, click-outside, Esc.
     function closeAllRegMenus(){
       document.querySelectorAll('.reg-menu').forEach(function(m){
         m.setAttribute('hidden', '');
@@ -417,9 +465,67 @@
       }
       if (!e.target.closest('.reg-menu')) closeAllRegMenus();
     });
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape') closeAllRegMenus();
-    });
+
+    // Kid picker modal: opened from any action-card (registration cube).
+    (function(){
+      var modal = document.getElementById('kidPickerModal');
+      var title = document.getElementById('pickerTitle');
+      var subtitle = document.getElementById('pickerSubtitle');
+      var currentType = null;
+      var typeMeta = {
+        tzaharon: { title: 'רישום לצהרונים', sub: 'בחרו את הילד/ה לרישום לצהרון' },
+        ganim:    { title: 'רישום לגנים',    sub: 'בחרו את הילד/ה לרישום לגן' },
+        kita:     { title: 'רישום לכיתות א\'', sub: 'בחרו את הילד/ה לרישום לכיתה א\'' },
+        kaytana:  { title: 'רישום לקייטנות', sub: 'בחרו את הילד/ה לרישום לקייטנה' },
+        chugim:   { title: 'רישום לחוגים',   sub: 'בחרו את הילד/ה לרישום לחוג' },
+        shibutz:  { title: 'הצגת שיבוץ',     sub: 'בחרו את הילד/ה לצפייה בשיבוץ' }
+      };
+      function openModal(type){
+        currentType = type;
+        var meta = typeMeta[type] || { title: 'בחרו ילד/ה', sub: '' };
+        title.textContent = meta.title;
+        subtitle.textContent = meta.sub;
+        modal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.setAttribute('hidden', '');
+        currentType = null;
+        document.body.style.overflow = '';
+      }
+      // Open from action cards
+      document.querySelectorAll('.action-card[data-reg-type]').forEach(function(card){
+        card.addEventListener('click', function(e){
+          e.preventDefault();
+          openModal(card.dataset.regType);
+        });
+      });
+      // Kid selected -> route or alert
+      modal.querySelectorAll('.picker-kid').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var kid = btn.dataset.kid;
+          var name = btn.dataset.name;
+          if (currentType === 'ganim') {
+            try { sessionStorage.removeItem('currentKid'); } catch(_){}
+            window.location.href = 'pages/01-child-details.html?kid=' + kid;
+            return;
+          }
+          var meta = typeMeta[currentType] || { title: 'פעולה' };
+          closeModal();
+          alert(meta.title + ' עבור ' + name + ' — בקרוב');
+        });
+      });
+      // Close handlers
+      modal.querySelectorAll('[data-close]').forEach(function(el){
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') {
+          if (!modal.hasAttribute('hidden')) closeModal();
+          closeAllRegMenus();
+        }
+      });
+    })();
   </script>
 
 </main>
