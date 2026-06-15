@@ -527,6 +527,24 @@
       if (a) { try { sessionStorage.removeItem('currentKid'); } catch(_){} }
     });
 
+    // Inject "הצגת שיבוץ" as the last item in every kid-row dropdown.
+    // Each menu's kid id is read from the existing גנים link's ?kid= param.
+    document.querySelectorAll('.reg-menu').forEach(function(menu){
+      var gnaimLink = menu.querySelector('a[href*="01-child-details"]');
+      if (!gnaimLink) return;
+      var match = gnaimLink.getAttribute('href').match(/kid=([a-zA-Z]+)/);
+      if (!match) return;
+      var kid = match[1];
+      var shibutz = document.createElement('a');
+      shibutz.href = 'pages/12-placement-view.html?kid=' + kid;
+      shibutz.className = 'reg-menu__item';
+      shibutz.setAttribute('role', 'menuitem');
+      shibutz.innerHTML =
+        '<span class="reg-menu__icon reg-menu__icon--amber"><svg><use href="#i-calendar"/></svg></span>' +
+        '<span>הצגת שיבוץ</span>';
+      menu.appendChild(shibutz);
+    });
+
     // Registration dropdown per kid row: toggle, click-outside, Esc.
     function closeAllRegMenus(){
       document.querySelectorAll('.reg-menu').forEach(function(m){
