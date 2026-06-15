@@ -38,73 +38,64 @@
 
 <main class="dashboard">
 
-  <!-- Right column (RTL start) - Personal Assistant -->
-  <aside class="dashboard__assistant-col">
-    <div class="assistant">
-      <div class="assistant__header">
-        <span class="assistant__icon"><svg><use href="#i-sparkle"/></svg></span>
-        <div class="assistant__title-wrap">
-          <div class="assistant__title">העוזר האישי שלך</div>
-          <div class="assistant__subtitle">יש לך 6 פעולות להיום</div>
+  <!-- Right column (RTL start) - Navigation -->
+  <aside class="dashboard__nav-col">
+    <nav class="nav-sidebar">
+      <div class="nav-sidebar__logo">
+        <img src="assets/img/illustrations/muni-logo.svg" alt="muni" class="brand-logo__img">
+        <div class="brand-logo__tagline">הבית הדיגיטלי שלך</div>
+      </div>
+
+      <div class="nav-list">
+        <div class="nav-list__group">
+          <a href="#" class="nav-link nav-link--active" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-home"/></svg></span>
+            <span class="nav-link__label">עמוד הבית</span>
+            <span class="nav-link__badge">3</span>
+          </a>
+          <a href="#" class="nav-link" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-family"/></svg></span>
+            <span class="nav-link__label">המשפחה שלי</span>
+          </a>
+          <a href="#" class="nav-link" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-card"/></svg></span>
+            <span class="nav-link__label">פירוט תשלומים</span>
+          </a>
+          <a href="#" class="nav-link nav-link--disabled" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-bus"/></svg></span>
+            <span class="nav-link__label">היסעים</span>
+          </a>
+        </div>
+
+        <div class="nav-list__group">
+          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-cap"/></svg></span>
+            <span class="nav-link__label">רישום לכיתות א'</span>
+          </a>
+          <a href="pages/01-child-details.html" class="nav-link nav-link--inline-service">
+            <span class="nav-link__icon"><svg><use href="#i-house"/></svg></span>
+            <span class="nav-link__label">רישום לגנים</span>
+          </a>
+          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-soccer"/></svg></span>
+            <span class="nav-link__label">רישום לחוגים</span>
+          </a>
+          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-clip"/></svg></span>
+            <span class="nav-link__label">רישום לצהרונים</span>
+          </a>
+          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
+            <span class="nav-link__icon"><svg><use href="#i-sun"/></svg></span>
+            <span class="nav-link__label">רישום לקייטנות</span>
+          </a>
         </div>
       </div>
 
-      <div class="todo-list">
-        <a href="pages/01-child-details.html" class="todo-item">
-          <span class="todo-item__icon"><svg><use href="#i-check-circle"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">הרישום לשנה"ל תשפ"ה נפתח</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-        <a href="#" class="todo-item" onclick="event.preventDefault()">
-          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-        <a href="#" class="todo-item" onclick="event.preventDefault()">
-          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">הסדרת תשלום הזנה</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-        <a href="#" class="todo-item todo-item--alert" onclick="event.preventDefault()">
-          <span class="todo-item__icon"><svg><use href="#i-alert"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">חוב של 250 ש"ח עבור גן עינב</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-        <a href="#" class="todo-item" onclick="event.preventDefault()">
-          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-        <a href="#" class="todo-item" onclick="event.preventDefault()">
-          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
-          <span class="todo-item__text">
-            <span class="todo-item__title">הסדרת תשלום הזנה</span>
-            <span class="todo-item__kid">עבור אלעד</span>
-          </span>
-          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
-        </a>
-      </div>
-
-      <div class="assistant__input-wrap">
-        <input type="text" class="assistant__input" placeholder="הקלד/י שאלה כאן...">
-        <button class="assistant__send" aria-label="שלח"><svg><use href="#i-send"/></svg></button>
-      </div>
-    </div>
+      <a href="#" class="nav-link nav-link--logout" onclick="event.preventDefault()">
+        <span class="nav-link__icon"><svg><use href="#i-logout"/></svg></span>
+        <span class="nav-link__label">התנתקות</span>
+      </a>
+    </nav>
   </aside>
 
   <!-- Center column - Main content -->
@@ -215,6 +206,75 @@
 
   </section>
 
+  <!-- Left column (RTL end) - Personal Assistant -->
+  <aside class="dashboard__assistant-col">
+    <div class="assistant">
+      <div class="assistant__header">
+        <span class="assistant__icon"><svg><use href="#i-sparkle"/></svg></span>
+        <div class="assistant__title-wrap">
+          <div class="assistant__title">העוזר האישי שלך</div>
+          <div class="assistant__subtitle">יש לך 6 פעולות להיום</div>
+        </div>
+      </div>
+
+      <div class="todo-list">
+        <a href="pages/01-child-details.html" class="todo-item">
+          <span class="todo-item__icon"><svg><use href="#i-check-circle"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הרישום לשנה"ל תשפ"ה נפתח</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הסדרת תשלום הזנה</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item todo-item--alert" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-alert"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חוב של 250 ש"ח עבור גן עינב</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-paper"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">חתימה על הצהרת בריאות</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+        <a href="#" class="todo-item" onclick="event.preventDefault()">
+          <span class="todo-item__icon"><svg><use href="#i-card-soft"/></svg></span>
+          <span class="todo-item__text">
+            <span class="todo-item__title">הסדרת תשלום הזנה</span>
+            <span class="todo-item__kid">עבור אלעד</span>
+          </span>
+          <span class="todo-item__chev"><svg><use href="#i-chev"/></svg></span>
+        </a>
+      </div>
+
+      <div class="assistant__input-wrap">
+        <input type="text" class="assistant__input" placeholder="הקלד/י שאלה כאן...">
+        <button class="assistant__send" aria-label="שלח"><svg><use href="#i-send"/></svg></button>
+      </div>
+    </div>
+  </aside>
+
   <script>
     // Any link entering the registration flow from the dashboard starts a fresh session.
     // (Picks from screen 11's "additional kid" modal use ?kid=… which then sets a new session.)
@@ -224,65 +284,6 @@
       try { sessionStorage.removeItem('currentKid'); } catch(_){}
     });
   </script>
-
-  <!-- Left column (RTL end) - Navigation -->
-  <aside class="dashboard__nav-col">
-    <nav class="nav-sidebar">
-      <div class="nav-sidebar__logo">
-        <img src="assets/img/illustrations/muni-logo.svg" alt="muni - הבית הדיגיטלי שלך" class="brand-logo__img">
-      </div>
-
-      <div class="nav-list">
-        <div class="nav-list__group">
-          <a href="#" class="nav-link nav-link--active" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-home"/></svg></span>
-            <span class="nav-link__label">עמוד הבית</span>
-            <span class="nav-link__badge">3</span>
-          </a>
-          <a href="#" class="nav-link" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-family"/></svg></span>
-            <span class="nav-link__label">המשפחה שלי</span>
-          </a>
-          <a href="#" class="nav-link" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-card"/></svg></span>
-            <span class="nav-link__label">פירוט תשלומים</span>
-          </a>
-          <a href="#" class="nav-link" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-bus"/></svg></span>
-            <span class="nav-link__label">היסעים</span>
-          </a>
-        </div>
-
-        <div class="nav-list__group">
-          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-cap"/></svg></span>
-            <span class="nav-link__label">רישום לכיתות א'</span>
-          </a>
-          <a href="pages/01-child-details.html" class="nav-link nav-link--inline-service">
-            <span class="nav-link__icon"><svg><use href="#i-house"/></svg></span>
-            <span class="nav-link__label">רישום לגנים</span>
-          </a>
-          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-soccer"/></svg></span>
-            <span class="nav-link__label">רישום לחוגים</span>
-          </a>
-          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-clip"/></svg></span>
-            <span class="nav-link__label">רישום לצהרונים</span>
-          </a>
-          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
-            <span class="nav-link__icon"><svg><use href="#i-sun"/></svg></span>
-            <span class="nav-link__label">רישום לקייטנות</span>
-          </a>
-        </div>
-      </div>
-
-      <a href="#" class="nav-link nav-link--logout" onclick="event.preventDefault()">
-        <span class="nav-link__icon"><svg><use href="#i-logout"/></svg></span>
-        <span class="nav-link__label">התנתקות</span>
-      </a>
-    </nav>
-  </aside>
 
 </main>
 
