@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>סיכום ושליחה | רישום לקייטנות</title>
+<title>סיכום ותשלום | רישום לקייטנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="../../assets/css/kayitanot.css">
@@ -14,10 +14,11 @@
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="kt-i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></symbol>
-  <symbol id="kt-i-users" viewBox="0 0 24 24"><path fill="currentColor" d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm8 0c-.29 0-.62.02-.97.05A5.36 5.36 0 0 1 18 17v3h6v-3c0-2.66-5.33-4-8-4z"/></symbol>
-  <symbol id="kt-i-tent" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 21h20zm0 4 7 14H5z"/></symbol>
-  <symbol id="kt-i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20v-6l8-2-8-2V4l19 8z"/></symbol>
+  <symbol id="kt-i-clip" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3h-3.18A3 3 0 0 0 11 1a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-6 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></symbol>
+  <symbol id="kt-i-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 0 1 6 0v2H9V6zm9 14H6V10h12z"/></symbol>
+  <symbol id="kt-i-chev" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></symbol>
+  <symbol id="kt-i-check" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16.17-3.88-3.88L3.71 13.7 9 19l11-11-1.41-1.42z"/></symbol>
+  <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
   <symbol id="kt-i-arr-r" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z"/></symbol>
 </svg>
 
@@ -28,80 +29,118 @@
     <div class="kt-form-inner">
 
       <header class="kt-header">
-        <h1 class="kt-header__title">סיכום ושליחה</h1>
+        <h1 class="kt-header__title">רישום לקייטנות</h1>
         <span class="kt-header__tag">שנת הלימודים תשפ"ה</span>
       </header>
 
-      <div class="kt-progress" aria-label="סיכום הרישום">
-        <div class="kt-progress__track"><div class="kt-progress__fill" style="width:100%"></div></div>
-        <div class="kt-progress__steps">
-          <span class="kt-step kt-step--done">1</span>
-          <span class="kt-step kt-step--done">2</span>
-          <span class="kt-step kt-step--current"><span>סיכום</span><span class="kt-step__badge">3</span></span>
+      <div class="kt-progress" aria-label="התקדמות: שלב 4 מתוך 4">
+        <span class="kt-step kt-step--done"><span class="kt-step__circle"><svg><use href="#kt-i-check"/></svg></span></span>
+        <span class="kt-step__connector kt-step__connector--done"></span>
+        <span class="kt-step kt-step--done"><span class="kt-step__circle"><svg><use href="#kt-i-check"/></svg></span></span>
+        <span class="kt-step__connector kt-step__connector--done"></span>
+        <span class="kt-step kt-step--done"><span class="kt-step__circle"><svg><use href="#kt-i-check"/></svg></span></span>
+        <span class="kt-step__connector kt-step__connector--done"></span>
+        <span class="kt-step kt-step--current">
+          <span class="kt-step__label">סיכום ותשלום</span>
+          <span class="kt-step__circle">4</span>
+        </span>
+      </div>
+
+      <div class="kt-section-h">
+        <div class="kt-section-h__icon"><svg><use href="#kt-i-clip"/></svg></div>
+        <div>
+          <h2 class="kt-section-h__title">סיכום</h2>
         </div>
       </div>
 
-      <div class="kt-summary">
-
-        <div class="kt-summary-card">
-          <div class="kt-summary-card__head">
-            <h3 class="kt-summary-card__title"><svg><use href="#kt-i-user"/></svg> פרטי הילד/ה</h3>
-            <a href="01-child.html" class="kt-summary-card__edit">עריכה</a>
-          </div>
-          <div class="kt-summary-grid">
-            <div class="kt-summary-item"><span class="kt-summary-item__k">שם</span><span class="kt-summary-item__v" id="kt-sum-name">ניתאי כהן שלמה</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">תעודת זהות</span><span class="kt-summary-item__v" id="kt-sum-id">312456789</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">תאריך לידה</span><span class="kt-summary-item__v" id="kt-sum-bday">15/03/2020</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">קופת חולים</span><span class="kt-summary-item__v">מכבי שירותי בריאות</span></div>
+      <div class="kt-summary-grid">
+        <div class="kt-field">
+          <label class="kt-field__label">שם הילד/ה</label>
+          <div class="kt-input kt-input--locked">
+            <span class="kt-input__value" id="kt-s-name">ניתאי כהן שלמה</span>
+            <svg class="kt-input__lock" width="18" height="18"><use href="#kt-i-lock"/></svg>
           </div>
         </div>
-
-        <div class="kt-summary-card">
-          <div class="kt-summary-card__head">
-            <h3 class="kt-summary-card__title"><svg><use href="#kt-i-users"/></svg> פרטי הורים</h3>
-            <a href="02-parents.html" class="kt-summary-card__edit">עריכה</a>
-          </div>
-          <div class="kt-summary-grid">
-            <div class="kt-summary-item"><span class="kt-summary-item__k">אב</span><span class="kt-summary-item__v">דוד כהן שלמה · 050-1234567</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">אם</span><span class="kt-summary-item__v">שרה כהן שלמה · 052-7654321</span></div>
+        <div class="kt-field">
+          <label class="kt-field__label">קייטנה שנבחרה</label>
+          <div class="kt-input kt-input--locked">
+            <span class="kt-input__value" id="kt-s-camp">קייטנת גלישה "גלים"</span>
+            <svg class="kt-input__lock" width="18" height="18"><use href="#kt-i-lock"/></svg>
           </div>
         </div>
+      </div>
 
-        <div class="kt-summary-card">
-          <div class="kt-summary-card__head">
-            <h3 class="kt-summary-card__title"><svg><use href="#kt-i-tent"/></svg> פרטי הקייטנה</h3>
-            <a href="03-select-camp.html" class="kt-summary-card__edit">החלפת קייטנה</a>
-          </div>
-          <div class="kt-summary-grid">
-            <div class="kt-summary-item"><span class="kt-summary-item__k">שם הקייטנה</span><span class="kt-summary-item__v" id="kt-sum-camp">קייטנת קיץ שכונתי</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">תאריכים</span><span class="kt-summary-item__v" id="kt-sum-dates">01.07 – 14.07</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">גילאים</span><span class="kt-summary-item__v" id="kt-sum-ages">10–14</span></div>
-            <div class="kt-summary-item"><span class="kt-summary-item__k">מחיר</span><span class="kt-summary-item__v" id="kt-sum-price">₪ 3,200</span></div>
+      <p class="kt-disclaimer">
+        *ידוע לי כי במקרים מיוחדים של התנהגות חריגה ו/או אלימה של הילד תופסק לאלתר השתתפותו - עפ"י שיקולי הרכז בלבד
+      </p>
+
+      <h3 class="kt-sub-h">בריאות הילד/ה</h3>
+
+      <div class="kt-qlist">
+        <div class="kt-qrow" data-q="healthy">
+          <span class="kt-qrow__text">הנני מאשר שהילד/ה בריא</span>
+          <div class="kt-qrow__yn" role="group">
+            <button type="button" data-v="no" class="is-active">לא</button>
+            <button type="button" data-v="yes">כן</button>
           </div>
         </div>
-
-        <div class="kt-summary-card">
-          <label class="kt-checkbox-row">
-            <input type="checkbox" id="kt-c1">
-            <span class="kt-checkbox-row__label">אני מאשר/ת את <a href="#" onclick="event.preventDefault()" style="color:var(--kt-primary-dark);font-weight:600">תנאי השימוש ומדיניות הביטולים</a> של הקייטנה.</span>
-          </label>
-          <label class="kt-checkbox-row">
-            <input type="checkbox" id="kt-c2">
-            <span class="kt-checkbox-row__label">אני מצהיר/ה כי הפרטים שמסרתי נכונים, וכי הילד/ה בריא/ה ומסוגל/ת להשתתף בפעילות.</span>
-          </label>
+        <div class="kt-qrow" data-q="food">
+          <span class="kt-qrow__text">האם קיימת רגישות / אלרגיה למזון מסוים?</span>
+          <div class="kt-qrow__yn" role="group">
+            <button type="button" data-v="no" class="is-active">לא</button>
+            <button type="button" data-v="yes">כן</button>
+          </div>
         </div>
+        <div class="kt-qrow" data-q="meds">
+          <span class="kt-qrow__text">האם הילד/ה רגיש/ה לתרופות מסוימות?</span>
+          <div class="kt-qrow__yn" role="group">
+            <button type="button" data-v="no" class="is-active">לא</button>
+            <button type="button" data-v="yes">כן</button>
+          </div>
+        </div>
+        <div class="kt-qrow" data-q="access">
+          <span class="kt-qrow__text">האם נדרשת הנגשה לילד/ה?</span>
+          <div class="kt-qrow__yn" role="group">
+            <button type="button" data-v="no" class="is-active">לא</button>
+            <button type="button" data-v="yes">כן</button>
+          </div>
+        </div>
+      </div>
 
+      <div class="kt-summary-foot">
+        <div class="kt-field">
+          <label class="kt-field__label">סכום כולל לתשלום</label>
+          <div class="kt-input kt-input--locked">
+            <span class="kt-input__value" id="kt-s-total">2,500</span>
+            <svg class="kt-input__lock" width="18" height="18"><use href="#kt-i-lock"/></svg>
+          </div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">מספר תשלומים</label>
+          <div class="kt-input kt-input--select" id="kt-payments">
+            <span class="kt-input__value" id="kt-pay-val" style="color:var(--kt-text-muted)">יש לבחור מהרשימה</span>
+            <svg class="kt-input__chev" width="18" height="18"><use href="#kt-i-chev"/></svg>
+          </div>
+          <div id="kt-pay-menu" hidden style="position:relative">
+            <div style="position:absolute; top:6px; inset-inline-start:0; inset-inline-end:0; background:#fff; border:1px solid var(--kt-border); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.08); z-index:5; padding:6px;">
+              <button type="button" class="kt-pay-opt" data-v="1" style="display:block; width:100%; padding:10px 14px; border:0; background:transparent; text-align:right; cursor:pointer; border-radius:8px; font:inherit;">תשלום אחד</button>
+              <button type="button" class="kt-pay-opt" data-v="2" style="display:block; width:100%; padding:10px 14px; border:0; background:transparent; text-align:right; cursor:pointer; border-radius:8px; font:inherit;">2 תשלומים</button>
+              <button type="button" class="kt-pay-opt" data-v="3" style="display:block; width:100%; padding:10px 14px; border:0; background:transparent; text-align:right; cursor:pointer; border-radius:8px; font:inherit;">3 תשלומים</button>
+              <button type="button" class="kt-pay-opt" data-v="6" style="display:block; width:100%; padding:10px 14px; border:0; background:transparent; text-align:right; cursor:pointer; border-radius:8px; font:inherit;">6 תשלומים</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="kt-actions">
-        <a href="04-camp-page.html" class="kt-btn kt-btn--ghost">
-          <svg width="18" height="18"><use href="#kt-i-arr-r"/></svg>
-          חזרה
+        <a href="06-success.html" class="kt-btn kt-btn--primary">
+          סיום ותשלום
+          <svg width="18" height="18"><use href="#kt-i-arr-l"/></svg>
         </a>
-        <button id="kt-submit" class="kt-btn kt-btn--primary" disabled style="opacity:0.5">
-          שליחת הרישום
-          <svg width="18" height="18"><use href="#kt-i-send"/></svg>
-        </button>
+        <a href="04-camp-page.html" class="kt-btn kt-btn--outline">
+          חזרה לשלב הקודם
+          <svg width="18" height="18"><use href="#kt-i-arr-r"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -110,45 +149,55 @@
     <div class="kt-illustration__logo">
       <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
     </div>
-    <div class="kt-illustration__art" id="kt-art"></div>
+    <div class="kt-illustration__art">
+      <img src="../../assets/img/kayitanot/art-summary.png" alt="">
+    </div>
   </aside>
 
 </div>
 </main>
 
-<script src="../../assets/js/kayitanot-illustration.js"></script>
 <script>
-  if (window.renderKayitanotArt) renderKayitanotArt(document.getElementById('kt-art'), 'summary');
-
   // Populate from sessionStorage
   try {
     var kid = JSON.parse(sessionStorage.getItem('ktKid') || 'null');
-    if (kid) {
-      document.getElementById('kt-sum-name').textContent = kid.name;
-      document.getElementById('kt-sum-id').textContent   = kid.id;
-      document.getElementById('kt-sum-bday').textContent = kid.birth;
-    }
+    if (kid) document.getElementById('kt-s-name').textContent = kid.name;
     var camp = JSON.parse(sessionStorage.getItem('ktCamp') || 'null');
     if (camp) {
-      document.getElementById('kt-sum-camp').textContent  = camp.name;
-      document.getElementById('kt-sum-dates').textContent = camp.dates;
-      document.getElementById('kt-sum-ages').textContent  = camp.ages;
-      document.getElementById('kt-sum-price').textContent = '₪ ' + camp.price.toLocaleString('he-IL');
+      document.getElementById('kt-s-camp').textContent = camp.name;
+      document.getElementById('kt-s-total').textContent = camp.price.toLocaleString('he-IL');
     }
   } catch(_){}
 
-  // Enable submit only after both checkboxes
-  var c1 = document.getElementById('kt-c1');
-  var c2 = document.getElementById('kt-c2');
-  var btn = document.getElementById('kt-submit');
-  function refresh() {
-    var ok = c1.checked && c2.checked;
-    btn.disabled = !ok;
-    btn.style.opacity = ok ? '1' : '0.5';
-  }
-  c1.addEventListener('change', refresh);
-  c2.addEventListener('change', refresh);
-  btn.addEventListener('click', function(){ if (!btn.disabled) location.href = '06-success.html'; });
+  // Yes/No toggles
+  document.querySelectorAll('.kt-qrow__yn').forEach(function(grp){
+    grp.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){
+        grp.querySelectorAll('button').forEach(function(s){ s.classList.remove('is-active'); });
+        b.classList.add('is-active');
+      });
+    });
+  });
+
+  // Payments dropdown
+  var payTrigger = document.getElementById('kt-payments');
+  var payMenu    = document.getElementById('kt-pay-menu');
+  var payVal     = document.getElementById('kt-pay-val');
+  payTrigger.addEventListener('click', function(e){
+    e.stopPropagation();
+    payMenu.hidden = !payMenu.hidden;
+  });
+  payMenu.querySelectorAll('.kt-pay-opt').forEach(function(opt){
+    opt.addEventListener('mouseenter', function(){ opt.style.background = 'var(--kt-bg-soft)'; });
+    opt.addEventListener('mouseleave', function(){ opt.style.background = 'transparent'; });
+    opt.addEventListener('click', function(e){
+      e.stopPropagation();
+      payVal.textContent = opt.textContent.trim();
+      payVal.style.color = 'var(--kt-text)';
+      payMenu.hidden = true;
+    });
+  });
+  document.addEventListener('click', function(){ payMenu.hidden = true; });
 </script>
 </body>
 </html>

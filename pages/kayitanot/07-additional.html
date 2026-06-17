@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>רישום נוסף | רישום לקייטנות</title>
+<title>בחירת ילד/ה | רישום לקייטנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="../../assets/css/kayitanot.css">
@@ -14,67 +14,62 @@
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="kt-i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11.5 12 4l9 7.5V21h-6v-6h-6v6H3z"/></symbol>
+  <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
 </svg>
 
-<main class="kt-page">
-<div class="kt-split">
-
-  <section class="kt-form-panel" style="justify-content:center">
-    <div class="kt-form-inner kt-additional">
-
-      <h1 class="kt-additional__h">רישום ילד/ה נוסף</h1>
-      <p class="kt-additional__sub">בחרו ילד/ה להמשיך עם הרישום לקייטנה.</p>
-
-      <div class="kt-additional__kids" id="kt-kids"></div>
-
-      <div style="text-align:center; margin-top:24px">
-        <a href="../../index.html" class="kt-btn kt-btn--ghost">
-          <svg width="18" height="18"><use href="#kt-i-home"/></svg>
-          חזרה לפורטל חינוך
-        </a>
+<!-- Background (blurred success layout, decorative only) -->
+<main class="kt-page" aria-hidden="true" style="filter: blur(8px) opacity(0.5);">
+  <div class="kt-split">
+    <section class="kt-form-panel" style="display:flex; align-items:center;">
+      <div class="kt-success-card">
+        <div style="height:24px; background:var(--kt-border-soft); border-radius:6px; margin-bottom:14px;"></div>
+        <div style="height:14px; background:var(--kt-border-soft); border-radius:6px; width:60%;"></div>
+        <div style="height:80px; background:var(--kt-border-soft); border-radius:10px; margin-top:14px;"></div>
       </div>
-
-    </div>
-  </section>
-
-  <aside class="kt-illustration" aria-hidden="true">
-    <div class="kt-illustration__logo">
-      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
-    </div>
-    <div class="kt-illustration__art" id="kt-art"></div>
-  </aside>
-
-</div>
+    </section>
+    <aside class="kt-illustration">
+      <div class="kt-illustration__logo"><img src="../../assets/img/illustrations/muni-logo.svg" alt=""></div>
+      <div class="kt-illustration__art"><img src="../../assets/img/kayitanot/art-success.png" alt=""></div>
+    </aside>
+  </div>
 </main>
 
-<script src="../../assets/js/kayitanot-illustration.js"></script>
+<!-- Picker modal -->
+<div class="kt-modal-overlay">
+  <div class="kt-modal" role="dialog" aria-modal="true" aria-labelledby="kt-modal-title">
+    <h1 id="kt-modal-title" class="kt-modal__title">איזה ילד/ה תרצו<br>לרשום לקייטנה?</h1>
+    <p class="kt-modal__sub">בחרו בילד/ה הרצוי</p>
+
+    <div class="kt-modal__kids" id="kt-kids"></div>
+
+    <a href="../../index.html" class="kt-btn kt-btn--outline" style="justify-content:center; width:100%;">
+      חזרה לפורטל חינוך
+    </a>
+  </div>
+</div>
+
 <script>
-  if (window.renderKayitanotArt) renderKayitanotArt(document.getElementById('kt-art'), 'additional');
-
   var ALL_KIDS = [
-    { key:'elaad', name:'אלעד',  age:'1.5', img:'kid-elaad.png' },
-    { key:'yuval', name:'יובל',  age:'4',   img:'kid-yuval.png' },
-    { key:'noa',   name:'נועה',  age:'8',   img:'kid-noa.png' },
-    { key:'nital', name:'ניתאי', age:'11',  img:'kid-nital.png' },
-    { key:'shira', name:'שירה',  age:'6',   img:'kid-noa.png' },
-    { key:'omer',  name:'עומר',  age:'13',  img:'kid-nital.png' }
+    { key:'elaad', name:'אלעד כהן שלמה',  gender:'male' },
+    { key:'yuval', name:'יובל כהן שלמה',  gender:'male' },
+    { key:'noa',   name:'נועה כהן שלמה',  gender:'female' },
+    { key:'nital', name:'ניתאי כהן שלמה', gender:'male' },
+    { key:'shira', name:'שירה כהן שלמה',  gender:'female' },
+    { key:'omer',  name:'עומר כהן שלמה',  gender:'male' }
   ];
-
-  // Exclude the kid we just registered for
   var currentKey = sessionStorage.getItem('ktKidKey');
-  var others = ALL_KIDS.filter(function(k){ return k.key !== currentKey; }).slice(0, 4);
+  var others = ALL_KIDS.filter(function(k){ return k.key !== currentKey; }).slice(0, 2);
 
   document.getElementById('kt-kids').innerHTML = others.map(function(k){
+    var avatar = k.gender === 'female' ? 'avatar-girl.png' : 'avatar-boy.png';
     return ''+
-      '<a class="kt-kid-card" href="01-child.html?kid='+k.key+'" data-key="'+k.key+'">'+
-      '  <div class="kt-kid-card__avatar"><img src="../../assets/img/illustrations/'+k.img+'" alt=""></div>'+
+      '<a class="kt-kid-card" href="01-child.html?kid='+k.key+'">'+
+      '  <div class="kt-kid-card__avatar"><img src="../../assets/img/kayitanot/'+avatar+'" alt=""></div>'+
       '  <div class="kt-kid-card__name">'+k.name+'</div>'+
-      '  <div class="kt-kid-card__age">'+k.age+' שנים</div>'+
+      '  <div class="kt-kid-card__cta"><svg width="14" height="14"><use href="#kt-i-arr-l"/></svg> הרשמה לקייטנה</div>'+
       '</a>';
   }).join('');
 
-  // Clear session before navigating to start a fresh kid flow
   document.querySelectorAll('.kt-kid-card').forEach(function(a){
     a.addEventListener('click', function(){
       try { sessionStorage.removeItem('ktKid'); sessionStorage.removeItem('ktKidKey'); sessionStorage.removeItem('ktCamp'); } catch(_){}

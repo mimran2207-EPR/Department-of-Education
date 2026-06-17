@@ -6,7 +6,7 @@
 <title>בחירת קייטנה | רישום לקייטנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
@@ -16,21 +16,29 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="kt-i-search" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9"/></symbol>
-  <symbol id="kt-i-chev" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></symbol>
   <symbol id="kt-i-cal" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14z"/></symbol>
   <symbol id="kt-i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></symbol>
+  <symbol id="kt-i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.5 11H7v-2h3.5V6h2v7z"/></symbol>
+  <symbol id="kt-i-house" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></symbol>
   <symbol id="kt-i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
   <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
+  <symbol id="kt-i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20v-6l8-2-8-2V4l19 8z"/></symbol>
+  <symbol id="kt-i-soccer" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12 3 2-1 4-3-1z"/></symbol>
+  <symbol id="kt-i-tree" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 6 12h3l-3 6h12l-3-6h3z"/></symbol>
+  <symbol id="kt-i-palette" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 2 2 0 0 0 2-2 2 2 0 0 0-.5-1.3 1 1 0 0 1 .8-1.7H16a6 6 0 0 0 6-6c0-5.5-4.5-9-10-9zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-6a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm6-2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm6 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></symbol>
+  <symbol id="kt-i-wave" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0v3c-2 1.5-4 1.5-6 0s-4-1.5-6 0-4 1.5-6 0z"/></symbol>
+  <symbol id="kt-i-robot" viewBox="0 0 24 24"><path fill="currentColor" d="M20 9V7a2 2 0 0 0-2-2h-3V3h-2v2H9V3H7v2H6a2 2 0 0 0-2 2v2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zM9 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm.5 4h-7v-2h7z"/></symbol>
+  <symbol id="kt-i-compass" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm2.83 11.83L8 16l2.17-6.83L17 8z"/></symbol>
 </svg>
 
 <div class="kt-wide">
 
   <header class="kt-wide__top">
-    <a href="02-parents.html" class="kt-wide__top-logo" style="text-decoration:none">
-      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
+    <a href="../../index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none">
+      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni" style="height:48px">
     </a>
-    <div class="kt-wide__top-title">רישום לקייטנות</div>
-    <div class="kt-wide__top-step">שלב 3 מתוך 3 — בחירת קייטנה</div>
+    <h1 class="kt-wide__top-title">בחרו קייטנה לניתאי</h1>
+    <span class="kt-wide__top-tag">שנת הלימודים תשפ"ה</span>
   </header>
 
   <div class="kt-camp-layout">
@@ -41,22 +49,38 @@
 
     <div class="kt-list-panel">
 
-      <div class="kt-list-head">
-        <h1 class="kt-list-head__title">בחרו קייטנה לניתאי</h1>
-        <span class="kt-list-head__count" id="kt-camp-count">נמצאו 12 קייטנות</span>
-      </div>
-
       <div class="kt-filters">
         <div class="kt-search">
-          <svg width="18" height="18" style="color:var(--kt-text-muted)"><use href="#kt-i-search"/></svg>
-          <input id="kt-q" placeholder="חיפוש לפי שם קייטנה">
+          <svg width="18" height="18"><use href="#kt-i-search"/></svg>
+          <input id="kt-q" placeholder="חיפוש">
         </div>
-        <button type="button" class="kt-chip kt-chip--active" data-filter="all">הכל</button>
-        <button type="button" class="kt-chip" data-filter="available">פנוי <svg class="kt-chip__chev"><use href="#kt-i-chev"/></svg></button>
-        <button type="button" class="kt-chip" data-filter="ages">גילאים <svg class="kt-chip__chev"><use href="#kt-i-chev"/></svg></button>
-        <button type="button" class="kt-chip" data-filter="dates">תאריכים <svg class="kt-chip__chev"><use href="#kt-i-chev"/></svg></button>
-        <button type="button" class="kt-chip" data-filter="price">מחיר <svg class="kt-chip__chev"><use href="#kt-i-chev"/></svg></button>
+        <button type="button" class="kt-chip kt-chip--active" data-filter="all">
+          <svg><use href="#kt-i-compass"/></svg>
+          הכל
+        </button>
+        <button type="button" class="kt-chip" data-filter="nature">
+          <svg><use href="#kt-i-tree"/></svg>
+          טבע
+        </button>
+        <button type="button" class="kt-chip" data-filter="sea">
+          <svg><use href="#kt-i-wave"/></svg>
+          גלישה / ים
+        </button>
+        <button type="button" class="kt-chip" data-filter="art">
+          <svg><use href="#kt-i-palette"/></svg>
+          אמנות
+        </button>
+        <button type="button" class="kt-chip" data-filter="robot">
+          <svg><use href="#kt-i-robot"/></svg>
+          רובוטיקה
+        </button>
+        <button type="button" class="kt-chip" data-filter="sport">
+          <svg><use href="#kt-i-soccer"/></svg>
+          ספורט
+        </button>
       </div>
+
+      <div class="kt-list-count" id="kt-camp-count">סה"כ 12 קייטנות</div>
 
       <div id="kt-camp-list" style="display:flex; flex-direction:column; gap:14px;"></div>
 
@@ -68,93 +92,115 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-  // Demo camps (around Tel Aviv area)
+  // Demo camps
   var CAMPS = [
-    { id: 'c1',  name: 'קייטנת גליטר "גליק"',     status: 'נותרו 12 מקומות', dates: '01.07–14.07', ages: '8–11',  price: 1500, lat: 32.0853, lng: 34.7818, img: 'beach' },
-    { id: 'c2',  name: 'קייטנת קיץ שכונתי',       status: 'נותרו 4 מקומות',  dates: '01.07–14.07', ages: '10–14', price: 3200, lat: 32.0900, lng: 34.7900, img: 'forest' },
-    { id: 'c3',  name: 'קייטנת גליטר אקסטרים',    status: 'מלא — רשימת המתנה', dates: '15.07–28.07', ages: '8–14',  price: 1500, lat: 32.0680, lng: 34.7700, img: 'sport' },
-    { id: 'c4',  name: 'קייטנת ים — בית הספר הרצוג', status: 'נותרו 8 מקומות',  dates: '01.07–14.07', ages: '6–9',   price: 1200, lat: 32.0960, lng: 34.7740, img: 'beach' },
-    { id: 'c5',  name: 'קייטנת אומנויות יצירתי',   status: 'פנוי',          dates: '15.07–28.07', ages: '7–12',  price: 1800, lat: 32.0780, lng: 34.7920, img: 'art' },
-    { id: 'c6',  name: 'קייטנת מדע וטבע',          status: 'נותרו 6 מקומות',  dates: '01.07–14.07', ages: '9–13',  price: 2100, lat: 32.0820, lng: 34.7680, img: 'forest' },
-    { id: 'c7',  name: 'קייטנת ספורט כדורגל',     status: 'פנוי',          dates: '15.07–28.07', ages: '8–14',  price: 1900, lat: 32.0700, lng: 34.7850, img: 'sport' },
-    { id: 'c8',  name: 'קייטנת רובוטיקה',          status: 'נותרו 3 מקומות',  dates: '01.07–14.07', ages: '10–14', price: 2800, lat: 32.0890, lng: 34.7820, img: 'art' },
-    { id: 'c9',  name: 'קייטנת בריכה ושחייה',     status: 'נותרו 15 מקומות', dates: '15.07–28.07', ages: '6–10',  price: 1400, lat: 32.0750, lng: 34.7800, img: 'beach' },
-    { id: 'c10', name: 'קייטנת בישול ואפייה',     status: 'פנוי',          dates: '01.07–14.07', ages: '8–12',  price: 1700, lat: 32.0810, lng: 34.7770, img: 'art' },
-    { id: 'c11', name: 'קייטנת טיולים בטבע',      status: 'נותרו 9 מקומות',  dates: '15.07–28.07', ages: '11–14', price: 2300, lat: 32.0950, lng: 34.7950, img: 'forest' },
-    { id: 'c12', name: 'קייטנת מוזיקה והופעה',    status: 'נותרו 7 מקומות',  dates: '01.07–14.07', ages: '7–13',  price: 1600, lat: 32.0770, lng: 34.7870, img: 'art' }
+    { id:'c1',  name:'קייטנת גלישה "גלים"',        addr:'מועדון גלישה אקסטרים, הרוכב 83 הרצליה', dates:'1-21 ביולי',     days:'א\' - ה\'',  hours:'08:00 - 13:00', ages:'8-16',  price:1500, badge:'rec',  badgeLabel:'מומלץ',          tags:['גלישה','ים','ספורט'],          cat:'sea',    lat:32.166, lng:34.842 },
+    { id:'c2',  name:'קייטנת קיץ טכנולוגי',         addr:'סבידור 14, תל אביב',                  dates:'15-28 באוגוסט',  days:'א\' - ה\'',  hours:'08:00 - 15:00', ages:'10-14', price:3200, badge:'new',  badgeLabel:'חדש',           tags:['תכנות','רובוטיקה','פיתוח משחקים'], cat:'robot',  lat:32.0853, lng:34.7818 },
+    { id:'c3',  name:'קייטנת גלישה אקסטרים',        addr:'מועדון גלישה אקסטרים, הרוכב 83 הרצליה', dates:'1-21 ביולי',     days:'א\' - ו\'',  hours:'08:00 - 13:00', ages:'8-16',  price:1500, badge:'last', badgeLabel:'מקומות אחרונים', tags:['גלישה','אקסטרים'],             cat:'sea',    lat:32.172, lng:34.835 },
+    { id:'c4',  name:'קייטנת אומנויות יצירתי',      addr:'אבן גבירול 35, תל אביב',              dates:'15-28 ביולי',    days:'א\' - ה\'',  hours:'08:00 - 14:00', ages:'7-12',  price:1800, badge:'rec',  badgeLabel:'מומלץ',          tags:['ציור','קולנוע','פיסול'],         cat:'art',    lat:32.0780, lng:34.7820 },
+    { id:'c5',  name:'קייטנת טבע ומדע',            addr:'דיזנגוף 200, תל אביב',                dates:'1-14 ביולי',     days:'א\' - ה\'',  hours:'08:00 - 16:00', ages:'9-13',  price:2100, badge:'',     badgeLabel:'',               tags:['מדע','טבע','טיולים'],            cat:'nature', lat:32.0820, lng:34.7780 },
+    { id:'c6',  name:'קייטנת כדורגל מקצוענים',     addr:'יד אליהו 5, תל אביב',                 dates:'15-28 ביולי',    days:'א\' - ו\'',  hours:'08:00 - 14:00', ages:'8-14',  price:1900, badge:'rec',  badgeLabel:'מומלץ',          tags:['כדורגל','ספורט'],               cat:'sport',  lat:32.0700, lng:34.7850 },
+    { id:'c7',  name:'קייטנת רובוטיקה אדוונסד',    addr:'אילון 12, תל אביב',                   dates:'1-14 באוגוסט',   days:'א\' - ה\'',  hours:'08:00 - 15:00', ages:'10-14', price:2800, badge:'new',  badgeLabel:'חדש',           tags:['רובוטיקה','קוד','AI'],          cat:'robot',  lat:32.0890, lng:34.7780 },
+    { id:'c8',  name:'קייטנת שחייה מקצועית',       addr:'גלילי 8, תל אביב',                    dates:'15-28 ביולי',    days:'א\' - ה\'',  hours:'09:00 - 14:00', ages:'6-10',  price:1400, badge:'',     badgeLabel:'',               tags:['שחייה','בריכה'],                cat:'sea',    lat:32.0750, lng:34.7800 },
+    { id:'c9',  name:'קייטנת בישול ואפייה',         addr:'יהודה הלוי 40, תל אביב',              dates:'1-14 ביולי',     days:'א\' - ה\'',  hours:'09:00 - 14:00', ages:'8-12',  price:1700, badge:'rec',  badgeLabel:'מומלץ',          tags:['בישול','אפייה','קולינריה'],     cat:'art',    lat:32.0640, lng:34.7770 },
+    { id:'c10', name:'קייטנת טיולים בטבע',         addr:'נמיר 150, תל אביב',                   dates:'15-28 באוגוסט',  days:'א\' - ה\'',  hours:'08:00 - 17:00', ages:'11-14', price:2300, badge:'',     badgeLabel:'',               tags:['טבע','טיולים','אקסטרים'],       cat:'nature', lat:32.0950, lng:34.7950 },
+    { id:'c11', name:'קייטנת מוזיקה והופעה',       addr:'ארלוזורוב 25, תל אביב',               dates:'1-14 ביולי',     days:'א\' - ה\'',  hours:'09:00 - 14:00', ages:'7-13',  price:1600, badge:'new',  badgeLabel:'חדש',           tags:['מוזיקה','הופעה','שירה'],        cat:'art',    lat:32.0770, lng:34.7770 },
+    { id:'c12', name:'קייטנת ויזיון אקסטרים',      addr:'יפת 22, תל אביב',                     dates:'15-28 ביולי',    days:'א\' - ו\'',  hours:'08:00 - 16:00', ages:'10-14', price:2500, badge:'last', badgeLabel:'מקומות אחרונים', tags:['אקסטרים','טיפוס'],              cat:'sport',  lat:32.0540, lng:34.7600 }
   ];
 
-  // Generate inline SVG thumbnails per category
-  function thumb(kind) {
-    var skies = { beach:'#a8e0ec', forest:'#cfeed4', sport:'#ffd29b', art:'#fde2e9' };
-    var sky = skies[kind] || '#cfe9f5';
-    var icon = '';
-    if (kind === 'beach')  icon = '<circle cx="160" cy="35" r="14" fill="#fbcd62"/><path d="M0 90 Q 50 75 100 90 T 200 90 L 200 110 L 0 110 Z" fill="#f5dcb1"/><polygon points="60,90 90,40 120,90" fill="#0ba6b5"/>';
-    if (kind === 'forest') icon = '<circle cx="160" cy="35" r="14" fill="#fbcd62"/><polygon points="40,100 70,40 100,100" fill="#3d9c70"/><polygon points="100,100 130,55 160,100" fill="#7ec99c"/><rect x="0" y="100" width="200" height="14" fill="#a26d3c"/>';
-    if (kind === 'sport')  icon = '<circle cx="100" cy="60" r="36" fill="#fff" stroke="#0a7d88" stroke-width="3"/><path d="M 64 60 H 136 M 100 24 V 96 M 76 36 L 124 84 M 124 36 L 76 84" stroke="#0a7d88" stroke-width="2"/>';
-    if (kind === 'art')    icon = '<rect x="50" y="40" width="100" height="60" rx="8" fill="#fff" stroke="#ff7a59" stroke-width="3"/><circle cx="75" cy="65" r="6" fill="#ff7a59"/><circle cx="100" cy="60" r="6" fill="#0ba6b5"/><circle cx="125" cy="70" r="6" fill="#fbcd62"/>';
+  function thumb(cat) {
+    var palette = { nature:'#cfeed4', sea:'#a8e0ec', sport:'#ffd29b', art:'#fde2e9', robot:'#dde2fa' };
+    var bg = palette[cat] || '#cfe9f5';
+    var inner = '';
+    if (cat === 'sea')    inner = '<circle cx="160" cy="35" r="14" fill="#fbcd62"/><path d="M0 60 Q 50 50 100 60 T 200 60" stroke="#0a7d88" stroke-width="3" fill="none"/><path d="M0 75 Q 50 65 100 75 T 200 75" stroke="#0a7d88" stroke-width="3" fill="none"/><path d="M0 90 Q 50 80 100 90 T 200 90 L 200 110 L 0 110 Z" fill="#a8e0ec"/><polygon points="40,90 65,55 90,90" fill="#fff" opacity="0.7"/>';
+    if (cat === 'nature') inner = '<circle cx="160" cy="35" r="14" fill="#fbcd62"/><polygon points="40,100 70,40 100,100" fill="#3d9c70"/><polygon points="100,100 130,55 160,100" fill="#7ec99c"/><rect x="0" y="100" width="200" height="14" fill="#a26d3c"/>';
+    if (cat === 'sport')  inner = '<circle cx="100" cy="60" r="36" fill="#fff" stroke="#0a7d88" stroke-width="3"/><path d="M 64 60 H 136 M 100 24 V 96 M 76 36 L 124 84 M 124 36 L 76 84" stroke="#0a7d88" stroke-width="2"/>';
+    if (cat === 'art')    inner = '<rect x="50" y="40" width="100" height="60" rx="8" fill="#fff" stroke="#ff7a59" stroke-width="3"/><circle cx="75" cy="65" r="6" fill="#ff7a59"/><circle cx="100" cy="60" r="6" fill="#0ba6b5"/><circle cx="125" cy="70" r="6" fill="#fbcd62"/>';
+    if (cat === 'robot')  inner = '<rect x="60" y="40" width="80" height="70" rx="10" fill="#fff" stroke="#6c5cc7" stroke-width="3"/><circle cx="80" cy="65" r="6" fill="#6c5cc7"/><circle cx="120" cy="65" r="6" fill="#6c5cc7"/><rect x="80" y="85" width="40" height="6" rx="2" fill="#6c5cc7"/><rect x="92" y="20" width="16" height="20" fill="#6c5cc7"/>';
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120"><rect width="200" height="120" fill="'+sky+'"/>'+icon+'</svg>'
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120"><rect width="200" height="120" fill="'+bg+'"/>'+inner+'</svg>'
     );
   }
 
-  // Render camp cards
   var list = document.getElementById('kt-camp-list');
   var counter = document.getElementById('kt-camp-count');
-  function renderList(filter) {
+  var currentFilter = 'all';
+
+  function renderList() {
     var q = (document.getElementById('kt-q').value || '').trim();
     var arr = CAMPS.filter(function(c){
-      if (q && c.name.indexOf(q) === -1) return false;
-      if (filter === 'available' && c.status.indexOf('מלא') !== -1) return false;
+      if (q && c.name.indexOf(q) === -1 && c.addr.indexOf(q) === -1) return false;
+      if (currentFilter !== 'all' && c.cat !== currentFilter) return false;
       return true;
     });
-    counter.textContent = 'נמצאו ' + arr.length + ' קייטנות';
+    counter.textContent = 'סה"כ ' + arr.length + ' קייטנות';
     list.innerHTML = arr.map(function(c){
+      var badgeHtml = c.badge
+        ? '<span class="kt-camp-card__badge kt-camp-card__badge--'+c.badge+'">'+c.badgeLabel+'</span>'
+        : '';
       return ''+
         '<div class="kt-camp-card" data-id="'+c.id+'">'+
+        '  <div class="kt-camp-card__img">'+
+        '    <img src="'+thumb(c.cat)+'" alt="">'+
+             badgeHtml +
+        '  </div>'+
         '  <div class="kt-camp-card__body">'+
+        '    <span class="kt-camp-card__addr">'+c.addr+'</span>'+
         '    <h3 class="kt-camp-card__name">'+c.name+'</h3>'+
         '    <div class="kt-camp-card__meta">'+
         '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-cal"/></svg> '+c.dates+'</span>'+
-        '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-user"/></svg> גילאים '+c.ages+'</span>'+
-        '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-pin"/></svg> '+c.status+'</span>'+
+        '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-cal"/></svg> '+c.days+'</span>'+
+        '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-clock"/></svg> '+c.hours+'</span>'+
+        '      <span class="kt-camp-card__meta-item"><svg><use href="#kt-i-user"/></svg> גילאי '+c.ages+'</span>'+
         '    </div>'+
-        '    <div class="kt-camp-card__row">'+
-        '      <div class="kt-camp-card__price">₪ '+c.price.toLocaleString('he-IL')+' <small>לתקופה</small></div>'+
-        '      <a class="kt-camp-card__cta" href="04-camp-page.html?camp='+c.id+'">לרישום ולפרטים</a>'+
-        '    </div>'+
+        '    <div class="kt-camp-card__tags">'+ c.tags.map(function(t){ return '<span class="kt-camp-card__tag">'+t+'</span>'; }).join('') +'</div>'+
         '  </div>'+
-        '  <div class="kt-camp-card__img">'+
-        '    <img src="'+thumb(c.img)+'" alt="">'+
-        '    <span class="kt-camp-card__badge">'+(c.status.indexOf('מלא')!==-1 ? 'מלא' : 'פנוי')+'</span>'+
+        '  <div class="kt-camp-card__side">'+
+        '    <div>'+
+        '      <div class="kt-camp-card__price-l">מחיר למשתתף</div>'+
+        '      <div class="kt-camp-card__price">₪'+c.price.toLocaleString('he-IL')+'</div>'+
+        '    </div>'+
+        '    <a class="kt-camp-card__cta" href="04-camp-page.html?camp='+c.id+'">'+
+        '      <svg width="14" height="14"><use href="#kt-i-arr-l"/></svg>'+
+        '      לפרטים והרשמה'+
+        '    </a>'+
         '  </div>'+
         '</div>';
     }).join('');
   }
-  renderList('all');
+  renderList();
 
   // Filter chips
   document.querySelectorAll('.kt-chip').forEach(function(chip){
     chip.addEventListener('click', function(){
       document.querySelectorAll('.kt-chip').forEach(function(c){ c.classList.remove('kt-chip--active'); });
       chip.classList.add('kt-chip--active');
-      renderList(chip.dataset.filter);
+      currentFilter = chip.dataset.filter;
+      renderList();
     });
   });
-  document.getElementById('kt-q').addEventListener('input', function(){ renderList('all'); });
+  document.getElementById('kt-q').addEventListener('input', renderList);
 
-  // Leaflet map
-  var map = L.map('kt-map', { zoomControl: true }).setView([32.082, 34.78], 13);
+  // Map
+  var map = L.map('kt-map', { zoomControl: true }).setView([32.10, 34.81], 12);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap', maxZoom: 18
   }).addTo(map);
-  var icon = L.divIcon({
-    html: '<div style="width:34px;height:42px;background:#07bed1;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(7,190,209,0.5)"><span style="transform:rotate(45deg);color:#fff;font-weight:700">⛺</span></div>',
-    iconSize: [34, 42], iconAnchor: [17, 42], className: ''
+  var markerIcon = L.divIcon({
+    className: 'kt-marker',
+    html: '<div class="kt-marker__pin"><span>⛺</span></div>',
+    iconSize: [32, 40], iconAnchor: [16, 40]
   });
   CAMPS.forEach(function(c){
-    var m = L.marker([c.lat, c.lng], { icon: icon }).addTo(map);
-    m.bindPopup('<div class="kt-marker-popup"><b>'+c.name+'</b><br>'+c.dates+'<br>גילאים '+c.ages+'<br>₪ '+c.price.toLocaleString('he-IL')+'<br><a href="04-camp-page.html?camp='+c.id+'" style="color:#0a7d88;font-weight:700">פרטים →</a></div>');
+    var m = L.marker([c.lat, c.lng], { icon: markerIcon }).addTo(map);
+    m.bindPopup(
+      '<div class="kt-marker-popup">' +
+        '<b>'+c.name+'</b>' +
+        c.addr + '<br>' +
+        '<span class="kt-marker-popup__price">₪'+c.price.toLocaleString('he-IL')+'</span><br>' +
+        '<a href="04-camp-page.html?camp='+c.id+'" style="color:#0a7d88;font-weight:700">פרטים →</a>' +
+      '</div>'
+    );
   });
 </script>
 </body>

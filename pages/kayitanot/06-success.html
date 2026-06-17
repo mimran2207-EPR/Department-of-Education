@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>הרישום נשלח | רישום לקייטנות</title>
+<title>נרשמת בהצלחה | רישום לקייטנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="../../assets/css/kayitanot.css">
@@ -14,30 +14,55 @@
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="kt-i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11.5 12 4l9 7.5V21h-6v-6h-6v6H3z"/></symbol>
-  <symbol id="kt-i-plus" viewBox="0 0 24 24"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></symbol>
+  <symbol id="kt-i-clip-check" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3h-4.18A3 3 0 0 0 12 1a3 3 0 0 0-2.82 2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-2 14L7 14l1.41-1.41L10 14.17l5.59-5.59L17 10z"/></symbol>
+  <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
 </svg>
 
 <main class="kt-page">
 <div class="kt-split">
 
-  <section class="kt-form-panel" style="justify-content:center">
-    <div class="kt-form-inner kt-success">
-      <h1 class="kt-success__title">הרישום נשלח בהצלחה!</h1>
-      <p class="kt-success__sub">
-        בקשת ההרשמה ל<b id="kt-s-camp">קייטנת קיץ</b> עבור <b id="kt-s-name">ניתאי</b> נקלטה במערכת.<br>
-        תקבלו אישור סופי לדוא"ל תוך 3 ימי עסקים, ולאחר השלמת התשלום ההרשמה תהיה סופית.
-      </p>
-      <div class="kt-success__ref">מספר אסמכתא: <span id="kt-ref">KT-2025-072891</span></div>
-      <div class="kt-success__actions">
-        <a href="../../index.html" class="kt-btn kt-btn--primary">
-          <svg width="18" height="18"><use href="#kt-i-home"/></svg>
-          חזרה לפורטל חינוך
-        </a>
-        <a href="07-additional.html" class="kt-btn kt-btn--outline">
-          <svg width="18" height="18"><use href="#kt-i-plus"/></svg>
-          רישום ילד/ה נוסף
-        </a>
+  <section class="kt-form-panel" style="display:flex; align-items:center; justify-content:center;">
+    <div class="kt-success-card">
+      <h1 class="kt-success-title">
+        נרשמת בהצלחה<br>
+        <span id="kt-s-camp">לקייטנת גלישה "גלים"</span>
+      </h1>
+      <p class="kt-success-sub">הבקשה נשלחה ונקלטה במערכת. אישור יישלח בהמשך במייל.</p>
+
+      <div class="kt-success-rows">
+        <div class="kt-success-row">
+          <div class="kt-success-row__k">
+            <span class="kt-success-row__icon"><svg><use href="#kt-i-clip-check"/></svg></span>
+            מספר אסמכתא:
+          </div>
+          <span class="kt-success-row__v" id="kt-ref">12345678</span>
+        </div>
+        <div class="kt-success-row">
+          <div class="kt-success-row__k">
+            <span class="kt-success-row__icon"><svg><use href="#kt-i-clip-check"/></svg></span>
+            שם הילד:
+          </div>
+          <span class="kt-success-row__v" id="kt-name">ניתאי כהן שלמה</span>
+        </div>
+        <div class="kt-success-row">
+          <div class="kt-success-row__k">
+            <span class="kt-success-row__icon"><svg><use href="#kt-i-clip-check"/></svg></span>
+            מחזור:
+          </div>
+          <span class="kt-success-row__v" id="kt-cycle">01-26 ביולי</span>
+        </div>
+        <div class="kt-success-row">
+          <div class="kt-success-row__k">
+            <span class="kt-success-row__icon"><svg><use href="#kt-i-clip-check"/></svg></span>
+            סטטוס:
+          </div>
+          <span class="kt-success-row__v kt-success-row__v--ok">נרשם בהצלחה</span>
+        </div>
+      </div>
+
+      <div class="kt-success-actions">
+        <a href="07-additional.html" class="kt-btn kt-btn--primary">רישום נוסף</a>
+        <a href="../../index.html" class="kt-btn kt-btn--outline">חזרה לפורטל חינוך</a>
       </div>
     </div>
   </section>
@@ -46,26 +71,25 @@
     <div class="kt-illustration__logo">
       <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
     </div>
-    <div class="kt-illustration__art" id="kt-art"></div>
+    <div class="kt-illustration__art">
+      <img src="../../assets/img/kayitanot/art-success.png" alt="">
+    </div>
   </aside>
 
 </div>
 </main>
 
-<script src="../../assets/js/kayitanot-illustration.js"></script>
 <script>
-  if (window.renderKayitanotArt) renderKayitanotArt(document.getElementById('kt-art'), 'success');
-
   try {
-    var kid = JSON.parse(sessionStorage.getItem('ktKid') || 'null');
-    if (kid) document.getElementById('kt-s-name').textContent = kid.name.split(' ')[0];
     var camp = JSON.parse(sessionStorage.getItem('ktCamp') || 'null');
-    if (camp) document.getElementById('kt-s-camp').textContent = camp.name;
+    if (camp) {
+      document.getElementById('kt-s-camp').textContent = 'ל' + camp.name;
+      document.getElementById('kt-cycle').textContent  = camp.dates;
+    }
+    var kid = JSON.parse(sessionStorage.getItem('ktKid') || 'null');
+    if (kid) document.getElementById('kt-name').textContent = kid.name;
   } catch(_){}
-
-  // Random reference number
-  var ref = 'KT-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random()*900000+100000));
-  document.getElementById('kt-ref').textContent = ref;
+  document.getElementById('kt-ref').textContent = String(Math.floor(Math.random()*90000000 + 10000000));
 </script>
 </body>
 </html>
