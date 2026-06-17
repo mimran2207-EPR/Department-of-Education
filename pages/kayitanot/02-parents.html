@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרטי הורים | רישום לקייטנות</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/kayitanot.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="kt-i-users" viewBox="0 0 24 24"><path fill="currentColor" d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm8 0c-.29 0-.62.02-.97.05A5.36 5.36 0 0 1 18 17v3h6v-3c0-2.66-5.33-4-8-4z"/></symbol>
+  <symbol id="kt-i-chev" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></symbol>
+  <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
+  <symbol id="kt-i-arr-r" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z"/></symbol>
+</svg>
+
+<main class="kt-page">
+<div class="kt-split">
+
+  <section class="kt-form-panel">
+    <div class="kt-form-inner">
+
+      <header class="kt-header">
+        <h1 class="kt-header__title">רישום לקייטנות</h1>
+        <span class="kt-header__tag">שנת הלימודים תשפ"ה</span>
+      </header>
+
+      <div class="kt-progress" aria-label="התקדמות: שלב 2 מתוך 3">
+        <div class="kt-progress__track"><div class="kt-progress__fill" style="width:66%"></div></div>
+        <div class="kt-progress__steps">
+          <span class="kt-step kt-step--done">1</span>
+          <span class="kt-step kt-step--current">
+            <span>פרטי הורים</span>
+            <span class="kt-step__badge">2</span>
+          </span>
+          <span class="kt-step">3</span>
+        </div>
+      </div>
+
+      <div class="kt-section-h">
+        <div class="kt-section-h__icon"><svg><use href="#kt-i-users"/></svg></div>
+        <div>
+          <h2 class="kt-section-h__title">פרטי הורים</h2>
+          <p class="kt-section-h__sub">שדות נעולים נמשכים אוטומטית ממשרד הפנים ואינם ניתנים לעריכה.</p>
+        </div>
+      </div>
+
+      <h3 class="kt-sub-h">פרטי האב</h3>
+      <div class="kt-grid">
+        <div class="kt-field">
+          <label class="kt-field__label">שם מלא</label>
+          <div class="kt-input"><input class="kt-input__field" value="דוד כהן שלמה"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">מספר תעודת זהות</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="numeric" value="029876543"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">טלפון נייד</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="tel" value="0501234567"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">דוא"ל</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="email" value="father@gmail.com"></div>
+        </div>
+      </div>
+
+      <h3 class="kt-sub-h">פרטי האם</h3>
+      <div class="kt-grid">
+        <div class="kt-field">
+          <label class="kt-field__label">שם מלא</label>
+          <div class="kt-input"><input class="kt-input__field" value="שרה כהן שלמה"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">מספר תעודת זהות</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="numeric" value="035678901"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">טלפון נייד</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="tel" value="0527654321"></div>
+        </div>
+        <div class="kt-field">
+          <label class="kt-field__label">דוא"ל</label>
+          <div class="kt-input"><input class="kt-input__field" inputmode="email" value="mother@gmail.com"></div>
+        </div>
+      </div>
+
+      <div class="kt-actions">
+        <a href="01-child.html" class="kt-btn kt-btn--ghost">
+          <svg width="18" height="18"><use href="#kt-i-arr-r"/></svg>
+          חזרה לשלב הקודם
+        </a>
+        <a href="03-select-camp.html" class="kt-btn kt-btn--primary">
+          המשך לשלב הבא
+          <svg width="18" height="18"><use href="#kt-i-arr-l"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="kt-illustration" aria-hidden="true">
+    <div class="kt-illustration__logo">
+      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
+    </div>
+    <div class="kt-illustration__art" id="kt-art"></div>
+  </aside>
+
+</div>
+</main>
+
+<script src="../../assets/js/kayitanot-illustration.js"></script>
+<script>
+  if (window.renderKayitanotArt) renderKayitanotArt(document.getElementById('kt-art'), 'parents');
+</script>
+</body>
+</html>
