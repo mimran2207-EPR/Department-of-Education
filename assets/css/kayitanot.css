@@ -4,41 +4,52 @@
 
 :root {
   --kt-bg: #ffffff;
+  --kt-bg-page: #f3f7f9;        /* page background (Figma) */
   --kt-bg-soft: #f5fbfc;
   --kt-bg-pink: #fde9ec;
   --kt-bg-blue: #e8f4f6;
-  --kt-primary: #07bed1;       /* turquoise (buttons, CTAs) */
+  --kt-primary: #07bed1;        /* turquoise (buttons, CTAs) */
   --kt-primary-dark: #0a7d88;
   --kt-primary-soft: #d8f3f6;
   --kt-primary-bg: #e9f8fa;
-  --kt-purple: #8b7ed8;        /* progress step current */
-  --kt-purple-dark: #6c5cc7;
-  --kt-purple-soft: #ede9fa;
-  --kt-purple-icon: #b1a4e8;
-  --kt-orange: #ff8a3c;
+  --kt-primary-shadow: 0 8px 18px rgba(7,190,209,0.3);
+  --kt-purple: #815eff;         /* vibrant purple — current step (Figma) */
+  --kt-purple-dark: #6a47e6;
+  --kt-purple-soft: #eeebfe;
+  --kt-purple-border: #d8cdff;
+  --kt-purple-tr: rgba(129,94,255,0.2);
+  --kt-orange: #fe8315;         /* section icon (Figma) */
+  --kt-orange-bg: rgba(254,131,21,0.1);
+  --kt-orange-border: rgba(254,131,21,0.2);
   --kt-orange-soft: #fff0e1;
-  --kt-success: #1bb785;
+  --kt-success: #16b16e;        /* gender active / mint (Figma) */
+  --kt-success-bg: #e4faf5;
   --kt-success-soft: #d6f5e8;
   --kt-warn: #ff9c39;
   --kt-warn-soft: #fff0e1;
-  --kt-danger: #e23a55;
+  --kt-danger: #d3453c;
   --kt-danger-soft: #fde6ea;
-  --kt-text: #1f2a44;
+  --kt-text: #091832;           /* heading dark navy (Figma) */
+  --kt-text-body: #353535;      /* labels (Figma) */
   --kt-text-muted: #6a7282;
   --kt-text-soft: #94a3b8;
+  --kt-tag-teal: rgba(7, 98, 107, 0.8);  /* "שנת הלימודים תשפ"ה" tag (Figma) */
   --kt-border: #e8eef4;
   --kt-border-soft: #f1f5f9;
+  --kt-border-input: #f3f6fa;
   --kt-card: #ffffff;
   --kt-shadow-card: 0 6px 24px rgba(7, 98, 107, 0.06);
-  --kt-shadow-input: 0 2px 6px rgba(7, 98, 107, 0.04);
+  --kt-shadow-input: 0 8px 15px rgba(11, 131, 142, 0.1);  /* Figma exact */
   --kt-radius: 14px;
+  --kt-radius-input: 16px;      /* Figma exact */
+  --kt-radius-btn: 15px;        /* Figma exact */
   --kt-radius-lg: 20px;
 }
 
 /* ---------- Page shell ---------- */
 .kt-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fef5f5 0%, #ffffff 30%, #ffffff 65%, #eaf6f8 100%);
+  background: var(--kt-bg-page);
   position: relative;
   font-family: var(--font-base);
   color: var(--kt-text);
@@ -126,19 +137,24 @@
   gap: 12px;
 }
 .kt-header__title {
-  font-size: 38px;
-  font-weight: 800;
+  font-size: 50px;
+  font-weight: 700;
   color: var(--kt-text);
   margin: 0;
   letter-spacing: -0.5px;
+  line-height: 1;
 }
 .kt-header__tag {
-  font-size: 15px;
-  color: var(--kt-text-muted);
-  font-weight: 500;
+  font-size: 24px;
+  color: var(--kt-tag-teal);
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .kt-header__title { font-size: 34px; }
+  .kt-header__tag   { font-size: 16px; }
 }
 
-/* ---------- Progress (4 steps, purple accent) ---------- */
+/* ---------- Progress (4 steps, purple accent) — Figma exact ---------- */
 .kt-progress {
   display: flex;
   flex-direction: row-reverse;     /* RTL: step 1 on the right */
@@ -155,91 +171,95 @@
   flex: 0 0 auto;
 }
 .kt-step__circle {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #fff;
-  border: 1px solid var(--kt-border);
+  border: 2px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 15px;
   color: var(--kt-text-soft);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
 }
 .kt-step--done .kt-step__circle {
   background: var(--kt-purple-soft);
-  border-color: var(--kt-purple);
+  border-color: var(--kt-purple-border);
   color: var(--kt-purple);
 }
 .kt-step--done .kt-step__circle svg { width: 18px; height: 18px; }
 .kt-step--current {
   background: var(--kt-purple-soft);
-  border-radius: 999px;
-  padding: 4px 6px 4px 14px;
+  border-radius: 14px;
+  padding: 4px 8px 4px 16px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid var(--kt-purple-icon);
+  gap: 12px;
+  border: 2px solid var(--kt-purple-border);
 }
 .kt-step--current .kt-step__label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--kt-purple-dark);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--kt-purple);
+  letter-spacing: 0.25px;
 }
 .kt-step--current .kt-step__circle {
-  width: 28px;
-  height: 28px;
-  background: var(--kt-purple);
-  border-color: var(--kt-purple);
-  color: #fff;
-  font-size: 13px;
+  width: 30px;
+  height: 30px;
+  background: var(--kt-purple-tr);
+  border: 0;
+  color: var(--kt-purple);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 .kt-step__connector {
   flex: 1;
-  height: 1px;
+  height: 2px;
   background: var(--kt-border);
   margin: 0 4px;
   min-width: 30px;
 }
 .kt-step__connector--done {
-  background: var(--kt-purple-icon);
-  border-top: 1px dashed var(--kt-purple-icon);
-  background: transparent;
+  background: var(--kt-purple-border);
 }
 
-/* ---------- Section heading ---------- */
+/* ---------- Section heading — Figma exact ---------- */
 .kt-section-h {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-end;
-  gap: 14px;
+  gap: 17px;
 }
 .kt-section-h__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--kt-orange-soft);
+  width: 60px;
+  height: 60px;
+  border-radius: 21px;
+  background: var(--kt-orange-bg);
   color: var(--kt-orange);
+  border: 1.3px solid var(--kt-orange-border);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 1.3px 3.9px rgba(0,0,0,0.1), 0 1.3px 2.6px rgba(0,0,0,0.1);
 }
-.kt-section-h__icon svg { width: 26px; height: 26px; }
+.kt-section-h__icon svg { width: 28px; height: 28px; }
 .kt-section-h__title {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
   color: var(--kt-text);
   margin: 0;
   text-align: right;
+  line-height: 1.1;
 }
 .kt-section-h__sub {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--kt-text-muted);
-  margin: 4px 0 0;
+  margin: 8px 0 0;
   text-align: right;
 }
 
@@ -252,29 +272,29 @@
 .kt-grid__full { grid-column: 1 / -1; }
 @media (max-width: 640px) { .kt-grid { grid-template-columns: 1fr; gap: 14px; } }
 
-/* ---------- Field ---------- */
+/* ---------- Field — Figma exact ---------- */
 .kt-field { display: flex; flex-direction: column; gap: 6px; }
 .kt-field__label {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
-  color: var(--kt-text);
+  color: var(--kt-text-body);
   text-align: right;
 }
 .kt-input {
-  height: 52px;
-  border-radius: 12px;
+  height: 60px;
+  border-radius: var(--kt-radius-input);
   background: #fff;
-  border: 1px solid var(--kt-border);
-  padding: 0 16px;
+  border: 0;
+  padding: 0 22px;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
-  color: var(--kt-text);
+  font-size: 18px;
+  color: var(--kt-text-muted);
   box-shadow: var(--kt-shadow-input);
   width: 100%;
 }
-.kt-input:focus-within { border-color: var(--kt-primary); }
+.kt-input:focus-within { box-shadow: 0 8px 15px rgba(11,131,142,0.18), 0 0 0 2px var(--kt-primary); }
 .kt-input__field {
   flex: 1;
   border: 0;
@@ -288,59 +308,71 @@
 .kt-input__lock {
   color: var(--kt-orange);
   flex-shrink: 0;
-  order: 99;          /* push lock to RTL start (right edge of the input) — but display:flex with row-reverse below handles it */
+  order: 99;
+  width: 17px;
+  height: 17px;
 }
 /* Locked input: lock icon on the RIGHT (RTL start), value on the LEFT */
 .kt-input--locked {
   flex-direction: row-reverse;
+  justify-content: space-between;
   background: #fff;
-  color: var(--kt-text);
 }
 .kt-input--locked .kt-input__lock { order: 0; }
 .kt-input--locked .kt-input__value {
-  flex: 1;
-  text-align: left;        /* value is LTR-leading in the visual */
-  color: var(--kt-text);
-  font-weight: 500;
+  text-align: left;
+  color: var(--kt-text-muted);
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .kt-input--select {
   cursor: pointer;
   flex-direction: row-reverse;
+  justify-content: space-between;
 }
 .kt-input--select .kt-input__chev {
   color: var(--kt-text-muted);
   flex-shrink: 0;
 }
 .kt-input--select .kt-input__value {
-  flex: 1;
   text-align: left;
-  color: var(--kt-text);
+  color: var(--kt-text-muted);
+  font-size: 18px;
 }
 
+/* Two-option toggle (gender etc.) — Figma exact */
 .kt-twoopt {
   display: flex;
-  gap: 0;
-  border: 1px solid var(--kt-border);
-  border-radius: 12px;
-  overflow: hidden;
-  height: 52px;
-  background: #fff;
-  box-shadow: var(--kt-shadow-input);
+  gap: 13px;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  height: 60px;
+  background: transparent;
+  box-shadow: none;
 }
 .kt-twoopt__btn {
   flex: 1;
-  border: 0;
-  background: transparent;
+  border: 1px solid var(--kt-border-input);
+  background: #fff;
   cursor: pointer;
   font: inherit;
+  font-size: 17px;
   color: var(--kt-text-muted);
-  font-weight: 500;
+  font-weight: 700;
+  opacity: 0.5;
+  border-radius: 11px;
+  box-shadow: var(--kt-shadow-input);
+  transition: opacity 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
 }
+.kt-twoopt__btn:hover { opacity: 0.75; }
 .kt-twoopt__btn--active {
-  background: var(--kt-success-soft);
+  background: var(--kt-success-bg);
+  border-color: var(--kt-success);
   color: var(--kt-success);
   font-weight: 700;
+  opacity: 1;
 }
 
 /* yes/no inline toggle inside a question row */
@@ -407,23 +439,25 @@
 .kt-btn {
   border: 0;
   cursor: pointer;
-  height: 50px;
-  padding: 0 26px;
-  border-radius: 12px;
+  height: auto;
+  padding: 18px 24px;
+  border-radius: var(--kt-radius-btn);
   font: inherit;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 22px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   text-decoration: none;
+  line-height: 1.13;
   transition: transform 0.1s, box-shadow 0.2s, background 0.2s;
 }
 .kt-btn:active { transform: translateY(1px); }
 .kt-btn--primary {
   background: var(--kt-primary);
   color: #fff;
-  box-shadow: 0 8px 18px rgba(7,190,209,0.32);
+  box-shadow: var(--kt-primary-shadow);
 }
 .kt-btn--primary:hover { background: var(--kt-primary-dark); }
 .kt-btn--outline {
@@ -434,14 +468,17 @@
 .kt-btn--outline:hover { border-color: var(--kt-primary); color: var(--kt-primary-dark); }
 .kt-btn--ghost { background: transparent; color: var(--kt-primary-dark); }
 .kt-btn--ghost:hover { background: var(--kt-bg-soft); }
+@media (max-width: 640px) {
+  .kt-btn { font-size: 17px; padding: 14px 20px; }
+}
 
-/* ---------- Wide layout (screens 3, 4) ---------- */
+/* ---------- Wide layout (screens 3, 4) — Figma exact ---------- */
 .kt-wide {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fef5f5 0%, #ffffff 25%, #ffffff 70%, #eaf6f8 100%);
+  background: var(--kt-bg-page);
 }
 .kt-wide__top {
-  padding: 24px 56px 0;
+  padding: 32px 56px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -451,16 +488,22 @@
 }
 .kt-wide__top-logo img { height: 48px; }
 .kt-wide__top-title {
-  font-size: 36px;
-  font-weight: 800;
-  color: var(--kt-text);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--kt-success);
   margin: 0;
   letter-spacing: -0.5px;
+  line-height: 1.1;
 }
 .kt-wide__top-tag {
-  font-size: 14px;
-  color: var(--kt-text-muted);
-  font-weight: 500;
+  font-size: 20px;
+  color: var(--kt-tag-teal);
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .kt-wide__top { padding: 20px 16px 0; }
+  .kt-wide__top-title { font-size: 28px; }
+  .kt-wide__top-tag   { font-size: 15px; }
 }
 
 /* ---------- Camp browse (screen 3) ---------- */
