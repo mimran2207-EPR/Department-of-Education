@@ -6,7 +6,8 @@
 <title>פרטי קייטנה | רישום לקייטנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="../../assets/css/kayitanot.css">
@@ -14,7 +15,12 @@
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="kt-i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="kt-i-house" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></symbol>
+  <symbol id="kt-i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.5 11H7v-2h3.5V6h2v7z"/></symbol>
+  <symbol id="kt-i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></symbol>
+  <symbol id="kt-i-cal" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14z"/></symbol>
+  <symbol id="kt-i-check" viewBox="0 0 24 24"><path fill="currentColor" d="m9 16.17-3.88-3.88L3.71 13.7 9 19l11-11-1.41-1.42z"/></symbol>
+  <symbol id="kt-i-info" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></symbol>
   <symbol id="kt-i-arr-l" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></symbol>
   <symbol id="kt-i-arr-r" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z"/></symbol>
 </svg>
@@ -22,62 +28,103 @@
 <div class="kt-wide">
 
   <header class="kt-wide__top">
-    <a href="03-select-camp.html" class="kt-wide__top-logo" style="text-decoration:none">
-      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni">
+    <a href="../../index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none">
+      <img src="../../assets/img/illustrations/muni-logo.svg" alt="muni" style="height:48px">
     </a>
-    <div class="kt-wide__top-title">רישום לקייטנות</div>
-    <a href="03-select-camp.html" class="kt-btn kt-btn--ghost" style="height:42px; padding:0 16px">
-      <svg width="16" height="16"><use href="#kt-i-arr-r"/></svg>
-      חזרה לרשימת קייטנות
-    </a>
+    <h1 class="kt-wide__top-title">בחרו קייטנה לניתאי</h1>
+    <span class="kt-wide__top-tag">שנת הלימודים תשפ"ה</span>
   </header>
 
   <div class="kt-camp-detail">
 
-    <div class="kt-camp-hero">
-      <img id="kt-hero-img" alt="" class="kt-camp-hero__img">
-      <div class="kt-camp-hero__overlay">
-        <h1 class="kt-camp-hero__name" id="kt-name">קייטנת קיץ שכונתי</h1>
-        <div class="kt-camp-hero__loc">
-          <svg width="16" height="16" style="color:var(--kt-primary)"><use href="#kt-i-pin"/></svg>
-          <span id="kt-loc">תל אביב יפו, רחוב הרצל 40</span>
-        </div>
-      </div>
+    <div class="kt-detail-map">
+      <div class="kt-map" id="kt-map"></div>
     </div>
 
-    <div class="kt-camp-info">
+    <div class="kt-detail-body">
 
-      <div class="kt-camp-info__main">
-        <h2 class="kt-camp-info__h">תיאור הקייטנה</h2>
-        <p class="kt-camp-info__text">
-          קייטנת קיץ שכונתית שמשלבת חוויות יצירה, ספורט, טבע וטיולים. הילדים יהנו מצוות הדרכה מקצועי, ארוחות מזינות, פעילויות חוץ ופנים, ויציאה לטיולים שבועיים. הקייטנה פועלת בין השעות 08:00–16:00 ומספקת הסעות אופציונליות בעלות נוספת.
-        </p>
+      <a href="03-select-camp.html" class="kt-detail-back">
+        <svg width="16" height="16"><use href="#kt-i-arr-r"/></svg>
+        חזרה לכל הקייטנות
+      </a>
 
-        <h2 class="kt-camp-info__h">מה כלול</h2>
-        <ul style="margin:0; padding-inline-start:20px; color:var(--kt-text); line-height:1.9">
-          <li>הדרכה מקצועית 7 שעות ביום</li>
-          <li>ארוחת בוקר וצהריים יומית</li>
-          <li>פעילויות חוץ — ספורט, חוף, בריכה</li>
-          <li>סדנאות יצירה ויצירה בידיים</li>
-          <li>טיול שבועי לאתרי טבע</li>
-          <li>חולצת קייטנה ותיק אישי</li>
-        </ul>
-
-        <h2 class="kt-camp-info__h">מיקום</h2>
-        <p class="kt-camp-info__text" id="kt-detail-loc">רחוב הרצל 40, תל אביב יפו. הקייטנה ממוקמת בלב השכונה, בקרבת תחנת אוטובוס ראשית וחניה ציבורית.</p>
+      <div class="kt-detail-head">
+        <h2 class="kt-detail-name" id="kt-name">קייטנת גלישה "גלים"</h2>
+        <div class="kt-detail-price-block">
+          <div class="kt-detail-price">
+            <span class="kt-detail-price__v" id="kt-price">₪1,500</span>
+            <span class="kt-detail-price__l">מחיר למשתתף</span>
+          </div>
+          <a href="05-summary.html" class="kt-btn kt-btn--primary">
+            להרשמה ותשלום
+            <svg width="18" height="18"><use href="#kt-i-arr-l"/></svg>
+          </a>
+        </div>
       </div>
 
-      <aside class="kt-camp-info__side">
-        <div class="kt-info-price" id="kt-price">₪ 3,200 <small style="font-size:13px;color:var(--kt-text-muted);font-weight:500">לתקופה מלאה</small></div>
-        <div class="kt-info-row"><span class="kt-info-row__k">תאריכים</span><span class="kt-info-row__v" id="kt-dates">01.07 – 14.07</span></div>
-        <div class="kt-info-row"><span class="kt-info-row__k">גילאים</span><span class="kt-info-row__v" id="kt-ages">10–14</span></div>
-        <div class="kt-info-row"><span class="kt-info-row__k">שעות פעילות</span><span class="kt-info-row__v">08:00 – 16:00</span></div>
-        <div class="kt-info-row"><span class="kt-info-row__k">סטטוס</span><span class="kt-info-row__v" id="kt-status" style="color:var(--kt-success)">נותרו 4 מקומות</span></div>
-        <a href="05-summary.html" class="kt-btn kt-btn--primary" style="justify-content:center; width:100%; margin-top:8px">
-          המשך לסיכום ורישום
-          <svg width="18" height="18"><use href="#kt-i-arr-l"/></svg>
-        </a>
-      </aside>
+      <div class="kt-info-chips">
+        <div class="kt-info-chip">
+          <div class="kt-info-chip__icon"><svg><use href="#kt-i-house"/></svg></div>
+          <div class="kt-info-chip__text">
+            <span class="kt-info-chip__l">כתובת</span>
+            <span class="kt-info-chip__v" id="kt-addr">מועדון גלישה אקסטרים, הרוכב 83 הרצליה</span>
+          </div>
+        </div>
+        <div class="kt-info-chip">
+          <div class="kt-info-chip__icon"><svg><use href="#kt-i-clock"/></svg></div>
+          <div class="kt-info-chip__text">
+            <span class="kt-info-chip__l">שעות</span>
+            <span class="kt-info-chip__v" id="kt-hours">13:00 - 08:00</span>
+          </div>
+        </div>
+        <div class="kt-info-chip">
+          <div class="kt-info-chip__icon"><svg><use href="#kt-i-user"/></svg></div>
+          <div class="kt-info-chip__text">
+            <span class="kt-info-chip__l">גילאים</span>
+            <span class="kt-info-chip__v" id="kt-ages">16-8</span>
+          </div>
+        </div>
+        <div class="kt-info-chip">
+          <div class="kt-info-chip__icon"><svg><use href="#kt-i-cal"/></svg></div>
+          <div class="kt-info-chip__text">
+            <span class="kt-info-chip__l">תאריכים</span>
+            <span class="kt-info-chip__v" id="kt-dates">11-21 בספטמבר</span>
+          </div>
+        </div>
+        <div class="kt-info-chip">
+          <div class="kt-info-chip__icon"><svg><use href="#kt-i-cal"/></svg></div>
+          <div class="kt-info-chip__text">
+            <span class="kt-info-chip__l">ימים</span>
+            <span class="kt-info-chip__v" id="kt-days">א' - ה'</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="kt-section-title">על הקייטנה</h3>
+        <p class="kt-text-block" id="kt-desc">הצטרפו אלינו לקיץ בלתי נשכח במועדון הגלישה שלנו בהרצליה! קייטנת הגלישה מותאמת גם למתחילים שעושים את צעדיהם הראשונים בים, וגם לגולשים מתקדמים שרוצים לשפר טכניקה. צוות המדריכים שלנו מורכב מגולשים מקצועיים ומוסמכים, שידאגו לביטחון וליחס אישי לכל חניך.</p>
+        <p class="kt-cancel-note" style="margin-top:8px">
+          <svg width="16" height="16"><use href="#kt-i-info"/></svg>
+          <span><b>מדיניות ביטולים:</b> ביטול חינם עד 14 יום לפני תחילת הקייטנה. לאחר מכן יגבו 50% מעלות.</span>
+        </p>
+      </div>
+
+      <div>
+        <h3 class="kt-section-title">מה המחיר כולל?</h3>
+        <div class="kt-perks">
+          <div class="kt-perks__item"><svg><use href="#kt-i-check"/></svg> ביטוח מלא</div>
+          <div class="kt-perks__item"><svg><use href="#kt-i-check"/></svg> גלשן אישי לכל חניך</div>
+          <div class="kt-perks__item"><svg><use href="#kt-i-check"/></svg> ארוחת עשר מזינה (כריכים ופירות)</div>
+          <div class="kt-perks__item"><svg><use href="#kt-i-check"/></svg> צילומי אקסטרים במים</div>
+          <div class="kt-perks__item"><svg><use href="#kt-i-check"/></svg> חולצת לייקרה נגד שמש</div>
+        </div>
+      </div>
+
+      <div class="kt-gallery">
+        <img id="kt-g1" alt="" src="">
+        <img id="kt-g2" alt="" src="">
+        <img id="kt-g3" alt="" src="">
+      </div>
 
     </div>
 
@@ -85,51 +132,65 @@
 
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-  // Camp data (shared with 03-select-camp via same demo set)
   var CAMPS = [
-    { id:'c1',  name:'קייטנת גליטר "גליק"',      status:'נותרו 12 מקומות', dates:'01.07–14.07', ages:'8–11',  price:1500, loc:'תל אביב יפו, רוטשילד 80',   img:'beach' },
-    { id:'c2',  name:'קייטנת קיץ שכונתי',         status:'נותרו 4 מקומות',  dates:'01.07–14.07', ages:'10–14', price:3200, loc:'תל אביב יפו, הרצל 40',     img:'forest' },
-    { id:'c3',  name:'קייטנת גליטר אקסטרים',     status:'מלא — רשימת המתנה', dates:'15.07–28.07', ages:'8–14',  price:1500, loc:'תל אביב יפו, יפת 22',      img:'sport' },
-    { id:'c4',  name:'קייטנת ים — בית הספר הרצוג', status:'נותרו 8 מקומות',  dates:'01.07–14.07', ages:'6–9',   price:1200, loc:'תל אביב יפו, הירקון 100',  img:'beach' },
-    { id:'c5',  name:'קייטנת אומנויות יצירתי',    status:'פנוי',           dates:'15.07–28.07', ages:'7–12',  price:1800, loc:'תל אביב יפו, אבן גבירול 35', img:'art' },
-    { id:'c6',  name:'קייטנת מדע וטבע',           status:'נותרו 6 מקומות',  dates:'01.07–14.07', ages:'9–13',  price:2100, loc:'תל אביב יפו, דיזנגוף 200',  img:'forest' },
-    { id:'c7',  name:'קייטנת ספורט כדורגל',       status:'פנוי',           dates:'15.07–28.07', ages:'8–14',  price:1900, loc:'תל אביב יפו, יד אליהו 5',  img:'sport' },
-    { id:'c8',  name:'קייטנת רובוטיקה',            status:'נותרו 3 מקומות',  dates:'01.07–14.07', ages:'10–14', price:2800, loc:'תל אביב יפו, אילון 12',    img:'art' },
-    { id:'c9',  name:'קייטנת בריכה ושחייה',       status:'נותרו 15 מקומות', dates:'15.07–28.07', ages:'6–10',  price:1400, loc:'תל אביב יפו, גלילי 8',     img:'beach' },
-    { id:'c10', name:'קייטנת בישול ואפייה',       status:'פנוי',           dates:'01.07–14.07', ages:'8–12',  price:1700, loc:'תל אביב יפו, יהודה הלוי 40', img:'art' },
-    { id:'c11', name:'קייטנת טיולים בטבע',        status:'נותרו 9 מקומות',  dates:'15.07–28.07', ages:'11–14', price:2300, loc:'תל אביב יפו, נמיר 150',    img:'forest' },
-    { id:'c12', name:'קייטנת מוזיקה והופעה',      status:'נותרו 7 מקומות',  dates:'01.07–14.07', ages:'7–13',  price:1600, loc:'תל אביב יפו, ארלוזורוב 25', img:'art' }
+    { id:'c1',  name:'קייטנת גלישה "גלים"',     addr:'מועדון גלישה אקסטרים, הרוכב 83 הרצליה', dates:'1-21 ביולי',   days:'א\' - ה\'', hours:'08:00 - 13:00', ages:'8-16',  price:1500, cat:'sea',    lat:32.166, lng:34.842 },
+    { id:'c2',  name:'קייטנת קיץ טכנולוגי',     addr:'סבידור 14, תל אביב',                  dates:'15-28 באוגוסט', days:'א\' - ה\'', hours:'08:00 - 15:00', ages:'10-14', price:3200, cat:'robot',  lat:32.0853, lng:34.7818 },
+    { id:'c3',  name:'קייטנת גלישה אקסטרים',    addr:'מועדון גלישה אקסטרים, הרוכב 83 הרצליה', dates:'1-21 ביולי',   days:'א\' - ו\'', hours:'08:00 - 13:00', ages:'8-16',  price:1500, cat:'sea',    lat:32.172, lng:34.835 },
+    { id:'c4',  name:'קייטנת אומנויות יצירתי', addr:'אבן גבירול 35, תל אביב',              dates:'15-28 ביולי',   days:'א\' - ה\'', hours:'08:00 - 14:00', ages:'7-12',  price:1800, cat:'art',    lat:32.0780, lng:34.7820 },
+    { id:'c5',  name:'קייטנת טבע ומדע',        addr:'דיזנגוף 200, תל אביב',                dates:'1-14 ביולי',    days:'א\' - ה\'', hours:'08:00 - 16:00', ages:'9-13',  price:2100, cat:'nature', lat:32.0820, lng:34.7780 },
+    { id:'c6',  name:'קייטנת כדורגל מקצוענים', addr:'יד אליהו 5, תל אביב',                 dates:'15-28 ביולי',   days:'א\' - ו\'', hours:'08:00 - 14:00', ages:'8-14',  price:1900, cat:'sport',  lat:32.0700, lng:34.7850 },
+    { id:'c7',  name:'קייטנת רובוטיקה אדוונסד', addr:'אילון 12, תל אביב',                  dates:'1-14 באוגוסט',  days:'א\' - ה\'', hours:'08:00 - 15:00', ages:'10-14', price:2800, cat:'robot',  lat:32.0890, lng:34.7780 },
+    { id:'c8',  name:'קייטנת שחייה מקצועית',   addr:'גלילי 8, תל אביב',                    dates:'15-28 ביולי',   days:'א\' - ה\'', hours:'09:00 - 14:00', ages:'6-10',  price:1400, cat:'sea',    lat:32.0750, lng:34.7800 },
+    { id:'c9',  name:'קייטנת בישול ואפייה',    addr:'יהודה הלוי 40, תל אביב',              dates:'1-14 ביולי',    days:'א\' - ה\'', hours:'09:00 - 14:00', ages:'8-12',  price:1700, cat:'art',    lat:32.0640, lng:34.7770 },
+    { id:'c10', name:'קייטנת טיולים בטבע',     addr:'נמיר 150, תל אביב',                   dates:'15-28 באוגוסט', days:'א\' - ה\'', hours:'08:00 - 17:00', ages:'11-14', price:2300, cat:'nature', lat:32.0950, lng:34.7950 },
+    { id:'c11', name:'קייטנת מוזיקה והופעה',   addr:'ארלוזורוב 25, תל אביב',               dates:'1-14 ביולי',    days:'א\' - ה\'', hours:'09:00 - 14:00', ages:'7-13',  price:1600, cat:'art',    lat:32.0770, lng:34.7770 },
+    { id:'c12', name:'קייטנת ויזיון אקסטרים',  addr:'יפת 22, תל אביב',                     dates:'15-28 ביולי',   days:'א\' - ו\'', hours:'08:00 - 16:00', ages:'10-14', price:2500, cat:'sport',  lat:32.0540, lng:34.7600 }
   ];
 
-  function heroSVG(kind) {
-    var palette = { beach:'#a8e0ec', forest:'#cfeed4', sport:'#ffd29b', art:'#fde2e9' };
-    var bg = palette[kind] || '#cfe9f5';
+  function thumb(cat, w, h) {
+    var palette = { nature:'#cfeed4', sea:'#a8e0ec', sport:'#ffd29b', art:'#fde2e9', robot:'#dde2fa' };
+    var bg = palette[cat] || '#cfe9f5';
     var inner = '';
-    if (kind === 'beach')  inner = '<circle cx="700" cy="80" r="42" fill="#fbcd62"/><path d="M0 240 Q 200 200 400 240 T 800 240 L 800 320 L 0 320 Z" fill="#f5dcb1"/><polygon points="180,240 250,100 320,240" fill="#0ba6b5"/><polygon points="250,100 320,240 270,240 250,160" fill="#0a7d88"/>';
-    if (kind === 'forest') inner = '<circle cx="700" cy="80" r="42" fill="#fbcd62"/><polygon points="120,260 200,90 280,260" fill="#3d9c70"/><polygon points="280,260 370,130 460,260" fill="#7ec99c"/><rect x="0" y="260" width="800" height="60" fill="#a26d3c"/>';
-    if (kind === 'sport')  inner = '<circle cx="400" cy="160" r="80" fill="#fff" stroke="#0a7d88" stroke-width="6"/><path d="M 320 160 H 480 M 400 80 V 240 M 350 110 L 450 210 M 450 110 L 350 210" stroke="#0a7d88" stroke-width="4"/><rect x="0" y="260" width="800" height="60" fill="#fde8c4"/>';
-    if (kind === 'art')    inner = '<rect x="280" y="100" width="240" height="140" rx="14" fill="#fff" stroke="#ff7a59" stroke-width="5"/><circle cx="335" cy="155" r="14" fill="#ff7a59"/><circle cx="400" cy="145" r="14" fill="#0ba6b5"/><circle cx="465" cy="170" r="14" fill="#fbcd62"/><circle cx="400" cy="200" r="14" fill="#7ec99c"/>';
+    if (cat === 'sea')    inner = '<circle cx="80%" cy="20%" r="8%" fill="#fbcd62"/><path d="M0 70% Q 25% 60% 50% 70% T 100% 70% L 100% 100% L 0 100% Z" fill="#0a7d88" opacity="0.45"/>';
+    if (cat === 'nature') inner = '<polygon points="20%,90% 35%,30% 50%,90%" fill="#3d9c70"/><polygon points="50%,90% 65%,40% 80%,90%" fill="#7ec99c"/>';
+    if (cat === 'sport')  inner = '<circle cx="50%" cy="50%" r="25%" fill="#fff" stroke="#0a7d88" stroke-width="4"/>';
+    if (cat === 'art')    inner = '<rect x="25%" y="30%" width="50%" height="40%" rx="6" fill="#fff" stroke="#ff7a59" stroke-width="3"/>';
+    if (cat === 'robot')  inner = '<rect x="30%" y="30%" width="40%" height="50%" rx="8" fill="#fff" stroke="#6c5cc7" stroke-width="3"/>';
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320"><rect width="800" height="320" fill="'+bg+'"/>'+inner+'</svg>'
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'"><rect width="100%" height="100%" fill="'+bg+'"/>'+inner+'</svg>'
     );
   }
 
   var p = new URLSearchParams(location.search);
-  var id = p.get('camp') || 'c2';
-  var camp = CAMPS.find(function(c){ return c.id === id; }) || CAMPS[1];
+  var id = p.get('camp') || 'c1';
+  var camp = CAMPS.find(function(c){ return c.id === id; }) || CAMPS[0];
   sessionStorage.setItem('ktCamp', JSON.stringify(camp));
 
   document.getElementById('kt-name').textContent  = camp.name;
-  document.getElementById('kt-loc').textContent   = camp.loc;
-  document.getElementById('kt-detail-loc').textContent = camp.loc + '. הקייטנה ממוקמת בלב השכונה, בקרבת תחנת אוטובוס ראשית וחניה ציבורית.';
-  document.getElementById('kt-dates').textContent = camp.dates;
+  document.getElementById('kt-price').textContent = '₪' + camp.price.toLocaleString('he-IL');
+  document.getElementById('kt-addr').textContent  = camp.addr;
+  document.getElementById('kt-hours').textContent = camp.hours;
   document.getElementById('kt-ages').textContent  = camp.ages;
-  var st = document.getElementById('kt-status');
-  st.textContent = camp.status;
-  if (camp.status.indexOf('מלא') !== -1) st.style.color = '#e23a55';
-  document.getElementById('kt-price').innerHTML   = '₪ ' + camp.price.toLocaleString('he-IL') + ' <small style="font-size:13px;color:var(--kt-text-muted);font-weight:500">לתקופה מלאה</small>';
-  document.getElementById('kt-hero-img').src      = heroSVG(camp.img);
+  document.getElementById('kt-dates').textContent = camp.dates;
+  document.getElementById('kt-days').textContent  = camp.days;
+  document.getElementById('kt-g1').src = thumb(camp.cat, 400, 300);
+  document.getElementById('kt-g2').src = thumb(camp.cat, 400, 300);
+  document.getElementById('kt-g3').src = thumb(camp.cat, 400, 300);
+
+  // Map with single marker for this camp
+  var map = L.map('kt-map', { zoomControl: true, dragging: true }).setView([camp.lat, camp.lng], 14);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap', maxZoom: 18
+  }).addTo(map);
+  var icon = L.divIcon({
+    className: 'kt-marker',
+    html: '<div class="kt-marker__pin"><span>⛺</span></div>',
+    iconSize: [32, 40], iconAnchor: [16, 40]
+  });
+  var m = L.marker([camp.lat, camp.lng], { icon: icon }).addTo(map);
+  m.bindPopup('<div class="kt-marker-popup"><b>'+camp.name+'</b><span class="kt-marker-popup__price">₪'+camp.price.toLocaleString('he-IL')+'</span></div>').openPopup();
 </script>
 </body>
 </html>
