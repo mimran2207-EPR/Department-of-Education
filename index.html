@@ -85,7 +85,7 @@
             <span class="nav-link__icon"><svg><use href="#i-clip"/></svg></span>
             <span class="nav-link__label">רישום לצהרונים</span>
           </a>
-          <a href="#" class="nav-link nav-link--inline-service" onclick="event.preventDefault()">
+          <a href="pages/kayitanot/01-child.html" class="nav-link nav-link--inline-service">
             <span class="nav-link__icon"><svg><use href="#i-sun"/></svg></span>
             <span class="nav-link__label">רישום לקייטנות</span>
           </a>
@@ -552,8 +552,8 @@
       var kaytanaItem = menu.querySelector('a[onclick*="קייטנות"]');
       if (kaytanaItem) {
         kaytanaItem.removeAttribute('onclick');
-        kaytanaItem.setAttribute('href', 'pages/01-child-details.html?kid=' + kid);
-        kaytanaItem.setAttribute('data-flow', 'kaytana');
+        kaytanaItem.setAttribute('href', 'pages/kayitanot/01-child.html?kid=' + kid);
+        kaytanaItem.setAttribute('data-flow', 'kaytana-new');
       }
       var tzaharonItem = menu.querySelector('a[onclick*="צהרונים"]');
       if (tzaharonItem) {
@@ -632,9 +632,10 @@
           openModal(card.dataset.regType);
         });
       });
-      // Kid selected -> route or alert. ganim/kita/kaytana share the flow
-      // pages, with sessionStorage.regType driving title swaps.
-      var FLOW_TYPES = { ganim: 1, kita: 1, kaytana: 1, tzaharon: 1 };
+      // Kid selected -> route or alert. ganim/kita/tzaharon share the legacy flow
+      // (with sessionStorage.regType driving title swaps); kaytana has its own
+      // dedicated pages under pages/kayitanot/.
+      var FLOW_TYPES = { ganim: 1, kita: 1, tzaharon: 1 };
       modal.querySelectorAll('.picker-kid').forEach(function(btn){
         btn.addEventListener('click', function(){
           var kid = btn.dataset.kid;
@@ -645,6 +646,15 @@
               sessionStorage.removeItem('currentKid');
             } catch(_){}
             window.location.href = 'pages/01-child-details.html?kid=' + kid;
+            return;
+          }
+          if (currentType === 'kaytana') {
+            try {
+              sessionStorage.removeItem('ktKid');
+              sessionStorage.removeItem('ktKidKey');
+              sessionStorage.removeItem('ktCamp');
+            } catch(_){}
+            window.location.href = 'pages/kayitanot/01-child.html?kid=' + kid;
             return;
           }
           if (currentType === 'shibutz') {
