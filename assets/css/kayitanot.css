@@ -59,7 +59,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 100vh;
-  max-width: 1440px;
+  max-width: 1920px; /* Figma frame width — content fills viewports up to 1920 */
   margin: 0 auto;
 }
 
@@ -115,7 +115,7 @@
 }
 .kt-form-inner {
   width: 100%;
-  max-width: 720px;
+  max-width: 800px; /* Figma content width ~782px */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
