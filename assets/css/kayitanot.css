@@ -509,7 +509,7 @@
 /* ---------- Camp browse (screen 3) ---------- */
 .kt-camp-layout {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;   /* map left, list right (in LTR); RTL flips */
+  grid-template-columns: 1.4fr 1fr;   /* RTL: source 1 (list) RIGHT bigger, source 2 (map) LEFT smaller */
   gap: 28px;
   padding: 24px 56px 56px;
   align-items: start;
@@ -785,7 +785,7 @@
 /* ---------- Camp detail (screen 4) ---------- */
 .kt-camp-detail {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1.5fr 1fr;   /* RTL: source 1 (body) RIGHT bigger, source 2 (map) LEFT smaller */
   gap: 28px;
   padding: 24px 56px 56px;
   align-items: start;
