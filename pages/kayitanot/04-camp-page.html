@@ -134,6 +134,28 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+  var IMG = {
+    'sea-1':    '../../assets/img/kayitanot/camps/sea-1.jpg',
+    'sea-2':    '../../assets/img/kayitanot/camps/sea-2.jpg',
+    'robot-1':  '../../assets/img/kayitanot/camps/robot-1.jpg',
+    'robot-2':  '../../assets/img/kayitanot/camps/robot-2.jpg',
+    'nature-1': 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=500&fit=crop',
+    'nature-2': 'https://images.unsplash.com/photo-1438565434616-3ef039228b15?w=600&h=500&fit=crop',
+    'sport-1':  'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=500&fit=crop',
+    'sport-2':  'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=500&fit=crop',
+    'art-1':    'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=500&fit=crop',
+    'art-2':    'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=500&fit=crop',
+    'art-3':    'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=500&fit=crop'
+  };
+  // Gallery photos by category — 3 unique shots per category for the detail page
+  var GALLERY = {
+    sea:    [IMG['sea-1'],    IMG['sea-2'],    'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&h=450&fit=crop'],
+    robot:  [IMG['robot-1'],  IMG['robot-2'],  'https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&h=450&fit=crop'],
+    nature: [IMG['nature-1'], IMG['nature-2'], 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=450&fit=crop'],
+    sport:  [IMG['sport-1'],  IMG['sport-2'],  'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600&h=450&fit=crop'],
+    art:    [IMG['art-1'],    IMG['art-2'],    IMG['art-3']]
+  };
+
   var CAMPS = [
     { id:'c1',  name:'קייטנת גלישה "גלים"',     addr:'מועדון גלישה אקסטרים, הרוכב 83 הרצליה', dates:'1-21 ביולי',   days:'א\' - ה\'', hours:'08:00 - 13:00', ages:'8-16',  price:1500, cat:'sea',    lat:32.166, lng:34.842 },
     { id:'c2',  name:'קייטנת קיץ טכנולוגי',     addr:'סבידור 14, תל אביב',                  dates:'15-28 באוגוסט', days:'א\' - ה\'', hours:'08:00 - 15:00', ages:'10-14', price:3200, cat:'robot',  lat:32.0853, lng:34.7818 },
@@ -149,20 +171,6 @@
     { id:'c12', name:'קייטנת ויזיון אקסטרים',  addr:'יפת 22, תל אביב',                     dates:'15-28 ביולי',   days:'א\' - ו\'', hours:'08:00 - 16:00', ages:'10-14', price:2500, cat:'sport',  lat:32.0540, lng:34.7600 }
   ];
 
-  function thumb(cat, w, h) {
-    var palette = { nature:'#cfeed4', sea:'#a8e0ec', sport:'#ffd29b', art:'#fde2e9', robot:'#dde2fa' };
-    var bg = palette[cat] || '#cfe9f5';
-    var inner = '';
-    if (cat === 'sea')    inner = '<circle cx="80%" cy="20%" r="8%" fill="#fbcd62"/><path d="M0 70% Q 25% 60% 50% 70% T 100% 70% L 100% 100% L 0 100% Z" fill="#0a7d88" opacity="0.45"/>';
-    if (cat === 'nature') inner = '<polygon points="20%,90% 35%,30% 50%,90%" fill="#3d9c70"/><polygon points="50%,90% 65%,40% 80%,90%" fill="#7ec99c"/>';
-    if (cat === 'sport')  inner = '<circle cx="50%" cy="50%" r="25%" fill="#fff" stroke="#0a7d88" stroke-width="4"/>';
-    if (cat === 'art')    inner = '<rect x="25%" y="30%" width="50%" height="40%" rx="6" fill="#fff" stroke="#ff7a59" stroke-width="3"/>';
-    if (cat === 'robot')  inner = '<rect x="30%" y="30%" width="40%" height="50%" rx="8" fill="#fff" stroke="#6c5cc7" stroke-width="3"/>';
-    return 'data:image/svg+xml;utf8,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'"><rect width="100%" height="100%" fill="'+bg+'"/>'+inner+'</svg>'
-    );
-  }
-
   var p = new URLSearchParams(location.search);
   var id = p.get('camp') || 'c1';
   var camp = CAMPS.find(function(c){ return c.id === id; }) || CAMPS[0];
@@ -175,9 +183,10 @@
   document.getElementById('kt-ages').textContent  = camp.ages;
   document.getElementById('kt-dates').textContent = camp.dates;
   document.getElementById('kt-days').textContent  = camp.days;
-  document.getElementById('kt-g1').src = thumb(camp.cat, 400, 300);
-  document.getElementById('kt-g2').src = thumb(camp.cat, 400, 300);
-  document.getElementById('kt-g3').src = thumb(camp.cat, 400, 300);
+  var gal = GALLERY[camp.cat] || GALLERY['sea'];
+  document.getElementById('kt-g1').src = gal[0];
+  document.getElementById('kt-g2').src = gal[1];
+  document.getElementById('kt-g3').src = gal[2];
 
   // Map with single marker for this camp
   var map = L.map('kt-map', { zoomControl: true, dragging: true }).setView([camp.lat, camp.lng], 14);

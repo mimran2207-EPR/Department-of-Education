@@ -590,29 +590,161 @@
   padding: 0 4px;
 }
 
-/* Camp card: image on LEFT (RTL end), info middle, price+CTA on RIGHT (RTL start) */
+/* Camp card — Figma exact (frame 1:2850)
+   RTL layout: price/CTA on the visual RIGHT (start), middle = info, image on visual LEFT (end).
+   Source order matches RTL: price/CTA first → middle → image last. */
 .kt-camp-card {
-  display: grid;
-  grid-template-columns: 180px 1fr 200px;
-  gap: 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: stretch;
   background: #fff;
-  border: 1px solid var(--kt-border);
-  border-radius: 18px;
-  padding: 14px;
-  box-shadow: var(--kt-shadow-card);
-  transition: transform 0.15s, box-shadow 0.2s;
-  align-items: center;
-  /* In RTL the first column (in source order) goes to the RIGHT.
-     We want: source-1=image (visual LEFT) → need to reverse */
-  direction: ltr;
+  border: 1px solid #e1eff6;
+  border-radius: 24px;
+  padding: 16.5px;
+  box-shadow: 0 8px 15px rgba(11,131,142,0.1);
+  transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
-.kt-camp-card > * { direction: rtl; }
-.kt-camp-card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(11,131,142,0.12); }
+.kt-camp-card:hover {
+  border-color: #56d0d6;
+  box-shadow: 0 8px 15px rgba(11,131,142,0.2);
+}
 
-.kt-camp-card__img {
-  width: 100%;
-  aspect-ratio: 5/4;
+/* Right column — price + CTA, with dashed separator on its LEFT (inline-end) */
+.kt-camp-card__side {
+  flex: 0 0 auto;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 8px 8px 8px 25px;
+  border-inline-end: 1px solid #f3f4f6;
+  text-align: right;
+}
+.kt-camp-card__price-l {
+  font-size: 16px;
+  color: var(--kt-text-muted);
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 6px;
+}
+.kt-camp-card__price {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--kt-primary-dark); /* #0a7d88 (teal) — Figma */
+  line-height: 40px;
+  letter-spacing: -0.5px;
+}
+.kt-camp-card__cta {
+  margin-top: 14px;
+  background: var(--kt-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
   border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  box-shadow: 0 4px 3px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1);
+  transition: background 0.15s;
+}
+.kt-camp-card__cta:hover { background: #33bb80; } /* Figma hover state */
+.kt-camp-card__cta svg { width: 18px; height: 18px; }
+
+/* Middle column — text info */
+.kt-camp-card__body {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 8px 0;
+  gap: 0;
+}
+.kt-camp-card__addr {
+  font-size: 14px;
+  color: #007595;
+  background: #dcf2f4;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  line-height: 16px;
+  margin-bottom: 6px;
+}
+.kt-camp-card__name {
+  font-size: 28px;
+  font-weight: 900;
+  color: #101828;
+  margin: 0;
+  text-align: right;
+  line-height: 37.5px;
+  letter-spacing: -0.3px;
+}
+.kt-camp-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  align-items: center;
+  justify-content: flex-start; /* RTL: flex-start = right side */
+  width: 100%;
+}
+.kt-camp-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #4a5565;
+  font-weight: 500;
+  line-height: 20px;
+}
+.kt-camp-card__meta-icon {
+  background: #f2f4f7;
+  border-radius: 10px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.kt-camp-card__meta-icon svg { width: 18px; height: 18px; color: #4a5565; }
+.kt-camp-card__tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: flex-start; /* RTL: flex-start = right side */
+}
+.kt-camp-card__tag {
+  font-size: 14px;
+  padding: 8px 13px;
+  background: #f9fafb;
+  color: #6a7282;
+  border: 1px solid #f3f4f6;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+/* Left column — image with badge */
+.kt-camp-card__img {
+  flex: 0 0 240px;
+  width: 240px;
+  height: 200px;
+  border-radius: 16px;
   background: #eaf5f6;
   overflow: hidden;
   position: relative;
@@ -620,78 +752,34 @@
 .kt-camp-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .kt-camp-card__badge {
   position: absolute;
-  top: 10px;
-  inset-inline-end: 10px;
-  background: var(--kt-success-soft);
-  color: var(--kt-success);
-  font-size: 12px;
+  top: 12px;
+  inset-inline-end: 12px;
+  background: rgba(255,255,255,0.95);
+  color: #05b359;
+  font-size: 16px;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  line-height: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
 }
-.kt-camp-card__badge--new { background: var(--kt-purple-soft); color: var(--kt-purple-dark); }
-.kt-camp-card__badge--last { background: var(--kt-danger-soft); color: var(--kt-danger); }
-.kt-camp-card__badge--rec { background: var(--kt-success-soft); color: var(--kt-success); }
-
-.kt-camp-card__body { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
-.kt-camp-card__name { font-size: 20px; font-weight: 800; color: var(--kt-text); margin: 0; text-align: right; }
-.kt-camp-card__addr { font-size: 13px; color: var(--kt-success); background: var(--kt-success-soft); padding: 4px 10px; border-radius: 999px; display: inline-block; }
-.kt-camp-card__meta {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  gap: 14px;
-  font-size: 13px;
-  color: var(--kt-text-muted);
-}
-.kt-camp-card__meta-item {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 5px;
-}
-.kt-camp-card__meta-item svg { width: 16px; height: 16px; color: var(--kt-purple); }
-.kt-camp-card__tags { display: flex; flex-direction: row-reverse; gap: 6px; flex-wrap: wrap; margin-top: 2px; }
-.kt-camp-card__tag {
-  font-size: 12px;
-  padding: 3px 10px;
-  background: var(--kt-bg-soft);
-  color: var(--kt-text-muted);
-  border-radius: 999px;
-}
-
-.kt-camp-card__side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-  text-align: right;
-}
-.kt-camp-card__price-l { font-size: 12px; color: var(--kt-text-muted); }
-.kt-camp-card__price { font-size: 26px; font-weight: 800; color: var(--kt-success); }
-.kt-camp-card__cta {
-  height: 42px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: var(--kt-primary);
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 6px;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 700;
-  font-size: 14px;
-  white-space: nowrap;
-}
-.kt-camp-card__cta:hover { background: var(--kt-primary-dark); }
+.kt-camp-card__badge--new  { color: #6a47e6; }
+.kt-camp-card__badge--last { color: var(--kt-danger); }
+.kt-camp-card__badge--rec  { color: #05b359; }
 
 @media (max-width: 820px) {
-  .kt-camp-card { grid-template-columns: 1fr; direction: rtl; }
+  .kt-camp-card { flex-direction: column-reverse; gap: 16px; padding: 12px; }
+  .kt-camp-card__side {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 0 0;
+    border-inline-end: 0;
+    border-top: 1px solid #f3f4f6;
+  }
+  .kt-camp-card__cta { margin-top: 0; }
+  .kt-camp-card__img { width: 100%; flex: 0 0 auto; height: 180px; }
 }
 
 /* ---------- Camp detail (screen 4) ---------- */
